@@ -12,5 +12,22 @@
     <h2>
         <button id="cambiar-tema" onclick="cambiarTema()">Cambiar Tema</button>
     </h2>
+    <script>
+        var tema = "claro"; // Establece el tema inicial a claro
+        
+        function cambiarTema() {
+          var body = document.getElementsByTagName("body")[0];
+          
+          if (tema === "claro") {
+            body.style.backgroundColor = "#1c1c1c"; // Cambia el color de fondo a negro
+            body.style.color = "#fff"; // Cambia el color del texto a blanco
+            tema = "oscuro"; // Actualiza el tema a oscuro
+          } else {
+            body.style.backgroundColor = "#fff"; // Cambia el color de fondo a blanco
+            body.style.color = "#000"; // Cambia el color del texto a negro
+            tema = "claro"; // Actualiza el tema a claro
+          }
+        }
+        </script>
 </body>
 </html>
