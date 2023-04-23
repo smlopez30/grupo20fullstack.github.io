@@ -27,6 +27,8 @@ body {
   
   h1 {
     margin: 0;
+
+    margin: auto;
   }
   
   nav {
@@ -114,4 +116,3 @@ body {
   }
   
 
-  
