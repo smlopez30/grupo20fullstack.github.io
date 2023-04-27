@@ -1,8 +1,3 @@
-img.addEventListener("click", function(event) {
-  event.stopPropagation();
-  togglePopup(this);
-});
-
 function showPopup(img) {
   var popup = img.nextElementSibling;
   popup.style.display = "block";
@@ -23,7 +18,8 @@ for (var i = 0; i < popups.length; i++) {
 
 // Agregar evento de click o touch a la imagen
 document.querySelectorAll(".product-img").forEach(img => {
-  img.addEventListener("click", function() {
+  img.addEventListener("click", function(event) {
+    event.stopPropagation();
     togglePopup(this);
   });
   
@@ -54,6 +50,17 @@ document.addEventListener("click", function(event) {
     });
   }
 });
+
+// Agregar evento de touchend para ocultar el detalle en dispositivos táctiles
+document.addEventListener("touchend", function(event) {
+  if (!event.target.classList.contains("product-img") && 
+      !event.target.classList.contains("popup")) {
+    popups.forEach(popup => {
+      popup.style.display = "none";
+    });
+  }
+});
+
 
 
   
