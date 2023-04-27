@@ -6,7 +6,6 @@ function showPopup(img) {
 function hidePopup(img) {
   var popup = img.nextElementSibling;
   popup.style.display = "none";
-  img.nextSibling.style.display = "none";
 }
 
 var popups = document.querySelectorAll(".popup");
@@ -34,7 +33,7 @@ document.querySelectorAll(".product-img").forEach(img => {
 // funcion para mostrar u ocultar el detalle
 function togglePopup(img) {
   // Verificar si el detalle está visible
-  if (img.nextSibling.style.display === "block") {
+  if (img.nextElementSibling.style.display === "block") {
     hidePopup(img);
   } else {
     showPopup(img);
@@ -60,7 +59,3 @@ document.addEventListener("touchend", function(event) {
     });
   }
 });
-
-
-
-  
