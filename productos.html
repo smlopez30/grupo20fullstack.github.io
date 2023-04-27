@@ -18,7 +18,7 @@
     <header>
         <nav>
             <ul>
-                <li><img src="imagenes/logo.png" alt="Logo de mi sitio web" class="logo"></li>
+                <li><img src="logo.png" alt="Logo de mi sitio web" class="logo"></li>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="quienesSomos.html">Quienes Somos</a></li>
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="categories">
             <!-- <button class="category active" data-filter="all">Todos</button> -->
-            <button class="category" data-filter="categoria-1">Tabaco para armar</button>
+            <button class="category active" data-filter="categoria-1">Tabaco para armar</button>
             <button class="category" data-filter="categoria-2">Filtros</button>
             <button class="category" data-filter="categoria-3">Papeles</button>
         </div>
@@ -38,8 +38,8 @@
         <div class="item categoria-1">
             <div class="grid-container">
                 <div class="grid-item">
-                    <img src="fEco.png" alt="Flandria Eco" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fEco.png" alt="Flandria Eco" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                        
                     <div class="popup">
                         <img src="fEco.png" alt="Flandria Eco">
                         <h2>Flandria Eco</h2>
@@ -51,8 +51,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fGold.jpg" alt="Flandria Gold" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fGold.jpg" alt="Flandria Gold" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fGold.jpg" alt="Flandria Gold">
                         <h2>Flandria Gold</h2>
@@ -64,8 +63,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fNegro.png" alt="Flandria Negro" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fNegro.png" alt="Flandria Negro" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fNegro.png" alt="Flandria Negro">
                         <h2>Flandria Negro</h2>
@@ -77,8 +75,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fOriginal.png" alt="Flandria Original" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fOriginal.png" alt="Flandria Original" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fOriginal.png" alt="Flandria Original">
                         <h2>Flandria Original</h2>
@@ -92,8 +89,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fSauvage.png" alt="Flandria Sauvage" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fSauvage.png" alt="Flandria Sauvage" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fSauvage.png" alt="Flandria Sauvage">
                         <h2>Flandria Sauvage</h2>
@@ -107,8 +103,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fSilver.png" alt="Flandria Silver" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fSilver.png" alt="Flandria Silver" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fsilver.png" alt="Flandria Silver">
                         <h2>Flandria Silver</h2>
@@ -120,8 +115,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fVirginia.png" alt="Flandria Virginia" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fVirginia.png" alt="Flandria Virginia" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fVirginia.png" alt="Flandria Virginia">
                         <h2>Flandria Virginia</h2>
@@ -133,8 +127,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="fYellow.png" alt="Flandria Yellow" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="fYellow.png" alt="Flandria Yellow" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="fYellow.png" alt="Flandria Yellow">
                         <h2>Flandria Yellow</h2>
@@ -148,11 +141,10 @@
                 <!-- Agregar más elementos de cuadrícula de imágenes aquí -->
             </div>
         </div>
-        <div class="item categoria-2">
+        <div class="item categoria-2 hidden">
             <div class="grid-container">
                 <div class="grid-item">
-                    <img src="extraSlim.png" alt="Extra Slim" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="extraSlim.png" alt="Extra Slim" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="extraSlim.png" alt="Extra Slim">
                         <h2>Extra Slim</h2>
@@ -164,8 +156,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="regular.png" alt="Regular" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="regular.png" alt="Regular" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="regular.png" alt="Regular">
                         <h2>Regular</h2>
@@ -177,8 +168,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="slim.png" alt="Slim" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="slim.png" alt="Slim" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="slim.png" alt="Slim">
                         <h2>Slim</h2>
@@ -190,8 +180,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="slimLong.png" alt="Slim Long" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="slimLong.png" alt="Slim Long" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="slimLong.png" alt="Slim Long">
                         <h2>Slim Long</h2>
@@ -204,8 +193,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="slimMint.png" alt="Salim Mint" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="slimMint.png" alt="Salim Mint" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="slimMint.png" alt="Slim Mint">
                         <h2>Slim Mint</h2>
@@ -217,8 +205,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="havana.png" alt="Havana" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="havana.png" alt="Havana" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="havana.png" alt="Havana">
                         <h2>Havana</h2>
@@ -232,11 +219,10 @@
                 <!-- Agregar más elementos de cuadrícula de imágenes aquí -->
             </div>
         </div>
-        <div class="item categoria-3">
+        <div class="item categoria-3 hidden">
             <div class="grid-container">
                 <div class="grid-item">
-                    <img src="extraThin80.png" alt="Extra Thin 80mm" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="extraThin80.png" alt="Extra Thin 80mm" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="extraThin80.png" alt="Extra Thin 80mm">
                         <h2>Extra Thin 80mm</h2>
@@ -247,8 +233,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="havana1.png" alt="Havana 80mm" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="havana1.png" alt="Havana 80mm" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="havana1.png" alt="Havana 80mm">
                         <h2>Havana 80mm</h2>
@@ -261,8 +246,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="extraThin70.png" alt="Extra Thin 70mm" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="extraThin70.png" alt="Extra Thin 70mm" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="extraThin70.png" alt="Extra Thin 70mm">
                         <h2>Extra Thin 70mm</h2>
@@ -273,8 +257,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="vintageCut.png" alt="Vintage Cut 70mm" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="vintageCut.png" alt="Vintage Cut 70mm" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="vintageCut.png" alt="Vintage Cut 70mm">
                         <h2>Vintage Cut 70mm</h2>
@@ -287,8 +270,7 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <img src="delicate.png" alt="Delicate 70mm" class="product-img" onclick="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                    <img src="delicate.png" alt="Delicate 70mm" class="product-img" ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
                     <div class="popup">
                         <img src="delicate.png" alt="Delicate 70mm">
                         <h2>Delicate 70mm</h2>
@@ -300,13 +282,17 @@
                 </div>
 
                 <!-- Agregar más elementos de cuadrícula de imágenes aquí -->
-            </div>
             <!-- </div> -->
+            </div>
         </div>
     </div>
     <script>
         const categories = document.querySelectorAll('.category');
         const items = document.querySelectorAll('.item');
+        const tabacoBtn = document.querySelector(".category[data-filter='categoria-1']");
+        tabacoBtn.classList.add("active");
+        const tabacoGrid = document.querySelector(".item.categoria-1");
+        tabacoGrid.classList.remove("hidden");
 
         categories.forEach(category => {
             category.addEventListener('click', () => {
@@ -328,3 +314,5 @@
             });
         });
     </script>
+   
+      
