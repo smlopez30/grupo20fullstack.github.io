@@ -1,3 +1,8 @@
+img.addEventListener("click", function(event) {
+  event.stopPropagation();
+  togglePopup(this);
+});
+
 function showPopup(img) {
   var popup = img.nextElementSibling;
   popup.style.display = "block";
