@@ -8,6 +8,7 @@ function hidePopup(img) {
   popup.style.display = "none";
 }
 
+
 var popups = document.querySelectorAll(".popup");
 for (var i = 0; i < popups.length; i++) {
   popups[i].addEventListener("click", function () {
