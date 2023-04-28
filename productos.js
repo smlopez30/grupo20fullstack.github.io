@@ -2,6 +2,10 @@
 function showPopup(img) {
   var popup = img.nextElementSibling;
   popup.style.display = "block";
+  // Mostrar el popup durante 10 segundos
+  setTimeout(function() {
+    popup.style.display = "none";
+  }, 10000);
 }
 
 // Ocultar el detalle
