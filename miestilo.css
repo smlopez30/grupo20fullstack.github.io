@@ -147,7 +147,7 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
     text-align: center;
     padding: 20px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 .popup img {
@@ -163,14 +163,14 @@ body {
 }
 
 .popup p {
-    color: white;
+    color: rgb(221, 236, 8);
     font-size: 0.8em;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 @media only screen and (max-width: 600px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 10px;
     }
 }
