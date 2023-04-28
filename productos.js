@@ -70,3 +70,23 @@ document.addEventListener("touchend", function(event) {
     isOpen = false;
   }
 });
+// seleccionar todos los botones de categoría
+const categoryButtons = document.querySelectorAll('.category');
+
+// agregar evento click a cada botón
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // obtener el valor del atributo data-filter del botón
+    const filterValue = button.getAttribute('data-filter');
+
+    // seleccionar todos los elementos con la clase 'item'
+    const items = document.querySelectorAll('.item');
+
+    // ocultar todos los elementos
+    items.forEach(item => item.classList.add('hidden'));
+
+    // mostrar solo los elementos que pertenecen a la categoría seleccionada
+    const filteredItems = document.querySelectorAll(`.${filterValue}`);
+    filteredItems.forEach(item => item.classList.remove('hidden'));
+  });
+});

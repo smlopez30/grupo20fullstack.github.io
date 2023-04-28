@@ -223,3 +223,7 @@ body {
   display: none;
   opacity: 0;
 }
+.hidden {
+  display: none;
+}
+
