@@ -12,20 +12,19 @@ function hidePopup(img) {
 
 // Agregar evento de click o touch a la imagen
 document.querySelectorAll(".product-img").forEach(img => {
+  // variable para verificar si el detalle está abierto
+  var isOpen = false;
+  
   img.addEventListener("click", function(event) {
     event.stopPropagation();
     
-    // Verificar si el detalle está visible
-    if (this.nextElementSibling.style.display === "block") {
+    // Mostrar/ocultar el detalle según el estado actual
+    if (isOpen) {
       hidePopup(this);
+      isOpen = false;
     } else {
-      // Ocultar todos los detalles abiertos
-      document.querySelectorAll(".popup").forEach(popup => {
-        popup.style.display = "none";
-      });
-      
-      // Mostrar el detalle del elemento actual
       showPopup(this);
+      isOpen = true;
     }
   });
   
@@ -34,17 +33,13 @@ document.querySelectorAll(".product-img").forEach(img => {
     if (event.touches.length === 1) {
       event.stopPropagation();
       
-      // Verificar si el detalle está visible
-      if (this.nextElementSibling.style.display === "block") {
+      // Mostrar/ocultar el detalle según el estado actual
+      if (isOpen) {
         hidePopup(this);
+        isOpen = false;
       } else {
-        // Ocultar todos los detalles abiertos
-        document.querySelectorAll(".popup").forEach(popup => {
-          popup.style.display = "none";
-        });
-        
-        // Mostrar el detalle del elemento actual
         showPopup(this);
+        isOpen = true;
       }
     }
   });
@@ -55,8 +50,9 @@ document.addEventListener("click", function(event) {
   if (!event.target.classList.contains("product-img") && 
       !event.target.classList.contains("popup")) {
     document.querySelectorAll(".popup").forEach(popup => {
-      hidePopup(popup.previousElementSibling);
+      popup.style.display = "none";
     });
+    isOpen = false;
   }
 });
 
@@ -65,7 +61,8 @@ document.addEventListener("touchend", function(event) {
   if (!event.target.classList.contains("product-img") && 
       !event.target.classList.contains("popup")) {
     document.querySelectorAll(".popup").forEach(popup => {
-      hidePopup(popup.previousElementSibling);
+      popup.style.display = "none";
     });
+    isOpen = false;
   }
 });
