@@ -1,21 +1,16 @@
 /* Estilos generales */
-/* font-family: 'Lobster', cursive;
-font-family: 'Roboto', sans-serif; */
-body {
-    font-family: 'Lobster', cursive;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    background-image: url('https://cdn.pixabay.com/photo/2019/09/06/19/25/tobacco-4457130_1280.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
-
+  
   header {
     background-color: #333;
     color: #fff;
@@ -29,41 +24,45 @@ body {
     width: 3%;
     height: auto;
   }
-
+  
   h1 {
     margin: 0;
-
     margin: auto;
   }
-
+  
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
   }
-
+  
   nav ul {
     list-style: none;
     display: flex;
     margin: 0;
   }
-
+  
   nav ul li {
     margin-right: 20px;
   }
-
+  
   nav ul li:last-child {
     margin-right: 0;
   }
-
+  
   nav ul li a {
     color: #fff;
     text-decoration: none;
   }
-
+  footer{
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    
+  }
   /* Estilos específicos del index */
-
+  
   .banner {
     background-image: url('banner.jpg');
     background-size: cover;
@@ -72,38 +71,38 @@ body {
     align-items: center;
     justify-content: center;
   }
-
+  
   .banner h2 {
     font-size: 3rem;
     color: #fff;
     text-align: center;
     text-shadow: 2px 2px #000;
   }
-
+  
   .productos {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
   }
-
+  
   .producto {
     width: calc(33.33% - 20px);
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     padding: 20px;
   }
-
+  
   .producto img {
     width: 100%;
   }
-
+  
   .producto h3 {
     margin: 10px 0;
   }
-
+  
   .producto p {
     margin: 10px 0;
   }
-
+  
   .producto button {
     background-color: #333;
     color: #fff;
@@ -113,119 +112,75 @@ body {
     cursor: pointer;
     transition: all .3s ease;
   }
-
+  
   .producto button:hover {
     background-color: #fff;
     color: #333;
     border: 1px solid #333;
   }
-  /* Estilos específicos de productos */
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    }
-    .grid-item {
-    position: relative;
-}
 
-.product-img {
-    width: 100%;
-    height: auto;
-}
-
-.popup {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    text-align: center;
-    padding: 20px;
-    /* box-sizing: border-box; */
-}
-
-.popup img {
-    max-width: 12.5%;
-    max-height: 10%;
-    margin-top: 2%;
-}
-
-.popup h2 {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 0;
-}
-
-.popup p {
-    color: rgb(221, 236, 8);
-    font-size: 0.8em;
-    margin-top: auto;
-}
-
-@media only screen and (max-width: 600px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 10px;
-    }
-}
-.container {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-gap: 20px;
-}
-
-.categories {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(242, 248, 245);
-  font-size: 4em;
+  .carrousel {
+    width: 90%;
+    max-width: 120em;
+    padding: 2em;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    overflow: hidden;
+  }
   
-}
-
-.category {
-  border: none;
-  background-color: transparent;
-  color: #333;
-  cursor: pointer;
-  padding: 10px;
-  text-align: left;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.category:hover,
-.category.active {
-  background-color: #333;
-  color: #fff;
-}
-
-.items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
-}
-
-.item {
-  background-color: #f0f0f0;
-  padding: 20px;
-  text-align: center;
-}
-
-.item.active {
-  display: block;
-  opacity: 1;
-}
-
-.item.inactive {
-  display: none;
-  opacity: 0;
-}
-.hidden {
-  display: none;
-}
+  .carrousel .grande {
+    width: 200%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    padding: 2em;
+    transition: all 0.5s ease;
+    transform: translateX(0%);
+  }
+  
+  .carrousel .img {
+    width: calc( 100% / 2 - 2em);
+    min-height: 10vh;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+  
+  .carrousel .puntos {
+    width: 100%;
+    margin: 1em 0 0;
+    padding: 0.4em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carrousel .punto {
+    width: 2em;
+    height: 2em;
+    margin: 1em 1em 0;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+  
+  .carrousel .punto.activo {
+    background-color: lightblue;
+  }
+  
+  
 
