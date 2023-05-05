@@ -1,35 +1,127 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto FullStack Grupo 20: Fabian Cardozo - Maria Narvaez - Naiara Valenzuela - Sergio Lopez</title>
-    <link rel="stylesheet" href="css/miestilo.css">
+    <title>Tacabolovers</title>
+    <link rel="stylesheet" href="css/home.css">
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-    <script src="script/script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet">
-  </head>
-  <body>
+   <script src="script/script.js"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
     <header>
-      <nav>
-        <ul>
-          <li><img src="imagenes/logo.png" alt="Logo de mi sitio web" class="logo"></li>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="productos.html">Productos</a></li>
-          <li><a href="quienesSomos.html">Quienes Somos</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      <h1>Tienda de Tabacos</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="quienesSomos.html">Quienes Somos</a>
+            <a href="contacto.html">Contacto</a>
+            
+        </nav>
+        <section class="textos-header">
+            <h1>Tabacolovers</h1>
+            <h2>Encuentra todo lo que buscas en nuestra tienda </h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+            style="stroke: none; fill: #fff;"></path></svg></div>
     </header>
-
+    <main>
+        <section class="contenedor sobre-nosotros">
+            <h2 class="title">Nuestro Catálogo</h2>
+            <h3 class="subtitle">Te contamos como utilizar nuestros catalogo online</h3>
+            <div class="contenedor-sobre-nosotros">
+                <img src="img/catalogohome.jpg" alt="ch" class="about-us" width="400">
+                <div class="contenido-textos">
+                    <h3><span>1</span>Observa todas las opciones</h3>
+                    <p>Busca tranquilamente desde  la comodida de tu hogar todos los productos que necesites y quieras en nuestra amplio catalogo online, donde te ofrecemos gran variedad de productos con una excelente calidad!  </p>
+                    <h3><span>2</span>Anota y Envía</h3>
+                    <p>El paso siguiente es muy facil solo tienes que elegir los productos que desees y enviarnos tu pedido a traves de nuestro WhatsApp!, para poder concretar tu compra y recibir los productos que deseas cuanto antes!</p>
+                </div>
+            </div>
+        </section>
+        <section class="portafolio">
+            <div class="contenedor">
+            <h2 class="title">Nuestros Productos</h2>
+            <div class="galeria-port">
+                <div class="imagen-port">
+                    <img src="img/paraArmar.jpg" alt="">
+                    <div class="hover-galeria">
+                        <img src="img/icon.png" alt="">
+                        <p>Tabacos para armar</p>
+                    </div>
+                </div>
+                    <div class="imagen-port">
+                        <img src="img/filtros.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icon.png" alt="">
+                            <p>Filtros</p>
+                     </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="img/hojas.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icon.png" alt="">
+                            <p>Papeles</p>
+                    </div>
+                </div>
+                    <div class="imagen-port">
+                          <img src="imagenes/fondo.jpg" alt="">
+                          <div class="hover-galeria">
+                         <img src="img/icon.png" alt="">
+                         <p>Mucho más</p>
+                        </div>    
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="about.service">
+            <div class="contenedor">
+                <h2 class="title">Nuestros servicios</h2>
+                <div class="servicio-cont">
+                    <div class="servicio-int">
+                        <img src="img/envio.jpg" alt="" height="200" width="200">
+                        <h3>Servicio de entrega express y regular </h3>
+                        <p>Por el servicio express despachamos tu pedido con nuestro delivery propio en las siguientes 24 horas! luego de haberse concretado la compra si te encuentras dentro de nuestra zona de cobertura sin costo adicional. Tambien puedes optar por nuestro envío regular que se realiza por medio de servicios de paqueteria externos disponibles.</p>
+                    </div>
+                    <div class="servicio-int">
+                        <img src="img/pagos.jpg" alt=""height="200" width="200">
+                        <h3>Diversos metodos de pago</h3>
+                        <p>Puedes pagar tus pedidos con diversos metodos contamos con politica abierta de pago acordado con el departamento de cobro de tabacolovers. <br> Algunos de nuestros metodos de pago disponible son:</p>
+                        <li>Pago con tarjeta</li>
+                        <li>Mercado pago</li>
+                        <li>Transferencia bancarias</li>
+                        <li>Efectivo</li>
+                        <li>Otras billeteras virtuales</li>
+                    </div>
+                    <div class="servicio-int">
+                        <img src="img/devolucion.jpg" alt=""height="200" width="200">
+                        <h3>Politicas de cambio y devolución</h3>
+                        <p>Cuentas con una semana luego de recibir tu pedido para contactarte con nosotros e informarnos el motivo de la devolución o cambio del producto que recibiste. <br> Te pediremos algunos datos y imagenes de los productos que deseas devolver para procesar tu solicitud.</p>   
+                        <p>No dudes en contactarnos! </p>                     
+                    </div>                              
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
-      <p>© 2023 Tienda de Tabacos. Todos los derechos reservados.</p>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>Phone</h4>
+                <p>1231727656778</p>
+            </div>
+            <div class="content-foo">
+                <h4>Mail</h4>
+                <p>mari@mailinator.com</p>
+            </div>
+            <div class="content-foo">
+                <h4>Dirección</h4>
+                <p>calle 23, CABA</p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
     </footer>
-  </body>
+</body>
 </html>

@@ -1,0 +1,186 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3%;
+    height: auto;
+  }
+  
+  h1 {
+    margin: 0;
+    margin: auto;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  footer{
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    
+  }
+  /* Estilos específicos del index */
+  
+  .banner {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner h2 {
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px #000;
+  }
+  
+  .productos {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  
+  .producto {
+    width: calc(33.33% - 20px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    padding: 20px;
+  }
+  
+  .producto img {
+    width: 100%;
+  }
+  
+  .producto h3 {
+    margin: 10px 0;
+  }
+  
+  .producto p {
+    margin: 10px 0;
+  }
+  
+  .producto button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  .producto button:hover {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+  }
+
+  .carrousel {
+    width: 90%;
+    max-width: 120em;
+    padding: 2em;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    overflow: hidden;
+  }
+  
+  .carrousel .grande {
+    width: 200%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+    padding: 2em;
+    transition: all 0.5s ease;
+    transform: translateX(0%);
+  }
+  
+  .carrousel .img {
+    width: calc( 100% / 2 - 2em);
+    min-height: 10vh;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+  
+  .carrousel .puntos {
+    width: 100%;
+    margin: 1em 0 0;
+    padding: 0.4em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carrousel .punto {
+    width: 2em;
+    height: 2em;
+    margin: 1em 1em 0;
+    color: var(--negro);
+    transition: all 0.4s ease;
+    border-radius: 1em;
+    background-color: var(--blanco);
+    box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  }
+  
+  .carrousel .punto.activo {
+    background-color: lightblue;
+  }
+  
+  
+
