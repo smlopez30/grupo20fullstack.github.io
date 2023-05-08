@@ -6,31 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto FullStack Grupo 20: Fabian Cardozo - Maria Narvaez - Naiara Valenzuela - Sergio Lopez</title>
-    <link rel="stylesheet" href="css/miestilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
     <script src="script/productos.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+          var urlParams = new URLSearchParams(window.location.search);
+          var categoria = urlParams.get('categoria');
+          
+          if (categoria) {
+            var buttons = document.getElementsByClassName('category');
+            for (var i = 0; i < buttons.length; i++) {
+              buttons[i].classList.remove('active');
+              if (buttons[i].getAttribute('data-filter') === categoria) {
+                buttons[i].classList.add('active');
+              }
+            }
+          }
+        });
+      </script>
+      
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
-                <li><img src="imagenes/logo.png" alt="Logo de mi sitio web" class="logo"></li>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="quienesSomos.html">Quienes Somos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="quienesSomos.html">Quienes Somos</a>
+            <a href="contacto.html">Contacto</a>
+            
+
         </nav>
-        <h1>Tienda de Tabacos</h1>
+        <section class="textos-header">
+            <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
+            <h1>Tu Tabaqueria</h1>
+            <h2>Encuentra todo lo que buscas en nuestra tienda </h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+            style="stroke: none; fill: #fff;"></path></svg></div>
     </header>
     <div class="container">
         <div class="categories">
 
-            <button class="category active" data-filter="categoria-1">Tabaco para armar</button>
+            <button class="category" data-filter="categoria-1">Tabaco para armar</button>
             <button class="category" data-filter="categoria-2">Filtros</button>
             <button class="category" data-filter="categoria-3">Papeles</button>
         </div>
@@ -58,8 +80,7 @@
                         <img src="imagenes/fGold.jpg" alt="Flandria Gold">
                         <h2>Flandria Gold</h2>
                         <p>TABACO FLANDRIA GOLD VIRGINIA ES UNA MEZCLA DE TABACO RUBIO DE LA MEJOR CALIDAD PREMIUM.
-                            ESTA PRESENTACION DE FLANDRIA ES UN TABACO MUY SUAVE CON UN AROMA Y SABOR EQUILIBRADOS QUE
-                            LO HACEN AGRADABLE A LA BOCA Y EL OLFATO ESPECIALMENTE A LOS FUMADORES OCASIONALES.
+                            ESTA PRESENTACION DE FLANDRIA ES UN TABACO MUY SUAVE CON UN AROMA Y SABOR EQUILIBRADOS.
                             ESTA COMPUESTO POR UNA MEZCLA BASADA EN TABACO BURLEY CURADO CON AIRE Y PREDOMINANTEMENTE
                             TABACO VIRGINIA CURADO CON HUMO, CON UN TOQUE DE TABACO ORIENTAL CURADO AL SOL.</p>
                     </div>
@@ -87,7 +108,7 @@
                             LA VARIEDAD ORIGINAL SE CARACTERIZA POR UNA INTENSIDAD DE SABOR Y AROMA INTERMEDIA, SIENDO
                             IDEAL TANTO PARA FUMADORES FRECUENTES COMO CASUALES.
                             EL PROCESO DE PRODUCCIÓN DE ESTE TABACO ES REALIZADO BAJO ESTRICTAS NORMAS DE CALIDAD, SIN
-                            UTILIZAR ADITIVOS Y TRATANDO A LAS HOJAS CUIDADOSAMENTE HASTA SU SECADO.
+                            UTILIZAR ADITIVOS.
                             ESTA PRESENTACIÓN DE TABACO FLANDRIA ES UN BLEND EQUILIBRADO ENTRE TABACOS VIRGINIA Y
                             KENTUCKY.</p>
                     </div>
