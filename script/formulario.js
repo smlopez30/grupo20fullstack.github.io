@@ -13,8 +13,7 @@ const campos = {
 	nombre: false,
 	apellido: false,
 	correo: false,
-	telefono: false,
-	comentario: false
+	telefono: false
 }
 
 const validarFormulario = (e) => {
@@ -30,9 +29,6 @@ const validarFormulario = (e) => {
 		break;
 		case "telefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
-		case "comentario":
-			validarCampo(expresiones.comentario, e.target, 'comentario');
 		break;
 	}
 }
@@ -64,7 +60,7 @@ formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
-	if(campos.nombre && campos.apellido && campos.correo && campos.telefono && campos.comentario && terminos.checked ){
+	if(campos.nombre && campos.apellido && campos.correo && campos.telefono && terminos.checked ){
 		formulario.reset();
 
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
