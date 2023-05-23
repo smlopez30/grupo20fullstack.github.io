@@ -1,99 +1,129 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto FullStack Grupo 20: Fabian Cardozo - Maria Narvaez - Naiara Valenzuela - Sergio Lopez</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/contacto.css">
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="script/validacion.js"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
-
-<body>
     <header>
         <nav>
             <a href="index.html">Inicio</a>
             <a href="productos.html">Productos</a>
             <a href="quienesSomos.html">Quienes Somos</a>
             <a href="contacto.html">Contacto</a>
+            
+
         </nav>
         <section class="textos-header">
             <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
             <h1>Tu Tabaqueria</h1>
-            <h2>Encuentra todo lo que buscas en nuestra tienda</h2>
+            <h2>Encuentra todo lo que buscas en nuestra tienda </h2>
         </section>
-        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-                style="height: 100%; width: 100%;">
-                <path
-                    d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #6da747;"></path>
-            </svg></div>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" 
+            style="stroke: none; fill: #ffffff
+            ;"></path></svg></div>
     </header>
-    <h1>Formulario de Contacto</h1>
-
-    <form action="" class="formulario" id="formulario" onsubmit="return validarFormulario();">
-      <!-- Campo Nombres -->
-      <div class="campo">
-        <label for="nombres">Nombres:</label>
-        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres">
-        <span class="mensaje-error" id="error-nombres"></span>
-      </div>
-  
-      <!-- Campo Apellidos -->
-      <div class="campo">
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" id="apellidos" name="apellidos" placeholder="Ingrese sus apellidos">
-        <span class="mensaje-error" id="error-apellidos"></span>
-      </div>
-  
-      <!-- Campo Correo Electrónico -->
-      <div class="campo">
-        <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electrónico">
-        <span class="mensaje-error" id="error-correo"></span>
-      </div>
-  
-      <!-- Campo Teléfono -->
-      <div class="campo">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
-        <span class="mensaje-error" id="error-telefono"></span>
-      </div>
-  
-      <!-- Campo Comentario -->
-      <div class="campo">
-        <label for="comentario">Comentario:</label>
-        <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario"></textarea>
-        <span class="mensaje-error" id="error-comentario"></span>
-      </div>
-  
-      <input type="submit" value="Enviar">
-    </form>
-
+    <body>
+        <h1>Fomulario de contacto</h1>
+        <main>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.964701097969!2d-58.48681562527426!3d-34.579759713208304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb66911b73c07%3A0x834bac4316e00a45!2sEcheverr%C3%ADa%205133%2C%20C1431%20CABA!5e0!3m2!1ses!2sar!4v1684797668061!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            <form action="" class="formulario" id="formulario">
     
-</body>
+                <!-- Grupo: Nombre -->
+                <div class="formulario__grupo" id="grupo__nombre">
+                    <label for="nombre" class="formulario__label">Nombres</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ejm: Martin">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error"> Campo debe contener de 4-40 caracteres y solo puede contener letras y acentos.</p>
+                </div>
+    
+               <!-- Grupo: Apellido -->
+               <div class="formulario__grupo" id="grupo__apellido">
+                <label for="apellido" class="formulario__label">Apellidos</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Ejm: Torres">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener letras y acentos.</p>
+            </div>
 
-<footer>
+                <!-- Grupo: Correo Electronico -->
+                <div class="formulario__grupo" id="grupo__correo">
+                    <label for="correo" class="formulario__label">Correo Electrónico</label>
+                    <div class="formulario__grupo-input">
+                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Ejm: correo@correo.com">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                </div>
+    
+                <!-- Grupo: Teléfono -->
+                <div class="formulario__grupo" id="grupo__telefono">
+                    <label for="telefono" class="formulario__label">Teléfono</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Ejm: 1135465676">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+                </div>
+                 <!-- Grupo: Comentario -->
+			<div class="formulario__grupo" id="grupo__usuario">
+				<label for="comentario" class="formulario__label">Comentario</label>
+				<textarea id="message" name="message" id="" cols="38" rows="5" class="formulario__coment"></textarea>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El comentario solo permite 30 caracteres.</p>
+			</div>
+    
+    
+                <!-- Grupo: Terminos y Condiciones -->
+                <div class="formulario__grupo" id="grupo__terminos">
+                    <label class="formulario__label">
+                        <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                        Acepto los Terminos y Condiciones
+                    </label>
+                </div>
+    
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor verifique los campos. </p>
+                </div>
+    
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <button type="submit" class="formulario__btn">Enviar</button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                </div>
+            </form>
+        </main>
+    
+        <script src="js/formulario.js"></script>
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    </body>
+  <footer>
     <div class="contenedor-footer">
         <div class="content-foo">
-            <h4>Teléfono</h4>
+            <h4>Phone</h4>
             <p>11-76879088</p>
         </div>
         <div class="content-foo">
-            <h4>Email</h4>
-            <p>tutabaqueria@gmail.com</p>
+            <h4>Mail</h4>
+            <p>mari@mailinator.com</p>
         </div>
         <div class="content-foo">
-            <h4>Localidad</h4>
-            <p>Buenos Aires, Argentina</p>
+            <h4>Dirección</h4>
+            <p>calle 23, CABA</p>
         </div>
     </div>
-    <h2 class="titulo-final">&copy; Tu Tabaqueria | Diseñado por Grupo 20</h2>
-</footer>
+    <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
+
+</body>
 
 </html>
