@@ -73,23 +73,77 @@ header .textos-header{
 
 body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background: #6da747;
+	background: #ffffff
+    ;
 }
 
 main {
-	max-width: 800px;
-	width: 90%;
+	width: 100%;
 	margin:auto;
 	padding: 40px;
+    display: grid;
+    grid-template-columns: 45% 55%;
+   
 }
 
+h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 150%;
+    color: #174119;
+    text-align: center;
+}
+iframe{
+    margin: auto;
+    height: 100;
+    width: 80%;
+    border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #579257;
+    padding: 5px;
+}
 
 .formulario {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
     text-align: left;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #475a47;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, hsla(147, 24%, 45%, 0.671), hsla(135, 20%, 30%, 0.473)), url(../imagenes/fondo.jpg);  
+/* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, hsla(147, 24%, 45%, 0.671), hsla(135, 20%, 30%, 0.473)), url(../imagenes/fondo.jpg); 
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-size: cover;
+background-attachment: fixed;
+position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
+.campo {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #112012;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
 
 .formulario__label {
 	display: block;
@@ -181,8 +235,8 @@ main {
 	height: 45px;
 	line-height: 45px;
 	width: 30%;
-	background: #000;
-	color: #fff;
+	background: #fff;
+	color: rgb(18, 36, 18);;
 	font-weight: bold;
 	border: none;
 	border-radius: 3px;
@@ -277,4 +331,62 @@ footer{
 		width: 100%;
 	}
 }
+/*responsive*/
+@media screen and (max-width:900px){
+    header{
+        background-position: center;
+    }
+
+    main {
+        width: 100%;
+        margin:auto;
+        padding: 40px;
+        display: block;
+       
+    }
+    iframe{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+    nav{
+        text-align: center;
+        padding: 30px 0 0 0;
+    }
+    nav > a{
+        margin-right: 5px;
+    }
+    .textos-header h1{
+        font-size: 35px;
+    }
+    .textos-header h2{
+        font-size: 20px;
+    }
+   .imagen-port{
+    width: 95%;
+    }
+    .contenedor-footer{
+        flex-direction: column;
+        border: none;
+    }
+    .content-foo{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .content-foo h4{
+        border: none;
+    }
+    .content-foo p{
+        color: #ccc;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 20px;
+    }
+    .titulo-final{
+        font-size: 20px;
+    }
+
+    }
   
