@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto FullStack Grupo 20: Maria Narvaez - Sergio Lopez - Anahí Landero</title>
+  <title>Proyecto FullStack Grupo 20: Fabian Cardozo - Maria Narvaez - Naiara Valenzuela - Sergio Lopez</title>
   <link rel="stylesheet" href="css/contacto.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/3ac8045f2b.js" crossorigin="anonymous"></script>
 </head>
 <header>
@@ -18,11 +19,13 @@
     <a href="productos.html">Productos</a>
     <a href="quienesSomos.html">Quienes Somos</a>
     <a href="contacto.html">Contacto</a>
+
+
   </nav>
   <section class="textos-header">
     <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
     <h1>Tu Tabaqueria</h1>
-    <h2>Encuentra todo lo que buscas en nuestra tienda </h2>
+    <h2>Encuentranos </h2>
   </section>
   <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
       style="height: 100%; width: 100%;">
@@ -32,13 +35,15 @@
 </header>
 
 <body>
-  <h1>Formulario de contacto</h1>
+  <h1>Visitanos o escribenos</h1>
   <main>
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.964701097969!2d-58.48681562527426!3d-34.579759713208304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb66911b73c07%3A0x834bac4316e00a45!2sEcheverr%C3%ADa%205133%2C%20C1431%20CABA!5e0!3m2!1ses!2sar!4v1684797668061!5m2!1ses!2sar"
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <form action="https://formspree.io/f/xrgvvpdy" method="POST" , action="" class="formulario" id="formulario">
+
+    <form action="" class="formulario" id="formulario">
+
       <!-- Grupo: Nombre -->
       <div class="formulario__grupo" id="grupo__nombre">
         <label for="nombre" class="formulario__label">Nombres</label>
@@ -46,9 +51,10 @@
           <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ejm: Martin">
           <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener
-          letras y acentos.</p>
+        <p class="formulario__input-error"> Campo debe contener de 4-40 caracteres y solo puede contener letras y
+          acentos.</p>
       </div>
+
       <!-- Grupo: Apellido -->
       <div class="formulario__grupo" id="grupo__apellido">
         <label for="apellido" class="formulario__label">Apellidos</label>
@@ -56,9 +62,10 @@
           <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Ejm: Torres">
           <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener
-          letras y acentos.</p>
+        <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener letras y
+          acentos.</p>
       </div>
+
       <!-- Grupo: Correo Electronico -->
       <div class="formulario__grupo" id="grupo__correo">
         <label for="correo" class="formulario__label">Correo Electrónico</label>
@@ -66,9 +73,10 @@
           <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Ejm: correo@correo.com">
           <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y
-          guion bajo.</p>
+        <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.
+        </p>
       </div>
+
       <!-- Grupo: Teléfono -->
       <div class="formulario__grupo" id="grupo__telefono">
         <label for="telefono" class="formulario__label">Teléfono</label>
@@ -76,17 +84,18 @@
           <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Ejm: 1135465676">
           <i class="formulario__validacion-estado fas fa-times-circle"></i>
         </div>
-        <p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14
-          dígitos.</p>
+        <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
       </div>
       <!-- Grupo: Comentario -->
       <div class="formulario__grupo" id="grupo__usuario">
         <label for="comentario" class="formulario__label">Comentario</label>
-        <textarea id="message" name="message" cols="38" rows="5" class="formulario__coment"></textarea>
+        <textarea id="message" name="message" id="" cols="38" rows="5" class="formulario__coment"></textarea>
         <i class="formulario__validacion-estado fas fa-times-circle"></i>
       </div>
       <p class="formulario__input-error">El comentario solo permite 30 caracteres.</p>
       </div>
+
+
       <!-- Grupo: Terminos y Condiciones -->
       <div class="formulario__grupo" id="grupo__terminos">
         <label class="formulario__label">
@@ -94,62 +103,44 @@
           Acepto los Terminos y Condiciones
         </label>
       </div>
+
       <div class="formulario__mensaje" id="formulario__mensaje">
-        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellene el formulario
-          correctamente. </p>
+        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor verifique los campos. </p>
       </div>
+
       <div class="formulario__grupo formulario__grupo-btn-enviar">
-        <button type="submit" onclick="setCorreo()">Enviar</button>
-        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!
-          <i class="fas fa-check-circle"></i>
-        </p>
+        <button type="submit" class="formulario__btn">Enviar</button>
+        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
       </div>
+      <script src="script/formulario.js"></script>
     </form>
-    <input type="hidden" name="correo_oculto" id="correo-oculto" value="smlopez@gmail.com">
   </main>
 </body>
 <footer>
   <div class="contenedor-footer">
-      <div class="content-foo">
-          <a href="https://wa.me/+5491123000301?text=Hola,%20quiero%20enviar%20un%20mensaje" target="_blank">
-              <i class="fab fa-whatsapp fa-beat-fade fa-2xl" style="color: #49a82e; margin-right: 5px;"></i>
-          </a>
-          <p>Contactanos</p>
-      </div>
-      <div class="content-foo">
-          <h4>
-              <a href="mailto:mari@mailinator.com">
-                  <i class="fa-solid fa-envelopes-bulk fa-2xl"></i>
-              </a>
-          </h4>
-          <p>mari@mailinator.com</p>
-      </div>
-      <div class="content-foo">
-          <h4>
-              <a href="https://www.google.com/maps/search/?api=1&query=Echeverria%205133,%20C.A.B.A" target="_blank">
-                  <i class="fa-solid fa-signs-post fa-2xl"></i>
-              </a>
-          </h4>
-          <p>Echeverria 5133, C.A.B.A</p>
-      </div>
-      <div class="content-foo">
-          <h4><i class="fa-brands fa-facebook fa-2xl"></i> 
-              <i class="fa-brands fa-instagram fa-2xl"></i>
-              <i class="fa-brands fa-twitter fa-2xl"></i>
-          </h4>
-          <p>Visitanos</p>
-      </div>
+    <div class="content-foo">
+      <h4><a href="https://wa.me/+5491123000301?text=Hola,%20quiero%20enviar%20un%20mensaje" target="_blank">
+        <i class="fab fa-whatsapp fa-beat-none fa-2xl" style="color: #e7f3e3; margin-right: 5px;"></i>
+      </a></h4>
+      <p>Contactanos </p>
+    </div>
+    <div class="content-foo">
+      <h4> <i class="fa-solid fa-envelopes-bulk fa-2xl"></i><a href="contacto.html"></a></h4>
+      <p>mari@mailinator.com</p>
+    </div>
+    <div class="content-foo">
+      <h4> <i class="fa-solid fa-signs-post fa-2xl"></i><a href="contacto.html"></a></h4>
+      <p>Echeverria 5133, C.A.B.A</p>
+    </div>
+    <div class="content-foo">
+      <h4> <i class="fa-brands fa-facebook  fa-2xl"></i>
+        <i class="fa-brands fa-instagram  fa-2xl"></i>
+        <i class="fa-brands fa-twitter  fa-2xl"></i>
+      </h4>
+      <p>Visitanos</p>
+    </div>
   </div>
-  <h2 class="titulo-final">&copy; 2023 Tu Tabaqueria. Todos los derechos reservados.</h2>
+  <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
 </footer>
-<script>
-  function setCorreo() {
-    var correoInput = document.getElementById('correo-input');
-    var correoOculto = document.getElementById('correo-oculto');
-    if (correoInput.value.trim() !== '') {
-      correoOculto.value = correoInput.value;
-    }
-  }
-</script>
 
 </html>
