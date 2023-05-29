@@ -1,8 +1,3 @@
-/* Estilos generales */
-font-family: 'Lobster',
-cursive;
-font-family: 'Roboto',
-sans-serif;
 
 * {
     margin: 0;
@@ -16,7 +11,7 @@ body {
 
 .contenedor {
     padding: 60px 0;
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     margin: auto;
     overflow: hidden;
@@ -33,7 +28,7 @@ body {
 
 header {
     width: 100%;
-    height: 600px;
+    height: 450px;
     background: #475a47;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, hsla(147, 24%, 45%, 0.671), hsla(135, 20%, 30%, 0.473)), url(../imagenes/fondo.jpg);
@@ -63,7 +58,7 @@ nav>a:hover {
 
 header .textos-header {
     display: flex;
-    height: 430px;
+    height: 250px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -109,6 +104,7 @@ main .sobre-nosotros {
 
 .contenido-textos h3 {
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .contenido-textos h3 span {
@@ -286,8 +282,10 @@ footer{
     }
 
     .servicio-int {
-        width: 100%;
+        width: 90%;
         text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .servicio-int:nth-child(1),
@@ -352,7 +350,7 @@ footer{
     }
 
     .titulo-final {
-        font-size: 20px;
+        font-size: 10px;
     }
 
 }
@@ -514,3 +512,85 @@ body.explosion-animation {
         opacity: 1;
     }
 }
+
+   /*Cuerpo*/ 
+
+/*parte1*/
+
+.Parte1{
+    text-align: center;
+    padding: 30px 0px;
+    margin: 10px;
+  }
+  
+  .Parte1 h1{
+    font-size: 20px;
+    margin-bottom: 25px;    
+  }
+  .Parte1 p{
+    font-size: 15px;
+  }
+  
+  /*parte2*/
+  .Parte2{
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  
+  .Parte2 h1{
+    font-size: 20px;
+  }
+  
+  /*icons*/
+  
+  .icons-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  
+  }
+  
+  .icon-about {
+    display: flex;
+    margin: 20px 50px;
+    }
+  
+  .icon-about img {
+    width: 70px;
+  
+  }
+  
+  .icon-text {
+    text-align: left;
+    margin-left: 15px;
+  }
+  .icon-text p {
+    margin: 0px;
+  }
+  
+  @media (min-width:768px) {
+    .about{
+        padding: 120px 0px;        
+    }
+    .icons-about{
+        flex-direction: row;
+        justify-content: center;
+    }
+  }
+  
+  
+  /*-------quote-------*/
+  .quote{    
+    text-align: center;
+    padding: 10px 0px;
+    margin: 10px; 
+    font-style: oblique; 
+  }
+  
+  .quote p {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+

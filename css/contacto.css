@@ -8,7 +8,7 @@ body{
 }
 .contenedor{
     padding: 60px 0;
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     margin: auto;
     overflow: hidden;
@@ -24,7 +24,7 @@ body{
 
 header{
 width: 100%;
-height: 600px;
+height: 450px;
 background: #475a47;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, hsla(147, 24%, 45%, 0.671), hsla(135, 20%, 30%, 0.473)), url(../imagenes/fondo.jpg);  
 /* Chrome 10-25, Safari 5.1-6 */
@@ -49,7 +49,7 @@ nav > a:hover{
 }
 header .textos-header{
     display: flex;
-    height: 430px;
+    height: 250px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -388,4 +388,3 @@ footer{
     }
 
     }
-  
