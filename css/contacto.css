@@ -309,7 +309,24 @@ footer{
     margin: 20px 0 0 20px;
     color: #9e9797;
 }
-
+.formulario__label-obligatorio::after {
+    content: '*';
+    color: red;
+}
+.formulario__mensaje-activo {
+    display: block;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  input:required:invalid {
+    border: 2px solid red;
+  }
+  
+  input:required:valid {
+    border: 2px solid green;
+  }
+  
 
 /* ----- -----  Mediaqueries formulario----- ----- */
 @media screen and (max-width: 800px) {

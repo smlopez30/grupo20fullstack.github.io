@@ -13,6 +13,8 @@
 
     <script src="https://kit.fontawesome.com/3ac8045f2b.js" crossorigin="anonymous"></script>
 </head>
+
+<body>
     <header>
         <nav>
             <a href="index.html">Inicio</a>
@@ -32,117 +34,116 @@
             </svg>
         </div>
     </header>
-    <body>
-        <h1>Formulario de contacto</h1>
-        <main>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.964701097969!2d-58.48681562527426!3d-34.579759713208304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb66911b73c07%3A0x834bac4316e00a45!2sEcheverr%C3%ADa%205133%2C%20C1431%20CABA!5e0!3m2!1ses!2sar!4v1684797668061!5m2!1ses!2sar"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <h1>Formulario de contacto</h1>
+    <main>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.964701097969!2d-58.48681562527426!3d-34.579759713208304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb66911b73c07%3A0x834bac4316e00a45!2sEcheverr%C3%ADa%205133%2C%20C1431%20CABA!5e0!3m2!1ses!2sar!4v1684797668061!5m2!1ses!2sar"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <form action="https://formspree.io/f/xrgvvpdy" class="formulario" id="formulario" method="POST">
+        <form action="https://formspree.io/f/xrgvvpdy" class="formulario" id="formulario" method="POST">
 
-                <!-- Grupo: Nombre -->
-                <div class="formulario__grupo" id="grupo__nombre">
-                    <label for="nombre" class="formulario__label">Nombres</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="nombre" id="nombre"
-                            placeholder="Ejm: Martin">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener
-                        letras y acentos.</p>
-                </div>
-
-                <!-- Grupo: Apellido -->
-                <div class="formulario__grupo" id="grupo__apellido">
-                    <label for="apellido" class="formulario__label">Apellidos</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="apellido" id="apellido"
-                            placeholder="Ejm: Torres">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener
-                        letras y acentos.</p>
-                </div>
-
-                <!-- Grupo: Correo Electronico -->
-                <div class="formulario__grupo" id="grupo__correo">
-                    <label for="correo" class="formulario__label">Correo Electrónico</label>
-                    <div class="formulario__grupo-input">
-                        <input type="email" class="formulario__input" name="correo" id="correo"
-                            placeholder="Ejm: correo@correo.com">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y
-                        guion bajo.</p>
-                </div>
-
-                <!-- Grupo: Teléfono -->
-                <div class="formulario__grupo" id="grupo__telefono">
-                    <label for="telefono" class="formulario__label">Teléfono</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="telefono" id="telefono"
-                            placeholder="Ejm: 1135465676">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                    </div>
-                    <p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14
-                        dígitos.</p>
-                </div>
-
-                <!-- Grupo: Comentario -->
-                <div class="formulario__grupo" id="grupo__usuario">
-                    <label for="comentario" class="formulario__label">Comentario</label>
-                    <textarea id="message" name="message" cols="38" rows="5" class="formulario__coment"></textarea>
+            <!-- Grupo: Nombre -->
+            <div class="formulario__grupo" id="grupo__nombre">
+                <label for="nombre" class="formulario__label">Nombres *</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre"
+                        placeholder="Ejm: Martin">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
+                <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener
+                    letras y acentos.</p>
+            </div>
+
+            <!-- Grupo: Apellido -->
+            <div class="formulario__grupo" id="grupo__apellido">
+                <label for="apellido" class="formulario__label">Apellidos *</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="apellido" id="apellido"
+                        placeholder="Ejm: Torres">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Campo debe contener de 4-40 caracteres y solo puede contener
+                    letras y acentos.</p>
+            </div>
+
+            <!-- Grupo: Correo Electrónico -->
+            <div class="formulario__grupo" id="grupo__correo">
+                <label for="correo" class="formulario__label">Correo Electrónico *</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="correo" id="correo"
+                        placeholder="Ejm: correo@correo.com">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y
+                    guion bajo.</p>
+            </div>
+
+            <!-- Grupo: Teléfono -->
+            <div class="formulario__grupo" id="grupo__telefono">
+                <label for="telefono" class="formulario__label">Teléfono *</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="telefono" id="telefono"
+                        placeholder="Ejm: 1135465676">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El teléfono solo puede contener números y el máximo son 14
+                    dígitos.</p>
+            </div>
+
+            <!-- Grupo: Comentario -->
+            <div class="formulario__grupo" id="grupo__usuario">
+                <label for="comentario" class="formulario__label">Comentario</label>
+                <textarea id="message" name="message" cols="38" rows="5" class="formulario__coment"></textarea>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 <p class="formulario__input-error">El comentario solo permite 30 caracteres.</p>
-                </div>
+            </div>
 
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellene el formulario
+                    correctamente. </p>
+            </div>
+            <div id="mensaje-error" class="formulario__mensaje formulario__mensaje-activo"></div>
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Enviar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!
+                    <i class="fas fa-check-circle"></i></p>
+            </div>
+            
 
-             
+        </form>
 
-                <div class="formulario__mensaje" id="formulario__mensaje">
-                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellene el formulario
-                        correctamente. </p>
-                </div>
-
-                <div class="formulario__grupo formulario__grupo-btn-enviar">
-                    <button type="submit" class="formulario__btn">Enviar</button>
-                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!
-                        <i class="fas fa-check-circle"></i></p>
-                </div>
-            </form>
-
-        </main>
-
-        <script src="script/formulario.js"></script>
-    </body>
+    </main>
+    
+    <script src="script/formulario.js"></script>
+</body>
 <footer>
-  <div class="contenedor-footer">
-    <div class="content-foo">
-      <h4><a href="https://wa.me/+5491123000301?text=Hola,%20quiero%20enviar%20un%20mensaje" target="_blank">
-        <i class="fab fa-whatsapp fa-beat-none fa-2xl" style="color: #e7f3e3; margin-right: 5px;"></i>
-      </a></h4>
-      <p>Contactanos </p>
+    <div class="contenedor-footer">
+        <div class="content-foo">
+            <h4><a href="https://wa.me/+5491123000301?text=Hola,%20quiero%20enviar%20un%20mensaje"
+                    target="_blank">
+                    <i class="fab fa-whatsapp fa-beat-none fa-2xl"
+                        style="color: #e7f3e3; margin-right: 5px;"></i>
+                </a></h4>
+            <p>Contactanos </p>
+        </div>
+        <div class="content-foo">
+            <h4> <i class="fa-solid fa-envelopes-bulk fa-2xl"></i><a href="contacto.html"></a></h4>
+            <p>mari@mailinator.com</p>
+        </div>
+        <div class="content-foo">
+            <h4> <i class="fa-solid fa-signs-post fa-2xl"></i><a href="contacto.html"></a></h4>
+            <p>Echeverria 5133, C.A.B.A</p>
+        </div>
+        <div class="content-foo">
+            <h4> <i class="fa-brands fa-facebook  fa-2xl"></i>
+                <i class="fa-brands fa-instagram  fa-2xl"></i>
+                <i class="fa-brands fa-twitter  fa-2xl"></i>
+            </h4>
+            <p>Visitanos</p>
+        </div>
     </div>
-    <div class="content-foo">
-      <h4> <i class="fa-solid fa-envelopes-bulk fa-2xl"></i><a href="contacto.html"></a></h4>
-      <p>mari@mailinator.com</p>
-    </div>
-    <div class="content-foo">
-      <h4> <i class="fa-solid fa-signs-post fa-2xl"></i><a href="contacto.html"></a></h4>
-      <p>Echeverria 5133, C.A.B.A</p>
-    </div>
-    <div class="content-foo">
-      <h4> <i class="fa-brands fa-facebook  fa-2xl"></i>
-        <i class="fa-brands fa-instagram  fa-2xl"></i>
-        <i class="fa-brands fa-twitter  fa-2xl"></i>
-      </h4>
-      <p>Visitanos</p>
-    </div>
-  </div>
-  <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
+    <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
 </footer>
 
 </html>
