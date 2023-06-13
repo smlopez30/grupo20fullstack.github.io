@@ -67,14 +67,34 @@ inputs.forEach((input) => {
 });
 
 formulario.addEventListener('submit', (e) => {
-  if (!camposCompletos) {
-    e.preventDefault();
-    const mensajeError = document.getElementById('mensaje-error');
-    mensajeError.style.display = 'block';
-    mensajeError.innerHTML = 'Completa todos los campos obligatorios.';
+  e.preventDefault();
+
+  if (campos.nombre && campos.apellido && campos.correo && campos.telefono) {
+    const formData = new FormData(formulario);
+    const url = 'https://formspree.io/f/xrgvvpdy'; // Reemplaza con la URL proporcionada por Formspree
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Manejar la respuesta de Formspree aquí
+        console.log(data);
+        formulario.reset(); // Limpiar el formulario si la solicitud fue exitosa
+        document.getElementById('formulario__mensaje-exito').style.display = 'block'; // Mostrar mensaje de éxito al usuario
+      })
+      .catch(error => {
+        // Manejar el error en caso de que ocurra
+        console.error('Error:', error);
+        document.getElementById('mensaje-error').innerHTML = 'Error en el envío del formulario. Por favor, inténtalo nuevamente.'; // Mostrar mensaje de error al usuario
+        document.getElementById('mensaje-error').style.display = 'block';
+      });
+  } else {
+    document.getElementById('formulario__mensaje').style.display = 'block'; // Mostrar mensaje de error al usuario si los campos no son válidos
   }
 });
 
-const camposCompletos = () => {
-  return Object.values(campos).every((campo) => campo === true);
-};
