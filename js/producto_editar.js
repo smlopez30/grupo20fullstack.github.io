@@ -47,7 +47,7 @@ redirect: 'follow'
 fetch(this.url, options)
 .then(function () {
 alert("Registro modificado")
-window.location.href = "../templates/productos.html";
+window.location.href = "producto.html";
 })
 .catch(err => {
 console.error(err);
