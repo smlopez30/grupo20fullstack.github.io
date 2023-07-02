@@ -213,48 +213,48 @@ footer {
 
 }
 @media screen and (max-width:500px) {
-    nav {
+    nav{
         text-align: center;
         padding: 30px 0 0 0;
     }
 
-    nav>a {
+    nav > a{
         margin-right: 5px;
     }
 
-    .textos-header h1 {
+    .textos-header h1{
         font-size: 35px;
     }
 
-    .textos-header h2 {
+    .textos-header h2{
         font-size: 20px;
     }
 
-    .imagen-port {
+    .imagen-port{
         width: 95%;
     }
 
-    .contenedor-footer {
+    .contenedor-footer{
         flex-direction: column;
         border: none;
     }
 
-    .content-foo {
+    .content-foo{
         margin-bottom: 20px;
         text-align: center;
     }
 
-    .content-foo h4 {
+    .content-foo h4{
         border: none;
     }
 
-    .content-foo p {
+    .content-foo p{
         color: #ccc;
         border-bottom: 1px solid #f2f2f2;
         padding-bottom: 20px;
     }
 
-    .titulo-final {
+    .titulo-final{
         font-size: 20px;
     }
 
