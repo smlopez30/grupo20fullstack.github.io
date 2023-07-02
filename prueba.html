@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -45,19 +45,8 @@
         <div id="app" class="container">
             <h1>Productos</h1>
             <br>
-            <div class="form-group">
-                <label for="producto">Selecciona un producto:</label>
-                <select class="form-control" id="producto" v-model="productoSeleccionado">
-                    <option value="" disabled>Seleccione un producto</option>
-                    <option v-for="producto in productos" :value="producto.id">{{ producto.nombre }}</option>
-                </select>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="buscar">Buscar producto por nombre:</label>
-                <input type="text" class="form-control" id="buscar" v-model="busqueda" @input="filtrarProductos">
-            </div>
-            <br>
+            <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
+            <br><br>
             <div v-if="error">
                 <p>Lo sentimos , ........</p>
             </div>
@@ -80,7 +69,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="" v-for="producto in productosFiltrados">
+                                <tr class="" v-for="producto in productos">
                                     <td scope="row">{{producto.id}}</td>
                                     <td>{{producto.nombre}}</td>
                                     <td>{{producto.precio}}</td>
@@ -138,45 +127,7 @@
         crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    productos: [], // Tu lista de productos
-                    productoSeleccionado: "", // Producto seleccionado del menú desplegable
-                    busqueda: "", // Valor de búsqueda
-                };
-            },
-            computed: {
-                productosFiltrados() {
-                    if (this.busqueda) {
-                        // Filtrar los productos por nombre
-                        return this.productos.filter((producto) =>
-                            producto.nombre.toLowerCase().includes(this.busqueda.toLowerCase())
-                        );
-                    } else {
-                        // Mostrar todos los productos si no hay búsqueda
-                        return this.productos;
-                    }
-                },
-            },
-            methods: {
-                // Método para filtrar productos al escribir en la búsqueda
-                filtrarProductos() {
-                    // Lógica del filtro en la propiedad computada
-                },
-                eliminar(id) {
-                    // Lógica para eliminar un producto
-                },
-            },
-            created() {
-                // Lógica para obtener los productos desde tu fuente de datos (API, base de datos, etc.)
-                // y asignarlos a la propiedad "productos"
-            },
-        });
-
-        app.mount("#app");
-    </script>
+    <script src="../js/productos.js"></script>
 </body>
 
 </html>
