@@ -56,6 +56,44 @@ header .textos-header {
     bottom: 0;
     width: 100%;
 }
+footer {
+    background: #333;
+    padding: 40px 0 40px 0;
+    overflow: hidden;
+}
+
+.contenedor-footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-foo {
+    text-align: center;
+}
+
+.content-foo h4 {
+    color: #fff;
+    border-bottom: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 1px;
+}
+
+.content-foo p {
+    color: #ccc;
+    border-bottom: 1px solid #f2f2f2;
+    border: none;
+}
+
+.titulo-final {
+    text-align: left;
+    font-size: 10px;
+    margin: 20px 0 0 20px;
+    color: #9e9797;
+}
 @media screen and (max-width:500px) {
     nav {
         text-align: center;
