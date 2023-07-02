@@ -11,13 +11,30 @@
 
 <body>
     <header id="header">
-        <!-- place navbar here -->
+        <nav>
+            <a href="producto.html">Proyecto Final</a>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="quienesSomos.html">Quienes Somos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <section class="textos-header">
+            <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
+            <h1>Tu Tabaqueria</h1>
+            <h2>Encuentranos </h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #ffffff;"></path>
+            </svg>
+        </div>
     </header>
     <main>
         <div id="app" class="container">
             <h1>Productos</h1>
             <br>
-            <a class="btn btn-primary" href="../templates/producto_nuevo.html">Nuevo</a>
+            <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
             <br><br>
             <div v-if="error">
                 <p>Lo sentimos , ........</p>
@@ -51,7 +68,7 @@
                                     </td>
                                     <td>
                                         <a class="btn btn-primary"
-                                            :href="'./producto_update.html?id='+ producto.id">Editar</a>
+                                            :href="'producto_update.html?id='+ producto.id">Editar</a>
                                         <button type="button" class="btn btn-danger"
                                             v-on:click="eliminar(producto.id)">Eliminar</button>
                                     </td>
@@ -87,7 +104,7 @@
                 <p>Visitanos</p>
             </div>
         </div>
-        <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
+        <h2 class="titulo-final">&copy; 2023 Tu Tabaqueria. Todos los derechos reservados.</h2>
     </footer>
     <script>
         <!--Link de Bootstrap-->
