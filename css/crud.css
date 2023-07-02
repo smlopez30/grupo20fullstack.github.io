@@ -44,18 +44,18 @@ nav {
     padding: 30px 50px 0 0;
 }
 
-nav>a {
+nav > a{
     color: #fff;
     font-weight: 300;
     text-decoration: none;
     margin-right: 10px;
 }
 
-nav>a:hover {
+nav > a:hover{
     text-decoration: underline;
 }
 
-header .textos-header {
+header .textos-header{
     display: flex;
     height: 250px;
     width: 100%;
@@ -65,21 +65,52 @@ header .textos-header {
     text-align: center;
 }
 
-.textos-header h1 {
+.textos-header h1{
     font-size: 50px;
     color: #fff;
 }
 
-.textos-header h2 {
+.textos-header h2{
     font-size: 30px;
     font-weight: 300;
     color: #fff;
 }
 
-.wave {
+.wave{
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #ffffff;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 45% 55%;
+
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 150%;
+    color: #174119;
+    text-align: center;
+}
+
+iframe {
+    margin: auto;
+    height: 100;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #579257;
+    padding: 5px;
 }
 .container {
     display: grid;
