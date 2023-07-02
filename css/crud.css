@@ -56,6 +56,26 @@ header .textos-header {
     bottom: 0;
     width: 100%;
 }
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #475a47;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(147, 24%, 45%, 0.671), hsla(135, 20%, 30%, 0.473)), url(../imagenes/fondo.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(147, 24%, 45%, 0.671), hsla(135, 20%, 30%, 0.473)), url(../imagenes/fondo.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
 footer {
     background: #333;
     padding: 40px 0 40px 0;
@@ -93,6 +113,26 @@ footer {
     font-size: 10px;
     margin: 20px 0 0 20px;
     color: #9e9797;
+}
+/*responsive*/
+@media screen and (max-width:900px) {
+    header {
+        background-position: center;
+    }
+
+    main {
+        width: 100%;
+        margin: auto;
+        padding: 40px;
+        display: block;
+
+    }
+
+    iframe {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
 }
 @media screen and (max-width:500px) {
     nav {
