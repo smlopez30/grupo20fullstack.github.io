@@ -132,6 +132,28 @@ iframe {
     margin: 0 auto;
     padding: 20px;
 }
+.campo {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #112012;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
 footer {
     background: #333;
     padding: 40px 0 40px 0;
