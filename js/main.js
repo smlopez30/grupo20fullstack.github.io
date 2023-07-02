@@ -1,7 +1,7 @@
 document.getElementById("header").innerHTML = `
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="producto.html">CRUD</a>
+            <a class="navbar-brand" href="producto.html"></a>
         </div>
     </nav>
     <section class="textos-header">
@@ -16,3 +16,4 @@ document.getElementById("header").innerHTML = `
         </svg>
     </div>
 `;
+
