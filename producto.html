@@ -77,13 +77,13 @@
                             </tr>
                             <tr>
                                 <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
+                                </td>
                                 <td contenteditable v-model="nuevoProducto.nombre" ref="editableCell"></td>
                                 <td contenteditable v-model.number="nuevoProducto.precio" ref="editableCell"></td>
                                 <td contenteditable v-model.number="nuevoProducto.stock" ref="editableCell"></td>
                                 <td contenteditable v-model="nuevoProducto.imagen" ref="editableCell"></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
