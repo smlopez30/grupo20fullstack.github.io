@@ -62,16 +62,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="" v-for="producto in paginatedProductos">
+                            <tr class="" v-for="producto in paginatedProductos" :key="producto.id">
                                 <td scope="row">{{producto.id}}</td>
-                                <td contenteditable @input="producto.nombre = $event.target.textContent">{{producto.nombre}}</td>
-                                <td contenteditable @input="producto.precio = $event.target.textContent">{{producto.precio}}</td>
-                                <td contenteditable @input="producto.stock = $event.target.textContent">{{producto.stock}}</td>
+                                <td contenteditable @blur="actualizar(producto)" ref="editableCell">{{producto.nombre}}</td>
+                                <td contenteditable @blur="actualizar(producto)" ref="editableCell">{{producto.precio}}</td>
+                                <td contenteditable @blur="actualizar(producto)" ref="editableCell">{{producto.stock}}</td>
                                 <td>
                                     <img width="60" :src="producto.imagen" :alt="producto.nombre">
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger" v-on:click="eliminar(producto)">Eliminar</button>
+                                    <button type="button" class="btn btn-danger"
+                                        v-on:click="eliminar(producto)">Eliminar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td contenteditable v-model="nuevoProducto.nombre" ref="editableCell"></td>
+                                <td contenteditable v-model.number="nuevoProducto.precio" ref="editableCell"></td>
+                                <td contenteditable v-model.number="nuevoProducto.stock" ref="editableCell"></td>
+                                <td contenteditable v-model="nuevoProducto.imagen" ref="editableCell"></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -99,7 +110,7 @@
             </section>
         </div>
     </div>
-</main>
+    </main>
 
 
     <footer>
