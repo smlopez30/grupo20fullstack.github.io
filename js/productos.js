@@ -7,6 +7,13 @@ createApp({
             error: false,
             cargando: true,
             pageSize: 5,
+            currentPage: 1,
+            nuevoProducto: {
+                nombre: '',
+                precio: 0,
+                stock: 0,
+                imagen: ''
+            },
         };
     },
     computed: {
@@ -62,6 +69,33 @@ createApp({
                     console.error(err);
                     alert("Error al actualizar el artículo.");
                 });
+        },
+        agregarNuevo() {
+            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
+                var options = {
+                    body: JSON.stringify(this.nuevoProducto),
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow',
+                };
+                fetch(this.url, options)
+                    .then(() => {
+                        alert("El artículo se ha guardado correctamente.");
+                        this.fetchData(this.url);
+                        this.nuevoProducto = {
+                            nombre: '',
+                            precio: 0,
+                            stock: 0,
+                            imagen: ''
+                        };
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Error al guardar el artículo.");
+                    });
+            } else {
+                alert("Por favor, complete todos los campos obligatorios.");
+            }
         },
         changePage(page) {
             this.currentPage = page;
