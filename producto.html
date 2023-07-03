@@ -74,9 +74,7 @@
                         <td contenteditable v-model.number="nuevoProducto.precio" ref="editableCell"></td>
                         <td contenteditable v-model.number="nuevoProducto.stock" ref="editableCell"></td>
                         <td>
-                            <input type="file" ref="fileInput" @change="handleImageUpload">
-                            <button type="button" class="btn btn-primary" v-on:click="cargarImagen">Cargar
-                                imagen</button>
+                            <input type="text" v-model="nuevoProducto.imagen" placeholder="URL de la imagen">
                         </td>
                         <td>
                             <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
@@ -112,6 +110,7 @@
         </div>
     </div>
 </main>
+
 
 
     <footer>
