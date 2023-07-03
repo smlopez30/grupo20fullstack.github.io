@@ -42,15 +42,15 @@ createApp({
                     this.error = true;
                 });
         },
-        eliminar(productoId) {
-            const url = this.url + '/' + productoId;
+        eliminar(id) {
+            const url = this.url + '/' + id;
             var options = {
                 method: 'DELETE',
             };
             fetch(url, options)
                 .then(res => res.text())
-                .then(() => {
-                    this.fetchData();
+                .then(res => {
+                    this.fetchData(this.url);
                 });
         },
         actualizar(event, producto) {
