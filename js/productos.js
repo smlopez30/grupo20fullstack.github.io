@@ -84,8 +84,8 @@ createApp({
                         this.fetchData(this.url);
                         this.nuevoProducto = {
                             nombre: 'Nuevo Producto',
-                            precio: '0',
-                            stock: '0',
+                            precio: 0,
+                            stock: 0,
                             imagen: 'url de la imagen'
                         };
                     })
