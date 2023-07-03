@@ -10,8 +10,8 @@ createApp({
             currentPage: 1,
             nuevoProducto: {
                 nombre: '',
-                precio: 0,
-                stock: 0,
+                precio: '',
+                stock: '',
                 imagen: ''
             },
         };
@@ -30,8 +30,8 @@ createApp({
         },
     },
     methods: {
-        fetchData() {
-            fetch(this.url)
+        fetchData(url) {
+            fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     this.productos = data;
@@ -53,11 +53,10 @@ createApp({
                     this.fetchData(this.url);
                 });
         },
-        actualizar(event, producto) {
-            const campo = event.target.getAttribute('data-campo');
+        actualizar(producto) {
             const url = this.url + '/' + producto.id;
             var options = {
-                body: JSON.stringify({ [campo]: producto[campo] }),
+                body: JSON.stringify(producto),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
@@ -82,13 +81,13 @@ createApp({
                 fetch(this.url, options)
                     .then(() => {
                         alert("El artículo se ha guardado correctamente.");
+                        this.fetchData(this.url);
                         this.nuevoProducto = {
                             nombre: '',
-                            precio: 0,
-                            stock: 0,
+                            precio: '',
+                            stock: '',
                             imagen: ''
                         };
-                        this.fetchData(); // Volver a cargar los productos después de agregar uno nuevo
                     })
                     .catch(err => {
                         console.error(err);
@@ -103,6 +102,6 @@ createApp({
         },
     },
     created() {
-        this.fetchData();
+        this.fetchData(this.url);
     },
 }).mount('#app');
