@@ -29,22 +29,20 @@ createApp({
             return this.productos.slice(startIndex, endIndex);
         },
     },
-    methods: {
-        fetchData(url) {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    this.productos = data;
-                    this.cargando = false;
-                })
-                .then(() => {
-                    this.changePage(1); // Actualizar la paginación después de asignar los datos
-                })
-                .catch(err => {
-                    console.error(err);
-                    this.error = true;
-                });
-        },
+    fetchData(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                this.productos = data;
+                this.cargando = false;
+                this.currentPage = 1; // Actualizar la página actual a 1
+            })
+            .catch(err => {
+                console.error(err);
+                this.error = true;
+            });
+    },
+
 
 
         eliminar(productoId) {
