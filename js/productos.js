@@ -30,13 +30,12 @@ createApp({
         },
     },
     methods: {
-        fetchData(url) {
-            fetch(url)
+        fetchData() {
+            fetch(this.url)
                 .then(response => response.json())
                 .then(data => {
                     this.productos = data;
                     this.cargando = false;
-                    this.currentPage = 1; // Actualizar la página actual a 1
                 })
                 .catch(err => {
                     console.error(err);
@@ -51,7 +50,7 @@ createApp({
             fetch(url, options)
                 .then(res => res.text())
                 .then(() => {
-                    this.fetchData(this.url);
+                    this.fetchData();
                 });
         },
         actualizar(event, producto) {
@@ -89,7 +88,7 @@ createApp({
                             stock: 0,
                             imagen: ''
                         };
-                        this.fetchData(this.url);
+                        this.fetchData();
                     })
                     .catch(err => {
                         console.error(err);
@@ -104,6 +103,6 @@ createApp({
         },
     },
     created() {
-        this.fetchData(this.url);
+        this.fetchData();
     },
 }).mount('#app');
