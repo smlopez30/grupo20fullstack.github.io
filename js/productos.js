@@ -6,12 +6,6 @@ createApp({
             url: 'https://slopez.pythonanywhere.com/productos',
             error: false,
             cargando: true,
-            id: 0,
-            nombre: "",
-            imagen: "",
-            stock: 0,
-            precio: 0,
-            currentPage: 1,
             pageSize: 5,
         };
     },
@@ -42,7 +36,7 @@ createApp({
                 });
         },
         eliminar(producto) {
-            const url = this.url + '/' + producto;
+            const url = this.url + '/' + producto.id;
             var options = {
                 method: 'DELETE',
             };
@@ -52,36 +46,21 @@ createApp({
                     this.fetchData(this.url);
                 });
         },
-        agregar() {
-            if (!this.nombre || this.precio === 0 || this.stock === 0) {
-                alert("Por favor, completa todos los campos obligatorios.");
-                return;
-            }
-
-            let producto = {
-                nombre: this.nombre,
-                precio: this.precio,
-                stock: this.stock,
-                imagen: this.imagen,
-            };
+        actualizar(producto) {
+            const url = this.url + '/' + producto.id;
             var options = {
                 body: JSON.stringify(producto),
-                method: 'POST',
+                method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
             };
-            fetch(this.url, options)
+            fetch(url, options)
                 .then(() => {
-                    alert("El artículo se ha guardado correctamente.");
-                    this.nombre = "";
-                    this.precio = 0;
-                    this.stock = 0;
-                    this.imagen = "";
-                    this.fetchData(this.url);
+                    alert("El artículo se ha actualizado correctamente.");
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al guardar el artículo.");
+                    alert("Error al actualizar el artículo.");
                 });
         },
         changePage(page) {
