@@ -72,7 +72,11 @@ createApp({
                 });
         },
         agregarNuevo() {
-            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
+            if (
+                this.nuevoProducto.nombre.trim() !== '' &&
+                this.nuevoProducto.precio !== 0 &&
+                this.nuevoProducto.stock !== 0
+            ) {
                 var options = {
                     body: JSON.stringify(this.nuevoProducto),
                     method: 'POST',
@@ -85,8 +89,8 @@ createApp({
                         this.fetchData(this.url);
                         this.nuevoProducto = {
                             nombre: '',
-                            precio: '',
-                            stock: '',
+                            precio: 0,
+                            stock: 0,
                             imagen: ''
                         };
                     })
@@ -98,6 +102,7 @@ createApp({
                 alert("Por favor, complete todos los campos obligatorios.");
             }
         },
+
         changePage(page) {
             this.currentPage = page;
         },
