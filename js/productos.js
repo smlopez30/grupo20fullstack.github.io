@@ -88,7 +88,7 @@ createApp({
                             stock: 0,
                             imagen: ''
                         };
-                        this.fetchData();
+                        this.fetchData(); // Volver a cargar los productos después de agregar uno nuevo
                     })
                     .catch(err => {
                         console.error(err);
