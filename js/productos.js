@@ -11,8 +11,8 @@ createApp({
             currentPage: 1,
             nuevoProducto: {
                 nombre: '',
-                precio: 0,
-                stock: 0,
+                precio: '',
+                stock: '',
                 imagen: ''
             },
         };
@@ -85,8 +85,8 @@ createApp({
                         this.fetchData(this.url);
                         this.nuevoProducto = {
                             nombre: '',
-                            precio: 0,
-                            stock: 0,
+                            precio: '',
+                            stock: '',
                             imagen: ''
                         };
                     })
@@ -106,5 +106,3 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
-
-
