@@ -43,7 +43,7 @@
             <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
             <br><br>
             <div v-if="error">
-                <p>Lo sentimos , ........</p>
+                <p>Lo sentimos, ........</p>
             </div>
             <div v-else>
                 <section v-if="cargando">
@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="" v-for="producto in productos">
+                                <tr class="" v-for="(producto, index) in productos" :key="producto.id">
                                     <td scope="row">{{producto.id}}</td>
                                     <td>{{producto.nombre}}</td>
                                     <td>{{producto.precio}}</td>
@@ -74,7 +74,7 @@
                                     </td>
                                     <td>
                                         <a class="btn btn-primary"
-                                            :href="'producto_update.html?id='+ producto.id">Editar</a>
+                                            :href="'producto_update.html?id=' + producto.id">Editar</a>
                                         <button type="button" class="btn btn-danger"
                                             v-on:click="eliminar(producto.id)">Eliminar</button>
                                     </td>
@@ -82,10 +82,33 @@
                             </tbody>
                         </table>
                     </div>
+    
+                    <!-- Paginación -->
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                                <a class="page-link" href="#" aria-label="Previous"
+                                    v-on:click="changePage(currentPage - 1)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item" v-for="page in totalPages" :key="page"
+                                :class="{ active: page === currentPage }">
+                                <a class="page-link" href="#" v-on:click="changePage(page)">{{ page }}</a>
+                            </li>
+                            <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                                <a class="page-link" href="#" aria-label="Next" v-on:click="changePage(currentPage + 1)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+    
                 </section>
             </div>
         </div>
     </main>
+
     <footer>
         <div class="contenedor-footer">
             <div class="content-foo">
