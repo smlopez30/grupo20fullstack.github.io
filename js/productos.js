@@ -53,6 +53,11 @@ createApp({
                 });
         },
         agregar() {
+            if (!this.nombre || this.precio === 0 || this.stock === 0) {
+                alert("Por favor, completa todos los campos obligatorios.");
+                return;
+            }
+
             let producto = {
                 nombre: this.nombre,
                 precio: this.precio,
@@ -67,7 +72,7 @@ createApp({
             };
             fetch(this.url, options)
                 .then(() => {
-                    alert("Registro grabado");
+                    alert("El artículo se ha guardado correctamente.");
                     this.nombre = "";
                     this.precio = 0;
                     this.stock = 0;
@@ -76,7 +81,7 @@ createApp({
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al grabar");
+                    alert("Error al guardar el artículo.");
                 });
         },
         changePage(page) {
