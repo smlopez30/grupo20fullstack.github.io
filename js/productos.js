@@ -1,5 +1,4 @@
 const { createApp } = Vue;
-
 createApp({
     data() {
         return {
@@ -11,8 +10,8 @@ createApp({
             currentPage: 1,
             nuevoProducto: {
                 nombre: '',
-                precio: '',
-                stock: '',
+                precio: 0,
+                stock: 0,
                 imagen: ''
             },
         };
@@ -43,21 +42,22 @@ createApp({
                     this.error = true;
                 });
         },
-        eliminar(id) {
-            const url = this.url + '/' + id;
+        eliminar(productoId) {
+            const url = this.url + '/' + productoId;
             var options = {
                 method: 'DELETE',
             };
             fetch(url, options)
                 .then(res => res.text())
-                .then(res => {
+                .then(() => {
                     this.fetchData(this.url);
                 });
         },
-        actualizar(producto) {
+        actualizar(event, producto) {
+            const campo = event.target.getAttribute('data-campo');
             const url = this.url + '/' + producto.id;
             var options = {
-                body: JSON.stringify(producto),
+                body: JSON.stringify({ [campo]: producto[campo] }),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
@@ -72,11 +72,7 @@ createApp({
                 });
         },
         agregarNuevo() {
-            if (
-                this.nuevoProducto.nombre.trim() !== '' &&
-                this.nuevoProducto.precio !== 0 &&
-                this.nuevoProducto.stock !== 0
-            ) {
+            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 var options = {
                     body: JSON.stringify(this.nuevoProducto),
                     method: 'POST',
@@ -86,13 +82,13 @@ createApp({
                 fetch(this.url, options)
                     .then(() => {
                         alert("El artículo se ha guardado correctamente.");
-                        this.fetchData(this.url);
                         this.nuevoProducto = {
                             nombre: '',
                             precio: 0,
                             stock: 0,
                             imagen: ''
                         };
+                        this.fetchData(this.url);
                     })
                     .catch(err => {
                         console.error(err);
@@ -102,7 +98,6 @@ createApp({
                 alert("Por favor, complete todos los campos obligatorios.");
             }
         },
-
         changePage(page) {
             this.currentPage = page;
         },
