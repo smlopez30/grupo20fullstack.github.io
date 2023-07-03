@@ -83,10 +83,10 @@ createApp({
                         alert("El artículo se ha guardado correctamente.");
                         this.fetchData(this.url);
                         this.nuevoProducto = {
-                            nombre: '',
-                            precio: '',
-                            stock: '',
-                            imagen: ''
+                            nombre: 'Nuevo Producto',
+                            precio: '0',
+                            stock: '0',
+                            imagen: 'url de la imagen'
                         };
                     })
                     .catch(err => {
