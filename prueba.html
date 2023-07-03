@@ -1,50 +1,99 @@
-<main>
-    <div id="app" class="container">
-        <h1>Productos</h1>
-        <br>
-        <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
-        <br><br>
-        <div v-if="error">
-            <p>Lo sentimos , ........</p>
-        </div>
-        <div v-else>
-            <section v-if="cargando">
-                <div class="spinner-border"></div>
-                <p>Cargando .....</p>
-            </section>
-            <section v-else>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Stock</th>
-                                <th scope="col">Imagen</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="" v-for="producto in productos">
-                                <td scope="row">{{producto.id}}</td>
-                                <td>{{producto.nombre}}</td>
-                                <td>{{producto.precio}}</td>
-                                <td>{{producto.stock}}</td>
-                                <td>
-                                    <img width="60" :src="producto.imagen" :alt="producto.nombre">
-                                </td>
-                                <td>
-                                    <a class="btn btn-primary"
-                                        :href="'producto_update.html?id='+ producto.id">Editar</a>
-                                    <button type="button" class="btn btn-danger"
-                                        v-on:click="eliminar(producto.id)">Eliminar</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-    </div>
-</main>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paginación de Artículos</title>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Artículos</h1>
+
+    <div id="articles"></div>
+
+    <div class="pagination"></div>
+
+    <script>
+        var articles = [
+            "Artículo 1",
+            "Artículo 2",
+            "Artículo 3",
+            "Artículo 4",
+            "Artículo 5",
+            "Artículo 6",
+            "Artículo 7",
+            "Artículo 8",
+            "Artículo 9",
+            "Artículo 10",
+            "Artículo 11",
+            "Artículo 12",
+            "Artículo 13",
+            "Artículo 14",
+            "Artículo 15",
+            "Artículo 16",
+            "Artículo 17",
+            "Artículo 18",
+            "Artículo 19",
+            "Artículo 20"
+        ];
+
+        var currentPage = 1;
+        var articlesPerPage = 5;
+
+        function displayArticles(page) {
+            var startIndex = (page - 1) * articlesPerPage;
+            var endIndex = startIndex + articlesPerPage;
+
+            var articlesDiv = document.getElementById("articles");
+            articlesDiv.innerHTML = "";
+
+            for (var i = startIndex; i < endIndex && i < articles.length; i++) {
+                var article = articles[i];
+                var articleElement = document.createElement("p");
+                articleElement.textContent = article;
+                articlesDiv.appendChild(articleElement);
+            }
+        }
+
+        function displayPagination() {
+            var totalPages = Math.ceil(articles.length / articlesPerPage);
+
+            var paginationDiv = document.getElementsByClassName("pagination")[0];
+            paginationDiv.innerHTML = "";
+
+            for (var i = 1; i <= totalPages; i++) {
+                var button = document.createElement("button");
+                button.textContent = i;
+                if (i === currentPage) {
+                    button.classList.add("active");
+                }
+                button.addEventListener("click", function () {
+                    currentPage = parseInt(this.textContent);
+                    displayArticles(currentPage);
+                    displayPagination();
+                });
+                paginationDiv.appendChild(button);
+            }
+        }
+
+        displayArticles(currentPage);
+        displayPagination();
+    </script>
+</body>
+
+</html>
