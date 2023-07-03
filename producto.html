@@ -62,6 +62,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td></td>
+                                <td contenteditable v-model="nuevoProducto.nombre" ref="editableCell"></td>
+                                <td contenteditable v-model.number="nuevoProducto.precio" ref="editableCell"></td>
+                                <td contenteditable v-model.number="nuevoProducto.stock" ref="editableCell"></td>
+                                <td contenteditable v-model="nuevoProducto.imagen" ref="editableCell"></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
+                                </td>
+                            </tr>
                             <tr class="" v-for="producto in paginatedProductos" :key="producto.id">
                                 <td scope="row">{{producto.id}}</td>
                                 <td contenteditable @blur="actualizar(producto)" ref="editableCell">{{producto.nombre}}</td>
@@ -75,16 +85,7 @@
                                         v-on:click="eliminar(producto)">Eliminar</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
-                                </td>
-                                <td contenteditable v-model="nuevoProducto.nombre" ref="editableCell"></td>
-                                <td contenteditable v-model.number="nuevoProducto.precio" ref="editableCell"></td>
-                                <td contenteditable v-model.number="nuevoProducto.stock" ref="editableCell"></td>
-                                <td contenteditable v-model="nuevoProducto.imagen" ref="editableCell"></td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
