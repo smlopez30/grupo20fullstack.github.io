@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+
 createApp({
     data() {
         return {
@@ -42,8 +43,8 @@ createApp({
                     this.error = true;
                 });
         },
-        eliminar(producto) {
-            const url = this.url + '/' + producto.id;
+        eliminar(id) {
+            const url = this.url + '/' + id;
             var options = {
                 method: 'DELETE',
             };
@@ -105,4 +106,5 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
+
 
