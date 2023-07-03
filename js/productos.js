@@ -36,12 +36,14 @@ createApp({
                 .then(data => {
                     this.productos = data;
                     this.cargando = false;
+                    this.changePage(1); // Agregar esta línea para actualizar la paginación
                 })
                 .catch(err => {
                     console.error(err);
                     this.error = true;
                 });
         },
+
         eliminar(productoId) {
             const url = this.url + '/' + productoId;
             var options = {
