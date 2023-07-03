@@ -36,13 +36,16 @@ createApp({
                 .then(data => {
                     this.productos = data;
                     this.cargando = false;
-                    this.changePage(1); // Agregar esta línea para actualizar la paginación
+                })
+                .then(() => {
+                    this.changePage(1); // Actualizar la paginación después de asignar los datos
                 })
                 .catch(err => {
                     console.error(err);
                     this.error = true;
                 });
         },
+
 
         eliminar(productoId) {
             const url = this.url + '/' + productoId;
