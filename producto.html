@@ -43,12 +43,12 @@
         <a class="btn btn-primary" href="producto_nuevo.html">Nuevo</a>
         <br><br>
         <div v-if="error">
-            <p>Lo sentimos , ........</p>
+            <p>Lo sentimos, ha ocurrido un error.</p>
         </div>
         <div v-else>
             <section v-if="cargando">
                 <div class="spinner-border"></div>
-                <p>Cargando .....</p>
+                <p>Cargando...</p>
             </section>
             <section v-else>
                 <div class="table-responsive">
@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="" v-for="producto in productos">
+                            <tr class="" v-for="producto in paginatedProductos">
                                 <td scope="row">{{producto.id}}</td>
                                 <td>{{producto.nombre}}</td>
                                 <td>{{producto.precio}}</td>
@@ -82,6 +82,26 @@
                         </tbody>
                     </table>
                 </div>
+                <nav aria-label="Pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
+                            <a class="page-link" href="#" v-on:click="changePage(1)">&laquo;</a>
+                        </li>
+                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
+                            <a class="page-link" href="#" v-on:click="changePage(currentPage - 1)">&lsaquo;</a>
+                        </li>
+                        <li class="page-item" v-for="page in totalPages"
+                            v-bind:class="{ 'active': currentPage === page }">
+                            <a class="page-link" href="#" v-on:click="changePage(page)">{{ page }}</a>
+                        </li>
+                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === totalPages }">
+                            <a class="page-link" href="#" v-on:click="changePage(currentPage + 1)">&rsaquo;</a>
+                        </li>
+                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === totalPages }">
+                            <a class="page-link" href="#" v-on:click="changePage(totalPages)">&raquo;</a>
+                        </li>
+                    </ul>
+                </nav>
             </section>
         </div>
     </div>
