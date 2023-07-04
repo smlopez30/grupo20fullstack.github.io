@@ -72,25 +72,25 @@ createApp({
                 });
         },
         actualizarImagen(producto) {
-            const url = this.url + '/' + producto.id;
-            const options = {
-                body: JSON.stringify({ imagen: producto.nuevaImagen }),
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                redirect: 'follow',
-            };
+    const url = this.url + '/' + producto.id;
+    const options = {
+        body: JSON.stringify({ imagen: producto.nuevaImagen }),
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        redirect: 'follow',
+    };
 
-            fetch(url, options)
-                .then(() => {
-                    alert("La imagen se ha actualizado correctamente.");
-                    producto.imagen = producto.nuevaImagen; // Actualizar la imagen en el producto
-                    producto.nuevaImagen = ''; // Restablecer el campo de entrada
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Error al actualizar la imagen.");
-                });
-        }
+    fetch(url, options)
+        .then(() => {
+            alert("La imagen se ha actualizado correctamente.");
+            producto.imagen = producto.nuevaImagen; // Actualizar la imagen en el producto
+            producto.nuevaImagen = ''; // Restablecer el campo de entrada
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error al actualizar la imagen.");
+        });
+}
 
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
