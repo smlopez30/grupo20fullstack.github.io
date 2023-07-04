@@ -59,7 +59,6 @@ createApp({
         },
         actualizarProducto() {
             if (this.productoSeleccionado) {
-                console.log(this.productoSeleccionado);
                 const url = this.url + '/' + this.productoSeleccionado.id;
                 const options = {
                     body: JSON.stringify(this.productoSeleccionado),
@@ -82,7 +81,6 @@ createApp({
             }
         },
         actualizarImagen(producto) {
-            console.log(producto); 
             const nuevaImagen = producto.nuevaImagen;
             if (nuevaImagen !== producto.imagen) {
                 // Guardar la nueva imagen en la base de datos
