@@ -53,14 +53,16 @@ createApp({
                     this.fetchData(this.url);
                 });
         },
-        actualizar(producto) {
+        actualizar(event, producto) {
+            const campo = event.target.getAttribute('data-campo');
             const url = this.url + '/' + producto.id;
-            var options = {
-                body: JSON.stringify(producto),
+            const options = {
+                body: JSON.stringify({ [campo]: event.target.innerText }),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
             };
+
             fetch(url, options)
                 .then(() => {
                     alert("El artículo se ha actualizado correctamente.");
@@ -68,6 +70,24 @@ createApp({
                 .catch(err => {
                     console.error(err);
                     alert("Error al actualizar el artículo.");
+                });
+        },
+        actualizarImagen(producto) {
+            const url = this.url + '/' + producto.id;
+            const options = {
+                body: JSON.stringify({ imagen: producto.nuevaImagen }),
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow',
+            };
+
+            fetch(url, options)
+                .then(() => {
+                    alert("La imagen se ha actualizado correctamente.");
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al actualizar la imagen.");
                 });
         },
         agregarNuevo() {
@@ -83,10 +103,10 @@ createApp({
                         alert("El artículo se ha guardado correctamente.");
                         this.fetchData(this.url);
                         this.nuevoProducto = {
-                            nombre: '',
-                            precio: '',
-                            stock: '',
-                            imagen: ''
+                            nombre: 'Nuevo Producto',
+                            precio: 0,
+                            stock: 0,
+                            imagen: 'url de la imagen'
                         };
                     })
                     .catch(err => {
@@ -105,3 +125,7 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
+    </script >
+</body >
+
+</html >
