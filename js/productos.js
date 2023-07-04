@@ -102,10 +102,10 @@ createApp({
                         alert("El artículo se ha guardado correctamente.");
                         this.fetchData(this.url);
                         this.nuevoProducto = {
-                            nombre: 'Nuevo Producto',
-                            precio: 0,
-                            stock: 0,
-                            imagen: 'url de la imagen'
+                            nombre: '',
+                            precio: '',
+                            stock: '',
+                            imagen: ''
                         };
                     })
                     .catch(err => {
@@ -124,3 +124,4 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
+
