@@ -97,7 +97,7 @@ createApp({
                 fetch(url, options)
                     .then(() => {
                         alert("La imagen se ha actualizado correctamente.");
-                        this.fetchData(this.url);
+                        this.fetchData(this.url); // Actualizar tabla
                     })
                     .catch(err => {
                         console.error(err);
@@ -105,6 +105,7 @@ createApp({
                     });
             }
         },
+
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
