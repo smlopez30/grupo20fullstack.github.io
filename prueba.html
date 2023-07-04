@@ -88,14 +88,10 @@
                                     <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
                                 </div>
                             </td>
-                            <td contenteditable @keydown.enter="actualizarProducto($event, producto)" data-campo="nombre">{{
-                                producto.nombre }}</td>
-                            <td contenteditable @keydown.enter="actualizarProducto($event, producto)" data-campo="precio">{{
-                                producto.precio }}</td>
-                            <td contenteditable @keydown.enter="actualizarProducto($event, producto)" data-campo="stock">{{
-                                producto.stock }}</td>
-                
-                            <td>
+                            <td contenteditable @keyup.enter="actualizarProducto($event, producto)" data-campo="nombre">{{ producto.nombre }}</td>
+                            <td contenteditable @keyup.enter="actualizarProducto($event, producto)" data-campo="precio">{{ producto.precio }}</td>
+                            <td contenteditable @keyup.enter="actualizarProducto($event, producto)" data-campo="stock">{{ producto.stock }}</td>
+
                                 <div>
                                     <input type="text" v-model="producto.nuevaImagen" placeholder="Nueva URL imagen"
                                         @keydown.enter="actualizarImagen(producto)" @blur="actualizarImagen(producto)" />
