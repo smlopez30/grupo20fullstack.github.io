@@ -62,7 +62,6 @@ createApp({
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
             };
-
             fetch(url, options)
                 .then(() => {
                     alert("El artículo se ha actualizado correctamente.");
@@ -125,7 +124,3 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
-    </script >
-</body >
-
-</html >
