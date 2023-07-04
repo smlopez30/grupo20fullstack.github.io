@@ -18,6 +18,7 @@ fetchData(url) {
 fetch(url)
 .then(response => response.json())
 .then(data => {
+          this.productos = data;   
 
 console.log(data)
 this.id=data.id
