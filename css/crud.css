@@ -116,7 +116,7 @@ iframe {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 20px;
     text-align: center;
     border: 1px solid #ccc;
@@ -133,6 +133,18 @@ iframe {
     width: 100%;
     margin: 0 auto;
     padding: 20px;
+}
+
+.container td,
+.container th {
+    padding: 8px;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
 }
 
 footer {
