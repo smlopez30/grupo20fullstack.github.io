@@ -94,7 +94,21 @@
                                 data-campo="precio">{{ producto.precio }}</td>
                             <td contenteditable @keydown.enter="actualizarProducto($event, producto)" @blur="actualizarProducto($event, producto)"
                                 data-campo="stock">{{ producto.stock }}</td>
-
+<td>
+    <div>
+        <input type="text" v-model="producto.nombre" @keydown.enter="actualizarProducto(producto)" @blur="actualizarProducto(producto)" />
+    </div>
+</td>
+<td>
+    <div>
+        <input type="text" v-model="producto.precio" @keydown.enter="actualizarProducto(producto)" @blur="actualizarProducto(producto)" />
+    </div>
+</td>
+<td>
+    <div>
+        <input type="text" v-model="producto.stock" @keydown.enter="actualizarProducto(producto)" @blur="actualizarProducto(producto)" />
+    </div>
+</td>
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
