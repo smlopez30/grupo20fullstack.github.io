@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+
 createApp({
     data() {
         return {
@@ -82,12 +83,12 @@ createApp({
         },
 
         actualizarImagen(producto) {
-            const nuevaImagen = producto.imagen;
+            const nuevaImagen = producto.nuevaImagen;
             if (nuevaImagen !== producto.imagen) {
                 // Guardar la nueva imagen en la base de datos
                 const url = this.url + '/' + producto.id;
                 const options = {
-                    body: JSON.stringify({ imagen: imagen }),
+                    body: JSON.stringify({ imagen: nuevaImagen }),
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     redirect: 'follow',
