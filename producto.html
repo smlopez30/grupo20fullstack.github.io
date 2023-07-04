@@ -93,10 +93,7 @@
                         <td contenteditable @keydown.enter="actualizar($event, producto)" data-campo="stock">{{
                             producto.stock }}</td>
                         <td>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60" height="60">
-                                <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
-                            </div>
+                            
                             <div>
                                 <input type="text" v-model="producto.nuevaImagen" placeholder="Nueva URL imagen"
                                     @keydown.enter="actualizarImagen(producto)" @blur="actualizarImagen(producto)" />
