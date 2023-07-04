@@ -36,6 +36,7 @@
             </svg>
         </div>
     </header>
+    <h1>Gestión de productos</h1>
     <main class="d-flex justify-content-center align-items-center">
         <div id="app" class="container">
             <div class="table-responsive">
@@ -47,7 +48,8 @@
                         <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
                             <a class="page-link" href="#" v-on:click="changePage(currentPage - 1)">&lsaquo;</a>
                         </li>
-                        <li class="page-item" v-for="page in totalPages" v-bind:class="{ 'active': currentPage === page }">
+                        <li class="page-item" v-for="page in totalPages"
+                            v-bind:class="{ 'active': currentPage === page }">
                             <a class="page-link" href="#" v-on:click="changePage(page)">{{ page }}</a>
                         </li>
                         <li class="page-item" v-bind:class="{ 'disabled': currentPage === totalPages }">
@@ -70,23 +72,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td contenteditable v-model="nuevoProducto.nombre" ref="editableCell"></td>
-                            <td contenteditable v-model.number="nuevoProducto.precio" ref="editableCell"></td>
-                            <td contenteditable v-model.number="nuevoProducto.stock" ref="editableCell"></td>
-                            <td>
-                                <input type="text" v-model="nuevoProducto.imagen" placeholder="URL de la imagen">
-                            </td>
+                            <td><input type="text" v-model="nuevoProducto.nombre" /></td>
+                            <td><input type="number" v-model.number="nuevoProducto.precio" /></td>
+                            <td><input type="number" v-model.number="nuevoProducto.stock" /></td>
+                            <td><input type="text" v-model="nuevoProducto.imagen" /></td>
                             <td>
                                 <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
                             </td>
                         </tr>
                         <tr v-for="producto in paginatedProductos" :key="producto.id">
                             <td>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center justify-content-center">
                                     <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60"
                                         height="60">
                                     <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
-                                    <span>{{ producto.nombre }}</span>
                                 </div>
                             </td>
                             <td contenteditable @keydown.enter="actualizar($event, producto)" data-campo="precio">{{
@@ -94,10 +93,10 @@
                             <td contenteditable @keydown.enter="actualizar($event, producto)" data-campo="stock">{{
                                 producto.stock }}</td>
                             <td>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60"
-                                        height="60">
-                                    <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
+                                <div>
+                                    <input type="text" v-model="producto.nuevaImagen" placeholder="Nueva URL imagen"
+                                        @keydown.enter="actualizarImagen(producto)"
+                                        @blur="actualizarImagen(producto)" />
                                 </div>
                             </td>
                             <td>
@@ -110,10 +109,6 @@
             </div>
         </div>
     </main>
-
-
-
-
 
     <footer>
         <div class="contenedor-footer">
@@ -141,16 +136,14 @@
         </div>
         <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
     </footer>
-    <script>
-        <!--Link de Bootstrap-->
-        src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity = "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin = "anonymous"</script>
+    <script src="https://unpkg.com/vue@3.2.6/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
         crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../js/prueba.js"></script>
+    <script src="../js/productos.js"></script>
 </body>
 
 </html>
