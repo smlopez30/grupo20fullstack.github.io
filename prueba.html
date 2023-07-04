@@ -41,24 +41,7 @@
         <div id="app" class="container">
             <div class="table-responsive">
                 <nav aria-label="Pagination">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
-                            <a class="page-link" href="#" v-on:click="changePage(1)">&laquo;</a>
-                        </li>
-                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
-                            <a class="page-link" href="#" v-on:click="changePage(currentPage - 1)">&lsaquo;</a>
-                        </li>
-                        <li class="page-item" v-for="page in totalPages"
-                            v-bind:class="{ 'active': currentPage === page }">
-                            <a class="page-link" href="#" v-on:click="changePage(page)">{{ page }}</a>
-                        </li>
-                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === totalPages }">
-                            <a class="page-link" href="#" v-on:click="changePage(currentPage + 1)">&rsaquo;</a>
-                        </li>
-                        <li class="page-item" v-bind:class="{ 'disabled': currentPage === totalPages }">
-                            <a class="page-link" href="#" v-on:click="changePage(totalPages)">&raquo;</a>
-                        </li>
-                    </ul>
+                    <!-- Código de paginación -->
                 </nav>
                 <table class="table table-bordered">
                     <thead>
@@ -80,33 +63,38 @@
                                 <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
                             </td>
                         </tr>
-                        <tr v-for="producto in paginatedProductos" :key="producto.id">
-                            <td>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60" height="60">
-                                    <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
+                        <tr>
+                            <td colspan="5">
+                                <div v-for="producto in paginatedProductos" :key="producto.id">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60"
+                                            height="60">
+                                        <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
+                                    </div>
+                                    <div contenteditable @keydown.enter="actualizarProducto($event, producto)"
+                                        data-campo="nombre">{{ producto.nombre }}</div>
+                                    <div contenteditable @keydown.enter="actualizarProducto($event, producto)"
+                                        data-campo="precio">{{ producto.precio }}</div>
+                                    <div contenteditable @keydown.enter="actualizarProducto($event, producto)"
+                                        data-campo="stock">{{ producto.stock }}</div>
+                                    <div>
+                                        <input type="text" v-model="producto.nuevaImagen" placeholder="Nueva URL imagen"
+                                            @keydown.enter="actualizarImagen(producto)"
+                                            @blur="actualizarImagen(producto)" />
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-danger"
+                                            v-on:click="eliminar(producto.id)">Eliminar</button>
+                                    </div>
                                 </div>
                             </td>
-                            <td contenteditable @keydown.enter="actualizarProducto($event, producto)" data-campo="nombre">{{ producto.nombre }}</td>
-                            <td contenteditable @keydown.enter="actualizarProducto($event, producto)" data-campo="precio">{{ producto.precio }}</td>
-                            <td contenteditable @keydown.enter="actualizarProducto($event, producto)" data-campo="stock">{{ producto.stock }}</td>
-
-                            <td>
-                                <div>
-                                    <input type="text" v-model="producto.nuevaImagen" placeholder="Nueva URL imagen"
-                                        @keydown.enter="actualizarImagen(producto)" @blur="actualizarImagen(producto)" />
-                                </div>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)">Eliminar</button>
-                            </td>
-
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
+
 
     <footer>
         <div class="contenedor-footer">
