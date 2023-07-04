@@ -116,7 +116,7 @@ iframe {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(6, 2fr);
+    grid-template-columns: 6fr;
     gap: 20px;
     text-align: center;
     border: 1px solid #ccc;
