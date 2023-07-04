@@ -83,12 +83,18 @@ createApp({
             fetch(url, options)
                 .then(() => {
                     alert("La imagen se ha actualizado correctamente.");
+                    producto.imagen = producto.nuevaImagen; // Actualizar la imagen en el producto
+
+                    // Obtener nuevamente los datos actualizados y reiniciar el estado de la página
+                    this.fetchData(this.url);
+                    this.currentPage = 1;
                 })
                 .catch(err => {
                     console.error(err);
                     alert("Error al actualizar la imagen.");
                 });
-        },
+        }
+
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 var options = {
