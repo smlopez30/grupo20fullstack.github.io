@@ -59,6 +59,29 @@ document.addEventListener("click", function(event) {
     isOpen = false;
   }
 });
+actualizarImagen(producto) {
+  if (producto.nuevaImagen) {
+    const url = this.url + '/' + producto.id;
+    var options = {
+      body: JSON.stringify({ imagen: producto.nuevaImagen }),
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      redirect: 'follow',
+    };
+    fetch(url, options)
+      .then(() => {
+        alert("La imagen se ha actualizado correctamente.");
+        producto.imagen = producto.nuevaImagen;
+        producto.nuevaImagen = '';
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error al actualizar la imagen.");
+      });
+  } else {
+    alert("Por favor, ingrese una nueva URL de imagen.");
+  }
+}
 
 // Agregar evento de touchend para ocultar el detalle en dispositivos táctiles
 document.addEventListener("touchend", function(event) {
