@@ -36,11 +36,6 @@ createApp({
                 .then(response => response.json())
                 .then(data => {
                     this.productos = data;
-                    this.id = data.id
-                    this.nombre = data.nombre;
-                    this.imagen = data.imagen
-                    this.stock = data.stock
-                    this.precio = data.precio
                     this.cargando = false;
                 })
                 .catch(err => {
