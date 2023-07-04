@@ -80,6 +80,29 @@ createApp({
                     });
             }
         },
+        guardarImagen(event, producto) {
+            const nuevaImagen = event.target.textContent;
+            if (nuevaImagen !== producto.imagen) {
+                // Guardar la nueva imagen en la base de datos
+                const url = this.url + '/' + producto.id;
+                const options = {
+                    body: JSON.stringify({ imagen: nuevaImagen }),
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow',
+                };
+
+                fetch(url, options)
+                    .then(() => {
+                        alert("La imagen se ha actualizado correctamente.");
+                        this.fetchData(this.url);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Error al actualizar la imagen.");
+                    });
+            }
+        },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 var options = {
