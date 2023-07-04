@@ -87,7 +87,7 @@ createApp({
 
             const url = this.url + '/' + producto.id;
             const options = {
-                body: JSON.stringify({ imagen: nuevaImagen }),
+                body: JSON.stringify(producto),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
