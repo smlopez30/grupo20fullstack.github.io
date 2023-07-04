@@ -102,7 +102,7 @@ createApp({
                         alert("Error al actualizar la imagen.");
                     });
             }
-        }, // Se agregó una coma aquí
+        },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 var options = {
