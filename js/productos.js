@@ -1,8 +1,10 @@
 const { createApp } = Vue;
+
 createApp({
     data() {
         return {
             productos: [],
+            productoSeleccionado: null,
             url: 'https://slopez.pythonanywhere.com/productos',
             error: false,
             cargando: true,
@@ -53,48 +55,56 @@ createApp({
                     this.fetchData(this.url);
                 });
         },
-        actualizar(event, producto) {
-            const campo = event.target.getAttribute('data-campo');
-            const url = this.url + '/' + producto.id;
-            const options = {
-                body: JSON.stringify({ [campo]: event.target.innerText }),
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                redirect: 'follow',
-            };
-            fetch(url, options)
-                .then(() => {
-                    alert("El artículo se ha actualizado correctamente.");
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Error al actualizar el artículo.");
-                });
+        modificarProducto(producto) {
+            this.productoSeleccionado = { ...producto };
         },
+        actualizarProducto() {
+            if (this.productoSeleccionado) {
+                const url = this.url + '/' + this.productoSeleccionado.id;
+                const options = {
+                    body: JSON.stringify(this.productoSeleccionado),
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow',
+                };
+
+                fetch(url, options)
+                    .then(() => {
+                        alert("El producto se ha actualizado correctamente.");
+                        this.productoSeleccionado = null;
+                        this.fetchData(this.url);
+                        this.currentPage = 1;
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Error al actualizar el producto.");
+                    });
+            }
+        },
+
         actualizarImagen(producto) {
-            const url = this.url + '/' + producto.id;
-            const options = {
-                body: JSON.stringify({ imagen: producto.nuevaImagen }),
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                redirect: 'follow',
-            };
+            const nuevaImagen = producto.nuevaImagen;
+            if (nuevaImagen !== producto.imagen) {
+                // Guardar la nueva imagen en la base de datos
+                const url = this.url + '/' + producto.id;
+                const options = {
+                    body: JSON.stringify({ imagen: nuevaImagen }),
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow',
+                };
 
-            fetch(url, options)
-                .then(() => {
-                    alert("La imagen se ha actualizado correctamente.");
-                    producto.imagen = producto.nuevaImagen; // Actualizar la imagen en el producto
-
-                    // Obtener nuevamente los datos actualizados y reiniciar el estado de la página
-                    this.fetchData(this.url);
-                    this.currentPage = 1;
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Error al actualizar la imagen.");
-                });
-        }
-
+                fetch(url, options)
+                    .then(() => {
+                        alert("La imagen se ha actualizado correctamente.");
+                        this.fetchData(this.url);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Error al actualizar la imagen.");
+                    });
+            }
+        },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 var options = {
@@ -130,5 +140,3 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
-
-
