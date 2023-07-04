@@ -58,7 +58,7 @@ createApp({
         modificarProducto(producto) {
             this.productoSeleccionado = { ...producto };
         },
-        actualizarProducto() {
+        actualizarProducto(producto) {
             if (this.productoSeleccionado) {
                 const url = this.url + '/' + this.productoSeleccionado.id;
                 const options = {
@@ -83,7 +83,7 @@ createApp({
         },
 
         actualizarImagen(producto) {
-            const nuevaImagen = producto.nuevaImagen;
+            const nuevaImagen = producto.imagen;
             if (nuevaImagen !== producto.imagen) {
                 // Guardar la nueva imagen en la base de datos
                 const url = this.url + '/' + producto.id;
@@ -107,12 +107,13 @@ createApp({
         },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
-                var options = {
+                const options = {
                     body: JSON.stringify(this.nuevoProducto),
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     redirect: 'follow',
                 };
+
                 fetch(this.url, options)
                     .then(() => {
                         alert("El artículo se ha guardado correctamente.");
