@@ -35,6 +35,7 @@ createApp({
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
+                    this.productos = data;
                     this.id = data.id
                     this.nombre = data.nombre;
                     this.imagen = data.imagen
