@@ -80,6 +80,7 @@ createApp({
                     });
             }
         },
+
         actualizarImagen(producto) {
             const nuevaImagen = producto.imagen;
             if (nuevaImagen !== producto.imagen) {
