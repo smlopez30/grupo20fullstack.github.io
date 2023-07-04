@@ -81,7 +81,7 @@ createApp({
             }
         },
         actualizarImagen(producto) {
-            const nuevaImagen = producto.nuevaImagen;
+            const nuevaImagen = producto.imagen;
             if (nuevaImagen !== producto.imagen) {
                 // Guardar la nueva imagen en la base de datos
                 const url = this.url + '/' + producto.id;
