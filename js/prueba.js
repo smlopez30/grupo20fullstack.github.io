@@ -80,8 +80,8 @@ createApp({
                     });
             }
         },
-        guardarImagen(event, producto) {
-            const nuevaImagen = event.target.textContent;
+        actualizarImagen(producto) {
+            const nuevaImagen = producto.nuevaImagen;
             if (nuevaImagen !== producto.imagen) {
                 // Guardar la nueva imagen en la base de datos
                 const url = this.url + '/' + producto.id;
@@ -102,7 +102,7 @@ createApp({
                         alert("Error al actualizar la imagen.");
                     });
             }
-        },
+        }
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 var options = {
