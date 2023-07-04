@@ -58,7 +58,7 @@ createApp({
         modificarProducto(producto) {
             this.productoSeleccionado = { ...producto };
         },
-        actualizarProducto() {
+        actualizarProducto(producto) {
             if (this.productoSeleccionado) {
                 const url = this.url + '/' + this.productoSeleccionado.id;
                 const options = {
@@ -83,36 +83,37 @@ createApp({
         },
 
         actualizarImagen(producto) {
-            const nuevaImagen = producto.nuevaImagen;
-            if (nuevaImagen !== producto.imagen) {
-                // Guardar la nueva imagen en la base de datos
-                const url = this.url + '/' + producto.id;
-                const options = {
-                    body: JSON.stringify({ imagen: nuevaImagen }),
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    redirect: 'follow',
-                };
+            const nuevaImagen = producto.imagen;
 
-                fetch(url, options)
-                    .then(() => {
-                        alert("La imagen se ha actualizado correctamente.");
-                        this.fetchData(this.url);
-                    })
-                    .catch(err => {
-                        console.error(err);
-                        alert("Error al actualizar la imagen.");
-                    });
-            }
+            const url = this.url + '/' + producto.id;
+            const options = {
+                body: JSON.stringify(producto),
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow',
+            };
+
+            fetch(url, options)
+                .then(() => {
+                    alert("La imagen se ha actualizado correctamente.");
+                    this.fetchData(this.url); // Actualizar tabla
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al actualizar la imagen.");
+                });
         },
+
+
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
-                var options = {
+                const options = {
                     body: JSON.stringify(this.nuevoProducto),
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     redirect: 'follow',
                 };
+
                 fetch(this.url, options)
                     .then(() => {
                         alert("El artículo se ha guardado correctamente.");
