@@ -87,7 +87,7 @@ createApp({
                 // Guardar la nueva imagen en la base de datos
                 const url = this.url + '/' + producto.id;
                 const options = {
-                    body: JSON.stringify({ imagen: nuevaImagen }),
+                    body: JSON.stringify({ imagen: imagen }),
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     redirect: 'follow',
