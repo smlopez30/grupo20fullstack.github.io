@@ -4,7 +4,6 @@ createApp({
     data() {
         return {
             productos: [],
-            productoSeleccionado: null,
             url: 'https://slopez.pythonanywhere.com/productos',
             error: false,
             cargando: true,
@@ -14,7 +13,9 @@ createApp({
                 nombre: '',
                 precio: '',
                 stock: '',
-                imagen: ''
+                imagen: '',
+                categoria: '',
+                mostrar: false
             },
         };
     },
@@ -53,10 +54,8 @@ createApp({
                 .then(res => res.text())
                 .then(res => {
                     this.fetchData(this.url);
+                    alert("El producto se ha eliminado correctamente.");
                 });
-        },
-        modificarProducto(producto) {
-            this.productoSeleccionado = { ...producto };
         },
         actualizarProducto(producto) {
             const url = this.url + '/' + producto.id;
@@ -97,6 +96,7 @@ createApp({
                     alert("Error al actualizar la imagen.");
                 });
         },
+
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
@@ -114,7 +114,9 @@ createApp({
                             nombre: '',
                             precio: '',
                             stock: '',
-                            imagen: ''
+                            imagen: '',
+                            categoria: '',
+                            mostrar: false
                         };
                     })
                     .catch(err => {
