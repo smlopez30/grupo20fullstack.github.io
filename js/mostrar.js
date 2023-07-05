@@ -19,7 +19,7 @@ function mostrarProductos(productos) {
     const productGrid = document.querySelector('.product-grid');
     productGrid.innerHTML = '';
 
-    const productosFiltrados = productos.filter(producto => producto.mostrar);
+    const productosFiltrados = productos.filter(producto => producto.mostrar === true);
 
     productosFiltrados.forEach(producto => {
         if (producto.categoria) {
