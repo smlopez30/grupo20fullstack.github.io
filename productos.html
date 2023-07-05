@@ -42,7 +42,7 @@
             <button class="category" @click="setFilter('Papel')">Papeles</button>
         </div>
         <div class="product-grid">
-            <div class="item" v-for="producto in mostrarProductos" :key="producto.id">
+            <div class="item" v-for="producto in filteredProductos" :key="producto.id">
                 <div class="column">
                     <img :src="producto.imagen" :alt="producto.nombre">
                     <h3>{{ producto.nombre }}</h3>
