@@ -22,7 +22,7 @@ function mostrarProductos(productos) {
     const productosFiltrados = productos.filter(producto => producto.mostrar === true);
 
     productosFiltrados.forEach(producto => {
-        if (producto.categoria) {
+        if (producto.categoria) and producto.mostrar === true {
             const item = document.createElement('div');
             item.classList.add('item');
             item.setAttribute('data-filter', producto.categoria);
