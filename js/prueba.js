@@ -77,16 +77,17 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
-                    alert("El producto se ha actualizado correctamente.");
                     this.fetchData(this.url);
+                    alert("El producto se ha actualizado correctamente.");
                 })
                 .catch(err => {
                     console.error(err);
                     alert("Error al actualizar el producto.");
                 });
         },
-
-
+        actualizarNombre(producto) {
+            this.actualizarProducto(producto);
+        },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
@@ -98,8 +99,8 @@ createApp({
 
                 fetch(this.url, options)
                     .then(() => {
-                        alert("El artículo se ha guardado correctamente.");
                         this.fetchData(this.url);
+                        alert("El artículo se ha guardado correctamente.");
                         this.nuevoProducto = {
                             nombre: '',
                             precio: '',
