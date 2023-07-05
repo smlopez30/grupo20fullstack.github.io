@@ -252,7 +252,26 @@ footer{
     margin: 20px 0 0 20px;
     color: #9e9797;
 }
+.item {
+    display: flex;
+    margin-bottom: 20px;
+}
 
+.grid-container {
+    display: flex;
+    align-items: center;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+.column img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+}
 
 /*responsive*/
 @media screen and (max-width:900px) {
