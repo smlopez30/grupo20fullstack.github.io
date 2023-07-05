@@ -19,7 +19,13 @@ function mostrarProductos(productos) {
     const items = document.querySelectorAll('.item');
     items.forEach(item => {
         const categoria = item.getAttribute('data-filter');
-        const categoriaProductos = productos.filter(producto => producto.categoria === categoria && producto.mostrar);
+        const categoriaProductos = productos.filter(producto => {
+            if (categoria === 'all') {
+                return producto.mostrar; // Mostrar todos los productos si el filtro es "Todos"
+            } else {
+                return producto.categoria === categoria && producto.mostrar; // Aplicar el filtro de categoría y mostrar verdaderos
+            }
+        });
         const gridItemContainer = item.querySelector('.grid-container');
         gridItemContainer.innerHTML = '';
         categoriaProductos.forEach(producto => {
@@ -40,5 +46,3 @@ function mostrarProductos(productos) {
         });
     });
 }
-
-
