@@ -132,7 +132,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="checkbox" v-model="producto.mostrar" @click="actualizarProducto(producto)" />
+                                    <input type="checkbox" v-model="producto.mostrar" @change="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
@@ -143,9 +143,10 @@
                             </td>
                             <td>
                                 <div>
-                                    <button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)">Eliminar</button>
+                                    <button type="button" class="btn btn-danger" @click="eliminar(producto.id)">Eliminar</button>
                                 </div>
                             </td>
+
 
                         </tr>
                     </tbody>
