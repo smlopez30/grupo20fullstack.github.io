@@ -43,7 +43,6 @@
         </div>
         <div class="product-grid">
             <div class="item" v-for="producto in filteredProductos" :key="producto.id">
-                <div id="app">
                     <div v-if="mostrarProductos">
                         <div class="column">
                             <img :src="producto.imagen" :alt="producto.nombre">
@@ -51,7 +50,6 @@
                             <p><span class="currency">$</span>{{ producto.precio.toFixed(2) }}</p>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
 
