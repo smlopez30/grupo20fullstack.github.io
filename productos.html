@@ -55,279 +55,42 @@
     <div class="container">
         <div class="categories">
             
-            <button class="category" data-filter="categoria-1">Tabaco para armar</button>
-            <button class="category" data-filter="categoria-2">Filtros</button>
-            <button class="category" data-filter="categoria-3">Papeles</button>
+            <button class="category" data-filter="Tabaco">Tabaco para armar</button>
+            <button class="category" data-filter="Filtro">Filtros</button>
+            <button class="category" data-filter="Papel">Papeles</button>
         </div>
 
-        <div class="item categoria-1 hidden">
+        <div class="item Tabaco hidden">
             <div class="grid-container">
-                <div class="grid-item">
-                    <img src="imagenes/fEco.png" alt="Flandria Eco" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
+                <div v-for="producto in productos" v-if="producto.categoria === 'Tabaco' && producto.mostrar" class="grid-item">
+                    <img :src="producto.imagen" alt="Producto">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>{{ producto.precio }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item Filtro hidden">
+            <div class="grid-container">
+                <div v-for="producto in productos" v-if="producto.categoria === 'Filtro' && producto.mostrar" class="grid-item">
+                    <img :src="producto.imagen" alt="Producto">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>{{ producto.precio }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="item Papel hidden">
+            <div class="grid-container">
+                <div v-for="producto in productos" v-if="producto.categoria === 'Papel' && producto.mostrar" class="grid-item">
+                    <img :src="producto.imagen" alt="Producto">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>{{ producto.precio }}</p>
+                </div>
+            </div>
+        </div>
 
-                    <div class="popup">
-                        <img src="imagenes/fEco.png" alt="Flandria Eco">
-                        <h2>Flandria Eco</h2>
-                        <p>TABACO FLANDRIA ECO NATURAL SIN ADITIVOS PARA ARMAR CIGARRILLOS. LA PRESENTACIÓN ECO SE
-                            CARACTERIZA POR SER ECOLÓGICA YA QUE NO SE UTILIZA NINGÚN TIPO DE ADITIVO NI QUÍMICO DURANTE
-                            EL PROCESO DE SU ELABORACIÓN. TIENE UN SABOR SUAVE PERO LA INTENSIDAD ES UN POCO MÁS ALTA
-                            QUE LA DE LOS TABACOS SUAVES, POR ESO ES MUY ELEGIDA POR LOS FUMADORES HABITUALES DE ESTA
-                            MARCA.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fGold.jpg" alt="Flandria Gold" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fGold.jpg" alt="Flandria Gold">
-                        <h2>Flandria Gold</h2>
-                        <p>TABACO FLANDRIA GOLD VIRGINIA ES UNA MEZCLA DE TABACO RUBIO DE LA MEJOR CALIDAD PREMIUM.
-                            ESTA PRESENTACION DE FLANDRIA ES UN TABACO MUY SUAVE CON UN AROMA Y SABOR EQUILIBRADOS.
-                            ESTA COMPUESTO POR UNA MEZCLA BASADA EN TABACO BURLEY CURADO CON AIRE Y PREDOMINANTEMENTE
-                            TABACO VIRGINIA CURADO CON HUMO, CON UN TOQUE DE TABACO ORIENTAL CURADO AL SOL.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fNegro.png" alt="Flandria Negro" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fNegro.png" alt="Flandria Negro">
-                        <h2>Flandria Negro</h2>
-                        <p>TABACO FLANDRIA NEGRO PARA ARMAR CIGARRILLOS DE SABOR INTENSO.
-                            EL TABACO NEGRO SE RECONOCE FÁCILMENTE YA QUE PRESENTA TONALIDADES MÁS OSCURAS QUE EL TABACO
-                            NATURAL, QUE VAN DESDE EL MARRÓN OSCURO HASTA EL NEGRO;
-                            ESTO SE LOGRA GRACIAS A QUE ES SECADO AL AIRE LIBRE Y ES SOMETIDO A UN PROCESO DE
-                            FERMENTACIÓN PARA REALZAR SU SABOR.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fOriginal.png" alt="Flandria Original" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fOriginal.png" alt="Flandria Original">
-                        <h2>Flandria Original</h2>
-                        <p>TABACO FLANDRIA ORIGINAL PARA ARMAR CIGARRILLOS TRADICIONALES.
-                            LA VARIEDAD ORIGINAL SE CARACTERIZA POR UNA INTENSIDAD DE SABOR Y AROMA INTERMEDIA, SIENDO
-                            IDEAL TANTO PARA FUMADORES FRECUENTES COMO CASUALES.
-                            EL PROCESO DE PRODUCCIÓN DE ESTE TABACO ES REALIZADO BAJO ESTRICTAS NORMAS DE CALIDAD, SIN
-                            UTILIZAR ADITIVOS.
-                            ESTA PRESENTACIÓN DE TABACO FLANDRIA ES UN BLEND EQUILIBRADO ENTRE TABACOS VIRGINIA Y
-                            KENTUCKY.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fSauvage.png" alt="Flandria Sauvage" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fSauvage.png" alt="Flandria Sauvage">
-                        <h2>Flandria Sauvage</h2>
-                        <p>TABACO FLANDRIA SAUVAGE CON UN SABOR EQUILIBRADO, IDEAL PARA ARMAR CIGARRILLOS DE UNA
-                            INTENSIDAD REGULAR.
-                            ÉSTA PRESENTACIÓN DE TABACOS FLANDRIA SE CARACTERIZA POR SER 100% NATURAL Y NO TENER NINGÚN
-                            TIPO DE ADITIVO.
-                            UN TABACO SUAVE, CON MUCHO CUERPO Y UN SABOR ORIGINAL, ES UNO DE LOS PREFERIDOS PARA LOS
-                            FUMADORES QUE GUSTAN DE ARMARSE SUS PROPIOS CIGARRILLOS CON UNA COMBUSTIÓN LENTA Y PAREJA.
-                        </p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fSilver.png" alt="Flandria Silver" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fSilver.png" alt="Flandria Silver">
-                        <h2>Flandria Silver</h2>
-                        <p>FLANDRIA SILVER TABACO PARA ARMAR CIGARRILLOS MÁS INTENSOS.
-                            LOS TABACOS DE FLANDRIA NO TIENEN ADITIVOS Y SON 100% NATURALES.
-                            LA PRESENTACIÓN FLANDRIA SILVER TIENE UN SABOR UN POCO MÁS INTENSO Y ES IDEAL PARA AQUELLOS
-                            QUE PREFIEREN CIGARRILLOS CON MÁS CUERPO.
-                            TIENE UNA COMBUSTIÓN INTERMEDIA Y LA HUMEDAD JUSTA PARA ARMAR LOS MEJORES CIGARROS.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fVirginia.png" alt="Flandria Virginia" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fVirginia.png" alt="Flandria Virginia">
-                        <h2>Flandria Virginia</h2>
-                        <p>FLANDRIA VIRGINIA TABACO PARA ARMAR CIGARRILLOS CON UNA INTENSIDAD INTERMEDIA.
-                            EL TABACO FLANDRIA ES ORIUNDO DE BÉLGICA Y ES UNO DE LOS MÁS ELEGIDOS POR LOS FUMADORES YA
-                            QUE REPRESENTA UNA DE LAS MARCAS DE MAYOR CALIDAD Y CON PRECIO MÁS ACCESIBLE.
-                            LA VARIEDAD VIRGINIA EN ESTE CASO ES UN BLEND DE TABACOS CURADOS AL SOL LO QUE HACEN QUE
-                            TANTO SU SABOR EN BOCA COMO EL HUMO SEA UN POCO MÁS SUAVES QUE LOS MÁS TRADICIONALES.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/fYellow.png" alt="Flandria Yellow" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/fYellow.png" alt="Flandria Yellow">
-                        <h2>Flandria Yellow</h2>
-                        <p>TABACO FLANDRIA YELLOW PARA ARMAR CIGARRILLOS SABORIZADOS.
-                            SU VARIEDAD VAINILLA CUENTA CON UNA INTENSIDAD INTERMEDIA DEJANDO LEVES NOTAS DE VAINILLA EN
-                            BOCA.
-                            ADEMÁS, TIENE UN AROMA DULCE MUY ATRACTIVO Y EL HUMO ES MUY LIVIANO, LO QUE HACE QUE SEA UN
-                            TABACO IDEAL PARA AQUELLOS FUMADORES QUE PREFIEREN TABACOS MÁS SUAVES.</p>
-                    </div>
-                </div>
-                <!-- Agregar más elementos de cuadrícula de imágenes aquí -->
-            </div>
-        </div>
-        <div class="item categoria-2 hidden">
-            <div class="grid-container">
-                <div class="grid-item">
-                    <img src="imagenes/extraSlim.png" alt="Extra Slim" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/extraSlim.png" alt="Extra Slim">
-                        <h2>Extra Slim</h2>
-                        <p>Filtros Libella extra Slim para armar cigarrillos extra finos.
-                            Esta presentación de filtros Libella tiene un tamaño de 5.3mm x 15mm y son los clásicos
-                            filtros de acetato de celulosa, que filtran a la perfección el humo del tabaco.
-                            Además, poseen una banda de goma natural que los hace mucho mas sencillo de ser enrollados
-                            en el cigarrillo</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/regular.png" alt="Regular" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/regular.png" alt="Regular">
-                        <h2>Regular</h2>
-                        <p>Filtros Libella regulares para armar cigarrillos de tamaño regular.
-                            Esta presentación de filtros Libella tiene un tamaño de 8mm x 15mm y son los clásicos
-                            filtros de acetato de celulosa, que filtran a la perfección el humo del tabaco.
-                            Además, poseen una banda de goma natural que los hace mucho mas sencillo de ser enrollados
-                            en el cigarrillo.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/slim.png" alt="Slim" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/slim.png" alt="Slim">
-                        <h2>Slim</h2>
-                        <p>Filtros Libella Slim para armar cigarrillos finos.
-                            Esta presentación de filtros Libella tiene un tamaño de 6mm x 15mm y son los clásicos
-                            filtros de acetato de celulosa, que filtran a la perfección el humo del tabaco.
-                            Además, poseen una banda de goma natural que los hace mucho mas sencillo de ser enrollados
-                            en el cigarrillo</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/slimLong.png" alt="Slim Long" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/slimLong.png" alt="Slim Long">
-                        <h2>Slim Long</h2>
-                        <p>Filtros Libella Slim Long para armar cigarrillos muy recomendados para utilizar en papeles
-                            King Size.
-                            Esta presentación de filtros Libella tiene un tamaño de 6 x 22 mm y son los clásicos filtros
-                            de acetato de celulosa, que filtran a la perfección el humo del tabaco.
-                            Además, poseen una banda de goma natural que los hace mucho mas sencillo de ser enrollados
-                            en el cigarrillo.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/slimMint.png" alt="Salim Mint" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/slimMint.png" alt="Slim Mint">
-                        <h2>Slim Mint</h2>
-                        <p>Filtros Libella Slim mentolados para armar cigarrillos mas finos.
-                            Esta presentación de filtros Libella vienen mentolados, lo que permite que tu tabaco tenga
-                            un sabor refrescante y son los clásicos filtros de acetato de celulosa,
-                            que filtran a la perfección el humo del tabaco.
-                        </p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/havana.png" alt="Havana" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/havana.png" alt="Havana">
-                        <h2>Havana</h2>
-                        <p>ltros Libella slim orgánicos para armar cigarrillos más finos. Esta presentación de filtros
-                            Libella tiene un tamaño de 6mm x 15mm y son los clásicos filtros de acetato de celulosa,
-                            que filtran a la perfección el humo del tabaco.
-                            Son biodegradables y no fueron sometidos a procesos de blanqueo, por eso tienen un color
-                            natural.</p>
-                    </div>
-                </div>
-                <!-- Agregar más elementos de cuadrícula de imágenes aquí -->
-            </div>
-        </div>
-        <div class="item categoria-3 hidden">
-            <div class="grid-container">
-                <div class="grid-item">
-                    <img src="imagenes/extraThin80.png" alt="Extra Thin 80mm" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/extraThin80.png" alt="Extra Thin 80mm">
-                        <h2>Extra Thin 80mm</h2>
-                        <p>Papel Libella extra fino para armar cigarrillos.
-                            Esta variedad de papeles Libella es extra fina, tiene baja porosidad y eso permite que tenga
-                            una combustión muy lenta y pareja.
-                            Cuenta con una banda de goma natural para poder cerrar el cigarrillo prolijamente</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/havana1.png" alt="Havana 80mm" class="product-img" ontouchstart="showPopup(this)"
-                        onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/havana1.png" alt="Havana 80mm">
-                        <h2>Havana 80mm</h2>
-                        <p>Papel Libella havana hecho con fibras de madera para armar cigarrillos.
-                            Esta variedad de papeles Libella es fina y hecha con 1005 de fibras de madera y además es un
-                            papel no blanqueado.
-                            Por eso tiene un color natural.
-                            Tiene un combustión lenta y cuenta con una banda de goma para cerrar el cigarrillo y que
-                            quede prolijo.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/extraThin70.png" alt="Extra Thin 70mm" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/extraThin70.png" alt="Extra Thin 70mm">
-                        <h2>Extra Thin 70mm</h2>
-                        <p>Papel Libella extra fino para armar cigarrillos.
-                            Esta variedad de papeles Libella es extra fina, tiene baja porosidad y eso permite que tenga
-                            una combustión muy lenta y pareja.
-                            Cuenta con una banda de goma natural para poder cerrar el cigarrillo prolijamente</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/vintageCut.png" alt="Vintage Cut 70mm" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/vintageCut.png" alt="Vintage Cut 70mm">
-                        <h2>Vintage Cut 70mm</h2>
-                        <p>Papel Libella vintage con puntas cortadas para armar cigarrillos.
-                            Esta variedad de papeles Libella es un poco más corta que las tradicionales y es un papel
-                            fino que tiene sus puntas cortadas;
-                            esto es para que sea mucho más sencillo enrollar el cigarrillo.
-                            Tiene un combustión de lenta a media y cuenta con una banda de goma natural para poder
-                            cerrar el cigarrillo prolijamente.</p>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <img src="imagenes/delicate.png" alt="Delicate 70mm" class="product-img"
-                        ontouchstart="showPopup(this)" onmouseover="showPopup(this)" onmouseout="hidePopup(this)">
-                    <div class="popup">
-                        <img src="imagenes/delicate.png" alt="Delicate 70mm">
-                        <h2>Delicate 70mm</h2>
-                        <p>Papel Libella Delicate para armar cigarrillos.
-                            Esta variedad de papeles Libella es ultra fino con una combustión lenta a y cuenta con una
-                            banda de goma natural para poder cerrar el cigarrillo prolijamente.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Agregar más elementos de cuadrícula de imágenes aquí -->
-                <!-- </div> -->
-            </div>
-        </div>
     </div>
 </body>
     <script>
