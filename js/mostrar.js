@@ -16,36 +16,33 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 // Función para mostrar los productos en el HTML
 function mostrarProductos(productos) {
-    const items = document.querySelectorAll('.item');
-    items.forEach(item => {
-        const categoria = item.getAttribute('data-filter');
-        const categoriaProductos = productos.filter(producto => {
-            return producto.mostrar && (categoria === 'all' || producto.categoria === categoria) && producto.categoria && producto.mostrar;
-        });
+    const productGrid = document.querySelector('.product-grid');
+    productGrid.innerHTML = '';
 
-        const gridItemContainer = item.querySelector('.grid-container');
-        gridItemContainer.innerHTML = '';
+    productos.forEach(producto => {
+        if (producto.mostrar && producto.categoria) {
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.setAttribute('data-filter', producto.categoria);
 
-        categoriaProductos.forEach(producto => {
-            const gridItem = document.createElement('div');
-            gridItem.classList.add('grid-item');
+            const column = document.createElement('div');
+            column.classList.add('column');
 
             const img = document.createElement('img');
             img.src = producto.imagen;
-            img.alt = 'Producto';
+            img.alt = producto.nombre;
 
             const nombre = document.createElement('h3');
             nombre.textContent = producto.nombre;
 
             const precio = document.createElement('p');
-            precio.textContent = `$${producto.precio.toFixed(2)}`;
+            precio.innerHTML = `<span class="currency">$</span>${producto.precio.toFixed(2)}`;
 
-            gridItem.appendChild(img);
-            gridItem.appendChild(nombre);
-            gridItem.appendChild(precio);
-            gridItemContainer.appendChild(gridItem);
-        });
+            column.appendChild(img);
+            column.appendChild(nombre);
+            column.appendChild(precio);
+            item.appendChild(column);
+            productGrid.appendChild(item);
+        }
     });
 }
-
-
