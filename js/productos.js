@@ -59,32 +59,6 @@ createApp({
             this.productoSeleccionado = { ...producto };
         },
         actualizarProducto(producto) {
-            if (this.productoSeleccionado) {
-                const url = this.url + '/' + this.productoSeleccionado.id;
-                const options = {
-                    body: JSON.stringify(this.productoSeleccionado),
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    redirect: 'follow',
-                };
-
-                fetch(url, options)
-                    .then(() => {
-                        alert("El producto se ha actualizado correctamente.");
-                        this.productoSeleccionado = null;
-                        this.fetchData(this.url);
-                        this.currentPage = 1;
-                    })
-                    .catch(err => {
-                        console.error(err);
-                        alert("Error al actualizar el producto.");
-                    });
-            }
-        },
-
-        actualizarImagen(producto) {
-            const nuevaImagen = producto.imagen;
-
             const url = this.url + '/' + producto.id;
             const options = {
                 body: JSON.stringify(producto),
@@ -95,16 +69,34 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
+                    alert("El producto se ha actualizado correctamente.");
+                    this.fetchData(this.url);
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al actualizar el producto.");
+                });
+        },
+        actualizarImagen(producto) {
+            const url = this.url + '/' + producto.id;
+            const data = { imagen: producto.imagen }; // Crear un nuevo objeto solo con la URL de la imagen
+            const options = {
+                body: JSON.stringify(data),
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow',
+            };
+
+            fetch(url, options)
+                .then(() => {
                     alert("La imagen se ha actualizado correctamente.");
-                    this.fetchData(this.url); // Actualizar tabla
+                    this.fetchData(this.url);
                 })
                 .catch(err => {
                     console.error(err);
                     alert("Error al actualizar la imagen.");
                 });
         },
-
-
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
