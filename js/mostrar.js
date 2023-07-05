@@ -20,24 +20,25 @@ function mostrarProductos(productos) {
     items.forEach(item => {
         const categoria = item.getAttribute('data-filter');
         const categoriaProductos = productos.filter(producto => {
-            if (categoria === 'all') {
-                return producto.mostrar; // Mostrar todos los productos si el filtro es "Todos"
-            } else {
-                return producto.categoria === categoria && producto.mostrar; // Aplicar el filtro de categoría y mostrar verdaderos
-            }
+            return producto.mostrar && (categoria === 'all' || producto.categoria === categoria);
         });
+
         const gridItemContainer = item.querySelector('.grid-container');
         gridItemContainer.innerHTML = '';
+
         categoriaProductos.forEach(producto => {
             const gridItem = document.createElement('div');
             gridItem.classList.add('grid-item');
+
             const img = document.createElement('img');
             img.src = producto.imagen;
             img.alt = 'Producto';
+
             const nombre = document.createElement('h3');
             nombre.textContent = producto.nombre;
+
             const precio = document.createElement('p');
-            precio.textContent = `$${producto.precio.toFixed(2)}`; // Agregar el símbolo $ y dos decimales
+            precio.textContent = `$${producto.precio.toFixed(2)}`;
 
             gridItem.appendChild(img);
             gridItem.appendChild(nombre);
@@ -46,3 +47,4 @@ function mostrarProductos(productos) {
         });
     });
 }
+
