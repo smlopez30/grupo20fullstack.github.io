@@ -97,32 +97,24 @@
                         <tr v-for="producto in paginatedProductos" :key="producto.id">
                             <td>
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60"
-                                        height="60">
+                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60" height="60">
                                     <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
                                 </div>
                             </td>
-
                             <td>
                                 <div>
-                                    <input type="text" v-model="producto.nombre"
-                                        @keydown.enter="actualizarProducto(producto)"
+                                    <input type="text" v-model="producto.nombre" @keydown.enter="actualizarProducto(producto)"
                                         @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" v-model="producto.nombre" @blur="actualizarProducto(producto)" />
+                                    <input type="text" v-model.number="producto.precio" @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" v-model="producto.precio" @blur="actualizarProducto(producto)" />
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="text" v-model="producto.stock" @blur="actualizarProducto(producto)" />
+                                    <input type="text" v-model.number="producto.stock" @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
@@ -136,25 +128,20 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="checkbox" v-model="producto.mostrar"
-                                        @change="actualizarProducto(producto)" />
+                                    <input type="checkbox" v-model="producto.mostrar" @change="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
-                                        @blur="actualizarProducto(producto)" />
+                                        @blur="actualizarImagen(producto)" />
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <button type="button" class="btn btn-danger"
-                                        @click="eliminar(producto.id)">Eliminar</button>
+                                    <button type="button" class="btn btn-danger" @click="eliminar(producto.id)">Eliminar</button>
                                 </div>
                             </td>
-
-
-
                         </tr>
                     </tbody>
                 </table>
