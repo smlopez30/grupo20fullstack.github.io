@@ -20,7 +20,7 @@ function mostrarProductos(productos) {
     items.forEach(item => {
         const categoria = item.getAttribute('data-filter');
         const categoriaProductos = productos.filter(producto => {
-            return producto.mostrar && (categoria === 'all' || producto.categoria === categoria);
+            return producto.mostrar && (categoria === 'all' || producto.categoria === categoria) && producto.categoria && producto.mostrar;
         });
 
         const gridItemContainer = item.querySelector('.grid-container');
@@ -47,4 +47,5 @@ function mostrarProductos(productos) {
         });
     });
 }
+
 
