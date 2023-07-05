@@ -48,7 +48,8 @@
                         <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
                             <a class="page-link" href="#" v-on:click="changePage(currentPage - 1)">&lsaquo;</a>
                         </li>
-                        <li class="page-item" v-for="page in totalPages" v-bind:class="{ 'active': currentPage === page }">
+                        <li class="page-item" v-for="page in totalPages"
+                            v-bind:class="{ 'active': currentPage === page }">
                             <a class="page-link" href="#" v-on:click="changePage(page)">{{ page }}</a>
                         </li>
                         <li class="page-item" v-bind:class="{ 'disabled': currentPage === totalPages }">
@@ -66,16 +67,28 @@
                             <th scope="col" style="width: 20%">Producto</th>
                             <th scope="col" style="width: 15%">Precio</th>
                             <th scope="col" style="width: 15%">Stock</th>
+                            <th scope="col" style="width: 15%">Categoría</th>
+                            <th scope="col" style="width: 15%">Mostrar</th>
                             <th scope="col" style="width: 20%">Nueva Imagen</th>
                             <th scope="col" style="width: 20%">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img width="60" :src="nuevoProducto.imagen"></td>
+                            <td></td>
                             <td><input type="text" v-model="nuevoProducto.nombre" /></td>
                             <td><input type="number" v-model.number="nuevoProducto.precio" /></td>
                             <td><input type="number" v-model.number="nuevoProducto.stock" /></td>
+                            <td>
+                                <select v-model="nuevoProducto.categoria">
+                                    <option value="Tabaco">Tabaco</option>
+                                    <option value="Filtro">Filtro</option>
+                                    <option value="Papel">Papel</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="checkbox" v-model="nuevoProducto.mostrar" />
+                            </td>
                             <td><input type="text" v-model="nuevoProducto.imagen" /></td>
                             <td>
                                 <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
@@ -84,26 +97,44 @@
                         <tr v-for="producto in paginatedProductos" :key="producto.id">
                             <td>
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60" height="60">
+                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60"
+                                        height="60">
                                     <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
                                 </div>
                             </td>
-                            
-<td>
-    <div>
-        <input type="text" v-model="producto.nombre" @keydown.enter="actualizarProducto(producto)" @blur="actualizarProducto(producto)" />
-    </div>
-</td>
-<td>
-    <div>
-        <input type="text" v-model="producto.precio" @keydown.enter="actualizarProducto(producto)" @blur="actualizarProducto(producto)" />
-    </div>
-</td>
-<td>
-    <div>
-        <input type="text" v-model="producto.stock" @keydown.enter="actualizarProducto(producto)" @blur="actualizarProducto(producto)" />
-    </div>
-</td>
+
+                            <td>
+                                <div>
+                                    <input type="text" v-model="producto.nombre" @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model="producto.precio" @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model="producto.stock" @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <select v-model="producto.categoria">
+                                        <option value="Tabaco">Tabaco</option>
+                                        <option value="Filtro">Filtro</option>
+                                        <option value="Papel">Papel</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="checkbox" v-model="producto.mostrar" />
+                                </div>
+                            </td>
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
