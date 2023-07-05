@@ -47,7 +47,7 @@
                 <div class="column">
                     <img :src="producto.imagen" :alt="producto.nombre">
                     <h3>{{ producto.nombre }}</h3>
-                    <p>${{ producto.precio }}</p>
+                    <p><span class="currency">$</span>{{ producto.precio }}</p>
                 </div>
             </div>
         </div>
