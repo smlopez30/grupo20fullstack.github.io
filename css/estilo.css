@@ -252,10 +252,21 @@ footer{
     margin: 20px 0 0 20px;
     color: #9e9797;
 }
-.item {
-    display: flex;
-    margin-bottom: 20px;
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Crea 3 columnas de ancho flexible */
+    gap: 20px;
+    /* Espacio entre los elementos */
 }
+
+.item {
+    width: 100%;
+    /* Opcional: Ajusta el ancho de cada item */
+}
+
+
 
 .grid-container {
     display: flex;
