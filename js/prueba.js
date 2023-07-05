@@ -33,6 +33,14 @@ createApp({
             return this.productos.slice(startIndex, endIndex);
         },
     },
+    nuevoProducto: {
+        nombre: '',
+        precio: '',
+        stock: '',
+        categoria: '',
+        mostrar: false
+    },
+
     methods: {
         fetchData(url) {
             fetch(url)
@@ -138,14 +146,21 @@ createApp({
         },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
-                const options = {
-                    body: JSON.stringify(this.nuevoProducto),
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    redirect: 'follow',
+                const data = {
+                    nombre: this.nuevoProducto.nombre,
+                    precio: this.nuevoProducto.precio,
+                    stock: this.nuevoProducto.stock,
+                    imagen: this.nuevoProducto.imagen,
+                    categoria: this.nuevoProducto.categoria,
+                    mostrar: this.nuevoProducto.mostrar
                 };
 
-                fetch(this.url, options)
+                fetch(this.url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: { 'Content-Type': 'application/json' },
+                    redirect: 'follow',
+                })
                     .then(() => {
                         this.fetchData(this.url);
                         alert("El artículo se ha guardado correctamente.");
@@ -166,6 +181,7 @@ createApp({
                 alert("Por favor, complete todos los campos obligatorios.");
             }
         },
+
         changePage(page) {
             this.currentPage = page;
         },
