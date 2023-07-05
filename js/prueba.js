@@ -78,8 +78,9 @@ createApp({
         },
         actualizarImagen(producto) {
             const url = this.url + '/' + producto.id;
+            const data = { imagen: producto.imagen }; // Crear un nuevo objeto solo con la URL de la imagen
             const options = {
-                body: JSON.stringify(producto),
+                body: JSON.stringify(data),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
