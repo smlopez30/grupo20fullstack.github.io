@@ -60,11 +60,12 @@ createApp({
         actualizarProducto(producto) {
             const url = this.url + '/' + producto.id;
             const data = {
+                nombre: producto.nombre,
+                precio: producto.precio,
+                stock: producto.stock,
                 imagen: producto.imagen,
-                // Agrega otros campos de producto que deseas actualizar
-                campo1: producto.campo1,
-                campo2: producto.campo2,
-                // ...
+                categoria: producto.categoria,
+                mostrar: producto.mostrar
             };
 
             const options = {
