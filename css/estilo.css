@@ -252,7 +252,10 @@ footer{
     margin: 20px 0 0 20px;
     color: #9e9797;
 }
-
+.currency {
+    font-weight: bold;
+    /* Opcional: ajusta el estilo según tus preferencias */
+}
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
