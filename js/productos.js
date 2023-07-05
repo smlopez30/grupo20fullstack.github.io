@@ -46,7 +46,8 @@ createApp({
                 });
         },
         eliminar(id) {
-            if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+            const confirmacion = confirm("¿Estás seguro de que deseas eliminar este producto?");
+            if (confirmacion) {
                 const url = this.url + '/' + id;
                 var options = {
                     method: 'DELETE',
@@ -59,6 +60,7 @@ createApp({
                     });
             }
         },
+
 
         actualizarProducto(producto) {
             const url = this.url + '/' + producto.id;
