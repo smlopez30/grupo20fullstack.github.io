@@ -53,11 +53,16 @@
         </div>
         <div v-for="producto in filteredProductos" :key="producto.id" class="item">
             <div class="grid-container">
-                <img :src="producto.imagen" :alt="producto.nombre">
-                <h3>{{ producto.nombre }}</h3>
-                <p>{{ producto.precio }}</p>
+                <div class="column">
+                    <img :src="producto.imagen" :alt="producto.nombre">
+                </div>
+                <div class="column">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>{{ producto.precio }}</p>
+                </div>
             </div>
         </div>
+
         
         
     </div>
