@@ -44,15 +44,14 @@
         </div>
         <div class="product-grid">
             <div class="item" v-for="producto in filteredProductos" :key="producto.id">
-                <div class="grid-container">
-                    <div class="column">
-                        <img :src="producto.imagen" :alt="producto.nombre">
-                        <h3>{{ producto.nombre }}</h3>
-                        <p>${{ producto.precio }}</p>
-                    </div>
+                <div class="column">
+                    <img :src="producto.imagen" :alt="producto.nombre">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>${{ producto.precio }}</p>
                 </div>
             </div>
-        </div>      
+        </div>
+
     </div>
 
     <footer>
