@@ -16,6 +16,7 @@ createApp({
                 stock: '',
                 imagen: ''
             },
+            filtroCategoria: 'all', // Agregar la propiedad para almacenar la categoría seleccionada
         };
     },
     computed: {
@@ -28,7 +29,10 @@ createApp({
         paginatedProductos() {
             const startIndex = (this.currentPage - 1) * this.pageSize;
             const endIndex = startIndex + this.pageSize;
-            return this.productos.slice(startIndex, endIndex);
+            const productosFiltrados = this.filtroCategoria === 'all'
+                ? this.productos
+                : this.productos.filter(producto => producto.categoria === this.filtroCategoria && producto.mostrar);
+            return productosFiltrados.slice(startIndex, endIndex);
         },
     },
     methods: {
@@ -52,7 +56,12 @@ createApp({
             fetch(url, options)
                 .then(res => res.text())
                 .then(res => {
+                    alert("El producto se ha eliminado correctamente.");
                     this.fetchData(this.url);
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al eliminar el producto.");
                 });
         },
         modificarProducto(producto) {
@@ -134,6 +143,10 @@ createApp({
         },
         changePage(page) {
             this.currentPage = page;
+        },
+        setFilter(categoria) {
+            this.filtroCategoria = categoria;
+            this.currentPage = 1;
         },
     },
     created() {
