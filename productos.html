@@ -8,30 +8,10 @@
     <title>Proyecto FullStack Grupo 20: Maria Narvaez - Sergio Lopez - Anahí Landero</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-    <script src="script/productos.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3ac8045f2b.js" crossorigin="anonymous"></script>
-    <script src="script/animacion.js"></script>
-    <script src="script/mostrar.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            var urlParams = new URLSearchParams(window.location.search);
-            var categoria = urlParams.get('categoria');
-
-            if (categoria) {
-                var buttons = document.getElementsByClassName('category');
-                for (var i = 0; i < buttons.length; i++) {
-                    buttons[i].classList.remove('active');
-                    if (buttons[i].getAttribute('data-filter') === categoria) {
-                        buttons[i].classList.add('active');
-                    }
-                }
-            }
-        });
-    </script>
-
 </head>
 
 <body>
@@ -46,7 +26,7 @@
         <section class="textos-header">
             <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
             <h1>Tu Tabaqueria</h1>
-            <h2>Encuentra y elige tus preferidos </h2>
+            <h2>Encuentra y elige tus preferidos</h2>
         </section>
         <div class="wave" style="height: 150px; overflow: hidden;">
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
@@ -55,23 +35,20 @@
             </svg>
         </div>
     </header>
-    <div class="container">
+    <div id="app" class="container">
         <div class="categories">
-            <button class="category" data-filter="Tabaco">Tabaco para armar</button>
-            <button class="category" data-filter="Filtro">Filtros</button>
-            <button class="category" data-filter="Papel">Papeles</button>
+            <button class="category" @click="setFilter('all')">Todos</button>
+            <button class="category" @click="setFilter('Tabaco')">Tabaco para armar</button>
+            <button class="category" @click="setFilter('Filtro')">Filtros</button>
+            <button class="category" @click="setFilter('Papel')">Papeles</button>
         </div>
 
-        <div class="item Tabaco hidden">
-            <div class="grid-container" id="tabacoGridContainer"></div>
-        </div>
-
-        <div class="item Filtro hidden">
-            <div class="grid-container" id="filtroGridContainer"></div>
-        </div>
-
-        <div class="item Papel hidden">
-            <div class="grid-container" id="papelGridContainer"></div>
+        <div v-for="producto in filteredProductos" :key="producto.id" class="item">
+            <div class="grid-container">
+                <img :src="producto.imagen" :alt="producto.nombre">
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.precio }}</p>
+            </div>
         </div>
     </div>
 
@@ -104,38 +81,44 @@
         <h2 class="titulo-final">&copy; 2023 Tabacolovers. Todos los derechos reservados.</h2>
     </footer>
 
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        const categories = document.querySelectorAll('.category');
-        const items = document.querySelectorAll('.item');
-        const tabacoBtn = document.querySelector(".category[data-filter='Tabaco']");
-        tabacoBtn.classList.add("active");
-        const tabacoGrid = document.querySelector(".item.Tabaco");
-        tabacoGrid.classList.remove("hidden");
-
-        categories.forEach(category => {
-            category.addEventListener('click', () => {
-                // Cambiar la clase activa en la lista de categorías
-                categories.forEach(c => c.classList.remove('active'));
-                category.classList.add('active');
-
-                // Mostrar los elementos correspondientes
-                const filter = category.getAttribute('data-filter');
-                items.forEach(item => {
-                    if (filter === 'all' || item.classList.contains(filter)) {
-                        item.classList.remove('inactive');
-                        item.classList.add('active');
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    productos: [],
+                    filter: 'all'
+                };
+            },
+            created() {
+                this.fetchProductos();
+            },
+            methods: {
+                fetchProductos() {
+                    const url = "https://slopez.pythonanywhere.com/productos";
+                    axios.get(url)
+                        .then(response => {
+                            this.productos = response.data;
+                        })
+                        .catch(error => {
+                            console.error('Error al cargar los productos:', error);
+                        });
+                },
+                setFilter(categoria) {
+                    this.filter = categoria;
+                }
+            },
+            computed: {
+                filteredProductos() {
+                    if (this.filter === 'all') {
+                        return this.productos;
                     } else {
-                        item.classList.remove('active');
-                        item.classList.add('inactive');
+                        return this.productos.filter(producto => producto.categoria === this.filter);
                     }
-                });
-            });
-        });
-    </script>
-    <script>
-        // Llamada a la función mostrarProductos al cargar la página
-        window.addEventListener('DOMContentLoaded', function () {
-            mostrarProductos();
+                }
+            }
         });
     </script>
 </body>
