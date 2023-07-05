@@ -42,14 +42,6 @@
             <button class="category" @click="setFilter('Filtro')">Filtros</button>
             <button class="category" @click="setFilter('Papel')">Papeles</button>
         </div>
-
-        <div v-for="producto in filteredProductos" :key="producto.id" class="item">
-            <div class="grid-container">
-                <img :src="producto.imagen" :alt="producto.nombre">
-                <h3>{{ producto.nombre }}</h3>
-                <p>{{ producto.precio }}</p>
-            </div>
-        </div>
         <div class="product-grid">
             <div v-for="producto in filteredProductos" :key="producto.id" class="item">
                 <div class="grid-container">
@@ -59,7 +51,15 @@
                 </div>
             </div>
         </div>
+        <div v-for="producto in filteredProductos" :key="producto.id" class="item">
+            <div class="grid-container">
+                <img :src="producto.imagen" :alt="producto.nombre">
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.precio }}</p>
+            </div>
         </div>
+        
+        
     </div>
 
     <footer>
