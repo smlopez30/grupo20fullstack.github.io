@@ -31,7 +31,7 @@ function mostrarProductos(productos) {
             const nombre = document.createElement('h3');
             nombre.textContent = producto.nombre;
             const precio = document.createElement('p');
-            precio.textContent = producto.precio;
+            precio.textContent = `$${producto.precio.toFixed(2)}`; // Agregar el símbolo $ y dos decimales
 
             gridItem.appendChild(img);
             gridItem.appendChild(nombre);
@@ -40,4 +40,5 @@ function mostrarProductos(productos) {
         });
     });
 }
+
 
