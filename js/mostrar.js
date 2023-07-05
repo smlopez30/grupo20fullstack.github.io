@@ -22,29 +22,28 @@ function mostrarProductos(productos) {
     const productosFiltrados = productos.filter(producto => producto.mostrar === true);
 
     productosFiltrados.forEach(producto => {
-        if (producto.categoria) {
-            const item = document.createElement('div');
-            item.classList.add('item');
-            item.setAttribute('data-filter', producto.categoria);
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.setAttribute('data-filter', producto.categoria);
 
-            const column = document.createElement('div');
-            column.classList.add('column');
+        const column = document.createElement('div');
+        column.classList.add('column');
 
-            const img = document.createElement('img');
-            img.src = producto.imagen;
-            img.alt = producto.nombre;
+        const img = document.createElement('img');
+        img.src = producto.imagen;
+        img.alt = producto.nombre;
 
-            const nombre = document.createElement('h3');
-            nombre.textContent = producto.nombre;
+        const nombre = document.createElement('h3');
+        nombre.textContent = producto.nombre;
 
-            const precio = document.createElement('p');
-            precio.innerHTML = `<span class="currency">$</span>${producto.precio.toFixed(2)}`;
+        const precio = document.createElement('p');
+        precio.innerHTML = `<span class="currency">$</span>${producto.precio.toFixed(2)}`;
 
-            column.appendChild(img);
-            column.appendChild(nombre);
-            column.appendChild(precio);
-            item.appendChild(column);
-            productGrid.appendChild(item);
-        }
+        column.appendChild(img);
+        column.appendChild(nombre);
+        column.appendChild(precio);
+        item.appendChild(column);
+        productGrid.appendChild(item);
     });
 }
+
