@@ -55,7 +55,7 @@ createApp({
                 });
         },
         fetchImagenesDisponibles() {
-            fetch('/img')
+            fetch('../img')
                 .then(response => response.json())
                 .then(data => {
                     this.imagenesDisponibles = data;
