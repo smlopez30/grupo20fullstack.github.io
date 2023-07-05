@@ -46,17 +46,20 @@ createApp({
                 });
         },
         eliminar(id) {
-            const url = this.url + '/' + id;
-            var options = {
-                method: 'DELETE',
-            };
-            fetch(url, options)
-                .then(res => res.text())
-                .then(res => {
-                    this.fetchData(this.url);
-                    alert("El producto se ha eliminado correctamente.");
-                });
+            if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+                const url = this.url + '/' + id;
+                var options = {
+                    method: 'DELETE',
+                };
+                fetch(url, options)
+                    .then(res => res.text())
+                    .then(res => {
+                        this.fetchData(this.url);
+                        alert("El producto se ha eliminado correctamente.");
+                    });
+            }
         },
+
         actualizarProducto(producto) {
             const url = this.url + '/' + producto.id;
             const options = {
