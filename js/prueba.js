@@ -59,16 +59,8 @@ createApp({
         },
         actualizarProducto(producto) {
             const url = this.url + '/' + producto.id;
-            const data = {
-                imagen: producto.imagen,
-                // Agrega otros campos de producto que deseas actualizar
-                campo1: producto.campo1,
-                campo2: producto.campo2,
-                // ...
-            };
-
             const options = {
-                body: JSON.stringify(data),
+                body: JSON.stringify(producto),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
@@ -82,6 +74,26 @@ createApp({
                 .catch(err => {
                     console.error(err);
                     alert("Error al actualizar el producto.");
+                });
+        },
+        actualizarImagen(producto) {
+            const url = this.url + '/' + producto.id;
+            const data = { imagen: producto.imagen }; // Crear un nuevo objeto solo con la URL de la imagen
+            const options = {
+                body: JSON.stringify(data),
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow',
+            };
+
+            fetch(url, options)
+                .then(() => {
+                    alert("La imagen se ha actualizado correctamente.");
+                    this.fetchData(this.url);
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al actualizar la imagen.");
                 });
         },
 
