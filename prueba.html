@@ -111,14 +111,17 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" v-model="producto.precio" @keydown.enter="actualizarProducto(producto)"
-                                        @blur="actualizarProducto(producto)" />
+                                    <input type="text" v-model="producto.nombre" @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" v-model="producto.stock" @keydown.enter="actualizarProducto(producto)"
-                                        @blur="actualizarProducto(producto)" />
+                                    <input type="text" v-model="producto.precio" @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model="producto.stock" @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
@@ -138,7 +141,7 @@
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
-                                        @keydown.enter="actualizarImagen(producto)" @blur="actualizarImagen(producto)" />
+                                        @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
@@ -146,6 +149,7 @@
                                     <button type="button" class="btn btn-danger" @click="eliminar(producto.id)">Eliminar</button>
                                 </div>
                             </td>
+
 
 
                         </tr>
