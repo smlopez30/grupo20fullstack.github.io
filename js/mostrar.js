@@ -19,8 +19,10 @@ function mostrarProductos(productos) {
     const productGrid = document.querySelector('.product-grid');
     productGrid.innerHTML = '';
 
-    productos.forEach(producto => {
-        if (producto.mostrar && producto.categoria) {
+    const productosFiltrados = productos.filter(producto => producto.mostrar);
+
+    productosFiltrados.forEach(producto => {
+        if (producto.categoria) {
             const item = document.createElement('div');
             item.classList.add('item');
             item.setAttribute('data-filter', producto.categoria);
