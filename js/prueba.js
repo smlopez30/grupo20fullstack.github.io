@@ -83,7 +83,7 @@ createApp({
                     console.error(err);
                     alert("Error al actualizar el producto.");
                 });
-        }
+        },
 
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
