@@ -112,7 +112,7 @@ createApp({
             setTimeout(() => {
                 this.showAlert = false;
             }, 3000); // Ocultar después de 3 segundos (ajusta el tiempo según tus necesidades)
-        }
+        },
 
 
 
