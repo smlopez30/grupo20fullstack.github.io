@@ -141,7 +141,7 @@
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen" @keydown.enter="actualizarImagen(producto)"
-                                        @input="actualizarImagen(producto)" />
+                                        @blur="actualizarImagen(producto)" />
                                 </div>
                             </td>
                             <td>
