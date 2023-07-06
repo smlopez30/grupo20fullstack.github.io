@@ -77,41 +77,13 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
-                    if (this.hayCambios(producto)) {
-                        // Mostrar notificación de actualización exitosa
-                        this.mostrarNotificacion(esImagen ? "La imagen se ha actualizado correctamente." : "El producto se ha actualizado correctamente.");
-                    }
                     this.fetchData(this.url);
                     this.actualizando = false;
                 })
                 .catch(err => {
                     console.error(err);
-                    // Mostrar notificación de error al actualizar la imagen o el producto
-                    this.mostrarNotificacion("Error al actualizar " + (esImagen ? "la imagen." : "el producto."));
                     this.actualizando = false;
                 });
-        },
-
-        hayCambios(producto) {
-            // Verificar si ha habido cambios en los campos del producto
-            // Puedes agregar condiciones adicionales si hay más campos a tener en cuenta
-            return producto.nombre !== producto.nombreOriginal ||
-                producto.precio !== producto.precioOriginal ||
-                producto.stock !== producto.stockOriginal ||
-                producto.imagen !== producto.imagenOriginal ||
-                producto.categoria !== producto.categoriaOriginal ||
-                producto.mostrar !== producto.mostrarOriginal;
-        },
-
-        mostrarNotificacion(mensaje) {
-            // Mostrar la alerta emergente utilizando SweetAlert2
-            Swal.fire({
-                title: 'Notificación',
-                text: mensaje,
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 3000  // Ocultar después de 3 segundos
-            });
         },
 
 
