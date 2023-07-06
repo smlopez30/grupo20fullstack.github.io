@@ -65,14 +65,22 @@ createApp({
 
         actualizarMostrar(producto) {
             producto.mostrar = !producto.mostrar; // Invierte el valor del atributo "mostrar" en el objeto "producto"
-            this.actualizarProducto(producto, false); // Llama al método "actualizarProducto" para enviar la actualización al servidor, con el parámetro esImagen establecido en false
+            this.actualizarProducto(producto); // Llama al método "actualizarProducto" para enviar la actualización al servidor
         },
 
 
-        actualizarProducto(producto, esImagen = false) {
+
+        actualizarProducto(producto) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
-            const data = esImagen ? { imagen: producto.imagen } : producto;
+            const data = {
+                nombre: producto.nombre,
+                precio: producto.precio,
+                stock: producto.stock,
+                imagen: producto.imagen,
+                categoria: producto.categoria,
+                mostrar: producto.mostrar // Actualiza el atributo "mostrar" con el nuevo valor del objeto "producto"
+            };
             const options = {
                 body: JSON.stringify(data),
                 method: 'PUT',
@@ -90,6 +98,7 @@ createApp({
                     this.actualizando = false;
                 });
         },
+
 
 
         agregarNuevo() {
