@@ -65,8 +65,9 @@ createApp({
 
         actualizarMostrar(producto) {
             producto.mostrar = !producto.mostrar; // Invierte el valor del atributo "mostrar" en el objeto "producto"
-            this.actualizarProducto(producto); // Llama al método "actualizarProducto" para enviar la actualización al servidor
+            this.actualizarProducto(producto, false); // Llama al método "actualizarProducto" para enviar la actualización al servidor, con el parámetro esImagen establecido en false
         },
+
 
         actualizarProducto(producto, esImagen = false) {
             this.actualizando = true;
@@ -89,6 +90,7 @@ createApp({
                     this.actualizando = false;
                 });
         },
+
 
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
