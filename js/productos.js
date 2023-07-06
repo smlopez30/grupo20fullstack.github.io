@@ -63,15 +63,6 @@ createApp({
             }
         },
 
-        actualizarMostrar(producto) {
-            if (producto.mostrar === new Boolean(true)) {
-                producto.mostrar = new Boolean(false);
-            }else{
-                producto.mostrar = new Boolean(true);
-            }
-            this.actualizarProducto(producto);
-        },
-
         actualizarProducto(producto) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
