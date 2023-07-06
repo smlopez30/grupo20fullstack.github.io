@@ -104,14 +104,14 @@ createApp({
         },
 
         mostrarNotificacion(mensaje) {
-            // Mostrar notificación en la interfaz de usuario
-            this.showAlert = true;
-            this.notificacionMensaje = mensaje;
-
-            // Ocultar la notificación después de un tiempo determinado (opcional)
-            setTimeout(() => {
-                this.showAlert = false;
-            }, 3000); // Ocultar después de 3 segundos (ajusta el tiempo según tus necesidades)
+            // Mostrar la alerta emergente utilizando SweetAlert2
+            Swal.fire({
+                title: 'Notificación',
+                text: mensaje,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 3000  // Ocultar después de 3 segundos
+            });
         },
 
 
