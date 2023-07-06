@@ -133,10 +133,6 @@
                             </td>
                             <td>
                                 <div>
-                                    <select v-model="producto.imagen" @change="actualizarProducto(producto)">
-                                        <option value="">Seleccionar imagen</option>
-                                        <option v-for="imagen in imagenesDisponibles" :value="imagen">{{ imagen }}</option>
-                                    </select>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
                                         @blur="actualizarProducto(producto)" />
                                 </div>
