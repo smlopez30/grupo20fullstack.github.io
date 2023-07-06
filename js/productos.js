@@ -72,7 +72,7 @@ createApp({
                 stock: producto.stock,
                 imagen: producto.imagen,
                 categoria: producto.categoria,
-                mostrar: producto.mostrar
+                mostrar: Boolean(producto.mostrar)  // Conversión explícita a booleano
             };
             const options = {
                 body: JSON.stringify(data),
@@ -91,6 +91,7 @@ createApp({
                     this.actualizando = false;
                 });
         },
+
 
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
