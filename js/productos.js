@@ -63,10 +63,6 @@ createApp({
             }
         },
 
-        actualizarMostrar(producto) {
-            this.actualizarProducto(producto.mostrar); // Envia la actualización al servidor
-        },
-
         actualizarProducto(producto) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
@@ -76,7 +72,7 @@ createApp({
                 stock: producto.stock,
                 imagen: producto.imagen,
                 categoria: producto.categoria,
-                mostrar: producto.mostrar // Actualiza el atributo "mostrar" con el nuevo valor del objeto "producto"
+                mostrar: producto.mostrar 
             };
             const options = {
                 body: JSON.stringify(data),
