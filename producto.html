@@ -139,10 +139,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <select v-model="producto.mostrar" @change="actualizarProducto(producto)">
-                                        <option value="true">Mostrar</option>
-                                        <option value="false">Ocultar</option>
-                                    </select>
+                                    <input type="checkbox" v-model="producto.mostrar" @click="actualizarProducto(producto)" />
                                 </div>
                             </td>
 
