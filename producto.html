@@ -139,10 +139,9 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="checkbox" :checked="producto.mostrar" @change="actualizarMostrar(producto)" />
+                                    <input type="checkbox" v-model="producto.mostrar" @change="actualizarMostrar(producto)" />
                                 </div>
                             </td>
-
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
