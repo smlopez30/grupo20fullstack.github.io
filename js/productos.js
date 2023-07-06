@@ -77,22 +77,35 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
-                    this.showAlert = true; // Mostrar la alerta
                     if (esImagen) {
-                        alert("La imagen se ha actualizado correctamente.");
+                        // Mostrar notificación de actualización exitosa de la imagen
+                        this.mostrarNotificacion("La imagen se ha actualizado correctamente.");
                     } else {
-                        alert("El producto se ha actualizado correctamente.");
+                        // Mostrar notificación de actualización exitosa del producto
+                        this.mostrarNotificacion("El producto se ha actualizado correctamente.");
                     }
                     this.fetchData(this.url);
                     this.actualizando = false;
                 })
                 .catch(err => {
                     console.error(err);
-                    this.showAlert = true; // Mostrar la alerta
-                    alert("Error al actualizar " + (esImagen ? "la imagen." : "el producto."));
+                    // Mostrar notificación de error al actualizar la imagen o el producto
+                    this.mostrarNotificacion("Error al actualizar " + (esImagen ? "la imagen." : "el producto."));
                     this.actualizando = false;
                 });
         },
+
+        mostrarNotificacion(mensaje) {
+            // Mostrar notificación en la interfaz de usuario
+            this.showAlert = true;
+            this.notificacionMensaje = mensaje;
+
+            // Ocultar la notificación después de un tiempo determinado (opcional)
+            setTimeout(() => {
+                this.showAlert = false;
+            }, 3000); // Ocultar después de 3 segundos (ajusta el tiempo según tus necesidades)
+        },
+
 
 
 
