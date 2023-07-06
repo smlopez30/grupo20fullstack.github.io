@@ -63,11 +63,17 @@ createApp({
             }
         },
 
-
-        actualizarProducto(producto, esImagen = false) {
+        actualizarProducto(producto) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
-            const data = esImagen ? { imagen: producto.imagen } : producto;
+            const data = {
+                nombre: producto.nombre,
+                precio: producto.precio,
+                stock: producto.stock,
+                imagen: producto.imagen,
+                categoria: producto.categoria,
+                mostrar: producto.mostrar
+            };
             const options = {
                 body: JSON.stringify(data),
                 method: 'PUT',
@@ -85,10 +91,6 @@ createApp({
                     this.actualizando = false;
                 });
         },
-
-
-
-
 
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
@@ -128,4 +130,3 @@ createApp({
         this.fetchData(this.url);
     },
 }).mount('#app');
-
