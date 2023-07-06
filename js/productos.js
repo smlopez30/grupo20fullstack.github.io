@@ -74,7 +74,6 @@ createApp({
                 categoria: producto.categoria,
                 mostrar: Boolean(producto.mostrar)  // Conversión explícita a booleano
             };
-            console.log(producto.mostrar)
             const options = {
                 body: JSON.stringify(data),
                 method: 'PUT',
