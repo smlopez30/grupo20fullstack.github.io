@@ -33,14 +33,6 @@ createApp({
             return this.productos.slice(startIndex, endIndex);
         },
     },
-    nuevoProducto: {
-        nombre: '',
-        precio: '',
-        stock: '',
-        categoria: '',
-        mostrar: false
-    },
-
     methods: {
         fetchData(url) {
             fetch(url)
@@ -63,7 +55,7 @@ createApp({
                 .catch(err => {
                     console.error(err);
                 });
-        }
+        },
 
         eliminar(id) {
             const url = this.url + '/' + id;
