@@ -140,8 +140,8 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen" @keydown.enter="actualizarImagen(producto)"
-                                        @blur="actualizarImagen(producto)" />
+                                    <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
+                                        @keydown.enter="actualizarProducto(producto, true)" @blur="actualizarProducto(producto, true)" />
                                 </div>
                             </td>
                             <td>
