@@ -38,7 +38,10 @@ header {
     background-attachment: fixed;
     position: relative;
 }
-
+.encabezado {
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
 nav {
     text-align: right;
     padding: 30px 50px 0 0;
