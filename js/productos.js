@@ -17,6 +17,7 @@ createApp({
                 categoria: '',
                 mostrar: false
             },
+            actualizando: false, // Agrega esta propiedad
         };
     },
     computed: {
@@ -62,28 +63,10 @@ createApp({
         },
 
 
-        actualizarProducto(producto) {
+        actualizarProducto(producto, esImagen = false) { // Agrega el parámetro esImagen
+            this.actualizando = true; // Establece actualizando como true
             const url = this.url + '/' + producto.id;
-            const options = {
-                body: JSON.stringify(producto),
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                redirect: 'follow',
-            };
-
-            fetch(url, options)
-                .then(() => {
-                    alert("El producto se ha actualizado correctamente.");
-                    this.fetchData(this.url);
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Error al actualizar el producto.");
-                });
-        },
-        actualizarImagen(producto) {
-            const url = this.url + '/' + producto.id;
-            const data = { imagen: producto.imagen }; // Crear un nuevo objeto solo con la URL de la imagen
+            const data = esImagen ? { imagen: producto.imagen } : producto; // Utiliza el objeto producto si no es una imagen
             const options = {
                 body: JSON.stringify(data),
                 method: 'PUT',
@@ -93,14 +76,21 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
-                    alert("La imagen se ha actualizado correctamente.");
+                    if (esImagen) {
+                        alert("La imagen se ha actualizado correctamente.");
+                    } else {
+                        alert("El producto se ha actualizado correctamente.");
+                    }
                     this.fetchData(this.url);
+                    this.actualizando = false; // Establece actualizando como false
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al actualizar la imagen.");
+                    alert("Error al actualizar " + (esImagen ? "la imagen." : "el producto."));
+                    this.actualizando = false; // Establece actualizando como false
                 });
         },
+
 
 
         agregarNuevo() {
