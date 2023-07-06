@@ -63,25 +63,10 @@ createApp({
             }
         },
 
-        actualizarMostrar(producto) {
-            const valorMostrar = producto.mostrar ? true : false; // Convierte el valor a booleano (true o false)
-            this.actualizarProducto({ ...producto, mostrar: valorMostrar }); // Envia la actualización al servidor
-        },
-
-
-
-
-        actualizarProducto(producto) {
+        actualizarProducto(producto, esImagen = false) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
-            const data = {
-                nombre: producto.nombre,
-                precio: producto.precio,
-                stock: producto.stock,
-                imagen: producto.imagen,
-                categoria: producto.categoria,
-                mostrar: producto.mostrar // Actualiza el atributo "mostrar" con el nuevo valor del objeto "producto"
-            };
+            const data = esImagen ? { imagen: producto.imagen } : { ...producto, mostrar: !producto.mostrar }; // Invierte el valor de "mostrar"
             const options = {
                 body: JSON.stringify(data),
                 method: 'PUT',
@@ -99,9 +84,6 @@ createApp({
                     this.actualizando = false;
                 });
         },
-
-
-
 
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
