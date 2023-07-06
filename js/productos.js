@@ -63,6 +63,11 @@ createApp({
             }
         },
 
+        actualizarMostrar(producto) {
+            producto.mostrar = !producto.mostrar; // Invierte el valor del atributo "mostrar" en el objeto "producto"
+            this.actualizarProducto(producto); // Llama al método "actualizarProducto" para enviar la actualización al servidor
+        },
+
         actualizarProducto(producto, esImagen = false) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
