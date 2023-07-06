@@ -91,9 +91,7 @@
                             </td>
                             <td><input type="text" v-model="nuevoProducto.imagen" placeholder="Nueva URL imagen"/></td>
                             <td>
-                                <div>
-                                    <input type="checkbox" v-model="producto.mostrar" @change="actualizarProducto(producto)" />
-                                </div>
+                                <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
                             </td>
                         </tr>
                         <div v-if="showAlert" class="alert">
@@ -141,7 +139,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="checkbox" v-model="producto.mostrar" @click="actualizarProducto(producto)" />
+                                    <input type="checkbox" v-model="producto.mostrar" @change="actualizarProducto(producto)" />
                                 </div>
                             </td>
 
