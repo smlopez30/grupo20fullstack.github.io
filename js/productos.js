@@ -77,12 +77,9 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
-                    if (esImagen) {
-                        // Mostrar notificación de actualización exitosa de la imagen
-                        this.mostrarNotificacion("La imagen se ha actualizado correctamente.");
-                    } else {
-                        // Mostrar notificación de actualización exitosa del producto
-                        this.mostrarNotificacion("El producto se ha actualizado correctamente.");
+                    if (this.hayCambios(producto)) {
+                        // Mostrar notificación de actualización exitosa
+                        this.mostrarNotificacion(esImagen ? "La imagen se ha actualizado correctamente." : "El producto se ha actualizado correctamente.");
                     }
                     this.fetchData(this.url);
                     this.actualizando = false;
@@ -95,6 +92,17 @@ createApp({
                 });
         },
 
+        hayCambios(producto) {
+            // Verificar si ha habido cambios en los campos del producto
+            // Puedes agregar condiciones adicionales si hay más campos a tener en cuenta
+            return producto.nombre !== this.nombreInicial ||
+                producto.precio !== this.precioInicial ||
+                producto.stock !== this.stockInicial ||
+                producto.imagen !== this.imagenInicial ||
+                producto.categoria !== this.categoriaInicial ||
+                producto.mostrar !== this.mostrarInicial;
+        },
+
         mostrarNotificacion(mensaje) {
             // Mostrar notificación en la interfaz de usuario
             this.showAlert = true;
@@ -104,7 +112,8 @@ createApp({
             setTimeout(() => {
                 this.showAlert = false;
             }, 3000); // Ocultar después de 3 segundos (ajusta el tiempo según tus necesidades)
-        },
+        }
+
 
 
 
