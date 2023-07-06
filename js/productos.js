@@ -18,6 +18,7 @@ createApp({
                 mostrar: false
             },
             actualizando: false, // Agrega esta propiedad
+            showAlert: false,
         };
     },
     computed: {
@@ -63,10 +64,10 @@ createApp({
         },
 
 
-        actualizarProducto(producto, esImagen = false) { // Agrega el parámetro esImagen
-            this.actualizando = true; // Establece actualizando como true
+        actualizarProducto(producto, esImagen = false) {
+            this.actualizando = true;
             const url = this.url + '/' + producto.id;
-            const data = esImagen ? { imagen: producto.imagen } : producto; // Utiliza el objeto producto si no es una imagen
+            const data = esImagen ? { imagen: producto.imagen } : producto;
             const options = {
                 body: JSON.stringify(data),
                 method: 'PUT',
@@ -76,18 +77,20 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
+                    this.showAlert = true; // Mostrar la alerta
                     if (esImagen) {
                         alert("La imagen se ha actualizado correctamente.");
                     } else {
                         alert("El producto se ha actualizado correctamente.");
                     }
                     this.fetchData(this.url);
-                    this.actualizando = false; // Establece actualizando como false
+                    this.actualizando = false;
                 })
                 .catch(err => {
                     console.error(err);
+                    this.showAlert = true; // Mostrar la alerta
                     alert("Error al actualizar " + (esImagen ? "la imagen." : "el producto."));
-                    this.actualizando = false; // Establece actualizando como false
+                    this.actualizando = false;
                 });
         },
 
