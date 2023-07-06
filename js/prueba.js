@@ -46,17 +46,7 @@ createApp({
                     this.error = true;
                 });
         },
-        fetchImagenesDisponibles() {
-            fetch('/img')
-                .then(response => response.json())
-                .then(data => {
-                    this.imagenesDisponibles = data.map(filename => `img/${filename}`);
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-        },
-
+        
         eliminar(id) {
             const url = this.url + '/' + id;
             var options = {
