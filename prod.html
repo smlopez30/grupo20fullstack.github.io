@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Carga de imágenes</title>
+    <title>Visualizador de Imágenes</title>
     <style>
         .image-container {
             display: flex;
@@ -24,20 +24,28 @@
 
     <script>
         // Ruta de la carpeta de imágenes
-        const folderPath = 'img';
+        const imagesFolder = 'img/';
 
         // Obtener la referencia al contenedor de imágenes
         const imageContainer = document.getElementById('imageContainer');
 
         // Función para cargar las imágenes
         function loadImages() {
-            fetch(folderPath)
-                .then(response => response.json())
-                .then(images => {
-                    // Crear elementos <img> para cada imagen y agregarlos al contenedor
-                    images.forEach(image => {
+            // Obtener la lista de imágenes en la carpeta
+            fetch(imagesFolder)
+                .then(response => response.text())
+                .then(html => {
+                    // Crear un elemento div temporal para parsear el HTML
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+
+                    // Obtener los enlaces a las imágenes
+                    const imageLinks = tempDiv.querySelectorAll('a');
+
+                    // Recorrer los enlaces y crear elementos <img> para cada imagen
+                    imageLinks.forEach(link => {
                         const img = document.createElement('img');
-                        img.src = folderPath + '/' + image;
+                        img.src = imagesFolder + link.getAttribute('href');
                         imageContainer.appendChild(img);
                     });
                 })
