@@ -63,6 +63,15 @@ createApp({
             }
         },
 
+        actualizarMostrar(producto) {
+            if (producto.mostrar === true) {
+                producto.mostrar = false;
+            }else{
+                producto.mostrar = true;
+            }
+            this.actualizarProducto(producto);
+        },
+
         actualizarProducto(producto) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
