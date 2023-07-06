@@ -64,8 +64,7 @@ createApp({
         },
 
         actualizarMostrar(producto) {
-            producto.mostrar = !producto.mostrar
-            this.actualizarProducto(producto.mostrar); // Envia la actualización al servidor
+            this.actualizarProducto(!producto.mostrar); // Envia la actualización al servidor
         },
 
         actualizarProducto(producto) {
