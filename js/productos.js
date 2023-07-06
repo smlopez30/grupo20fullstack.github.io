@@ -64,9 +64,10 @@ createApp({
         },
 
         actualizarMostrar(producto) {
-            producto.mostrar = !producto.mostrar; // Invierte el valor del atributo "mostrar" en el objeto "producto"
-            this.actualizarProducto(producto); // Llama al método "actualizarProducto" para enviar la actualización al servidor
+            const valorMostrar = producto.mostrar ? true : false; // Convierte el valor a booleano (true o false)
+            this.actualizarProducto({ ...producto, mostrar: valorMostrar }); // Envia la actualización al servidor
         },
+
 
 
 
@@ -98,6 +99,7 @@ createApp({
                     this.actualizando = false;
                 });
         },
+
 
 
 
