@@ -1,15 +1,3 @@
-'''
-Este código importa diferentes módulos y clases necesarios para el desarrollo de una aplicación Flask.
-
-Flask: Es la clase principal de Flask, que se utiliza para crear instancias de la aplicación Flask.
-jsonify: Es una función que convierte los datos en formato JSON para ser enviados como respuesta desde la API.
-request: Es un objeto que representa la solicitud HTTP realizada por el cliente.
-CORS: Es una extensión de Flask que permite el acceso cruzado entre dominios (Cross-Origin Resource Sharing), lo cual es útil cuando se desarrollan aplicaciones web con frontend y backend separados.
-SQLAlchemy: Es una biblioteca de Python que proporciona una abstracción de alto nivel para interactuar con bases de datos relacionales.
-Marshmallow: Es una biblioteca de serialización/deserialización de objetos Python a/desde formatos como JSON.
-Al importar estos módulos y clases, estamos preparando nuestro entorno de desarrollo para utilizar las funcionalidades que ofrecen.
-
-'''
 # Importa las clases Flask, jsonify y request del módulo flask
 from flask import Flask, jsonify, request
 # Importa la clase CORS del módulo flask_cors
@@ -47,7 +35,7 @@ ma = Marshmallow(app): Se crea un objeto ma de la clase Marshmallow, que se util
 # Configura la URI de la base de datos con el driver de MySQL, usuario, contraseña y nombre de la base de datos
 # URI de la BD == Driver de la BD://user:password@UrlBD/nombreBD
 # app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@localhost/proyecto"
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:Oracle_4@localhost/proyecto"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://slopez:semilo33@slopez.mysql.pythonanywhere-services.com/slopez$proyecto"
 # Configura el seguimiento de modificaciones de SQLAlchemy a False para mejorar el rendimiento
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # Crea una instancia de la clase SQLAlchemy y la asigna al objeto db para interactuar con la base de datos
@@ -66,8 +54,11 @@ class Producto(db.Model):  # Producto hereda de db.Model
     precio = db.Column(db.Integer)
     stock = db.Column(db.Integer)
     imagen = db.Column(db.String(400))
+    categoria = db.Column(db.String(50))
+    mostrar = db.Column(db.Boolean, default=False)
 
-    def __init__(self, nombre, precio, stock, imagen):
+    def __init__(self, nombre, precio, stock, imagen, categoria, mostrar=False):
+
         """
         Constructor de la clase Producto.
 
@@ -76,11 +67,16 @@ class Producto(db.Model):  # Producto hereda de db.Model
             precio (int): Precio del producto.
             stock (int): Cantidad en stock del producto.
             imagen (str): URL o ruta de la imagen del producto.
+            categoria (str): Categoría del producto (Tabaco, Filtro, Papel).
+            mostrar (bool): Indicador para mostrar el producto (por defecto False).
         """
         self.nombre = nombre
         self.precio = precio
         self.stock = stock
         self.imagen = imagen
+        self.categoria = categoria
+        self.mostrar = mostrar
+
 
     # Se pueden agregar más clases para definir otras tablas en la base de datos
 
@@ -96,7 +92,7 @@ class ProductoSchema(ma.Schema):
     para la clase Producto.
     """
     class Meta:
-        fields = ("id", "nombre", "precio", "stock", "imagen")
+        fields = ("id", "nombre", "precio", "stock", "imagen", "categoria", "mostrar")
 
 producto_schema = ProductoSchema()  # Objeto para serializar/deserializar un producto
 productos_schema = ProductoSchema(many=True)  # Objeto para serializar/deserializar múltiples productos
@@ -170,14 +166,22 @@ def create_producto():
     Lee los datos proporcionados en formato JSON por el cliente y crea un nuevo registro de producto en la base de datos.
     Retorna un JSON con el nuevo producto creado.
     """
-    nombre = request.json["nombre"]  # Obtiene el nombre del producto del JSON proporcionado
-    precio = request.json["precio"]  # Obtiene el precio del producto del JSON proporcionado
-    stock = request.json["stock"]  # Obtiene el stock del producto del JSON proporcionado
-    imagen = request.json["imagen"]  # Obtiene la imagen del producto del JSON proporcionado
-    new_producto = Producto(nombre, precio, stock, imagen)  # Crea un nuevo objeto Producto con los datos proporcionados
-    db.session.add(new_producto)  # Agrega el nuevo producto a la sesión de la base de datos
-    db.session.commit()  # Guarda los cambios en la base de datos
-    return producto_schema.jsonify(new_producto)  # Retorna el JSON del nuevo producto creado
+    nombre = request.json["nombre"]
+    precio = request.json["precio"]
+    stock = request.json["stock"]
+    imagen = request.json["imagen"]
+    categoria = request.json["categoria"]
+
+    # Validar que la categoría sea válida
+    if categoria not in ['Tabaco', 'Filtro', 'Papel']:
+        return jsonify({'message': 'La categoría proporcionada no es válida'}), 400
+
+    mostrar = request.json.get("mostrar", False)
+
+    new_producto = Producto(nombre, precio, stock, imagen, categoria, mostrar)
+    db.session.add(new_producto)
+    db.session.commit()
+    return producto_schema.jsonify(new_producto)
 
 @app.route("/productos/<id>", methods=["PUT"])  # Endpoint para actualizar un producto
 def update_producto(id):
@@ -187,22 +191,26 @@ def update_producto(id):
     Lee los datos proporcionados en formato JSON por el cliente y actualiza el registro del producto con el ID especificado.
     Retorna un JSON con el producto actualizado.
     """
-    producto = Producto.query.get(id)  # Obtiene el producto existente con el ID especificado
+    producto = Producto.query.get(id)
 
-    # Actualiza los atributos del producto con los datos proporcionados en el JSON
     producto.nombre = request.json["nombre"]
     producto.precio = request.json["precio"]
     producto.stock = request.json["stock"]
     producto.imagen = request.json["imagen"]
+    categoria = request.json["categoria"]
 
-    db.session.commit()  # Guarda los cambios en la base de datos
-    return producto_schema.jsonify(producto)  # Retorna el JSON del producto actualizado
+    # Validar que la categoría sea válida
+    if categoria not in ['Tabaco', 'Filtro', 'Papel']:
+        return jsonify({'message': 'La categoría proporcionada no es válida'}), 400
 
-'''
-Este código es el programa principal de la aplicación Flask. Se verifica si el archivo actual está siendo ejecutado directamente y no importado como módulo. Luego, se inicia el servidor Flask en el puerto 5000 con el modo de depuración habilitado. Esto permite ejecutar la aplicación y realizar pruebas mientras se muestra información adicional de depuración en caso de errores.
+    producto.categoria = categoria
+    producto.mostrar = request.json.get("mostrar", False)
 
-'''
-# Programa Principal
-# if __name__ == "__main__":
-#     # Ejecuta el servidor Flask en el puerto 5000 en modo de depuración
-#     app.run(debug=True, port=5000)
+    db.session.commit()
+    return producto_schema.jsonify(producto)
+
+
+@app.route('/')
+def hello_world():
+    return 'Hello from Flask!'
+
