@@ -17,6 +17,8 @@ createApp({
                 categoria: '',
                 mostrar: false
             },
+            actualizando: false, // Agrega esta propiedad
+            showAlert: false,
         };
     },
     computed: {
@@ -46,21 +48,34 @@ createApp({
                 });
         },
         eliminar(id) {
-            const url = this.url + '/' + id;
-            var options = {
-                method: 'DELETE',
-            };
-            fetch(url, options)
-                .then(res => res.text())
-                .then(res => {
-                    this.fetchData(this.url);
-                    alert("El producto se ha eliminado correctamente.");
-                });
+            const confirmacion = confirm("¿Estás seguro de que deseas eliminar este producto?");
+            if (confirmacion) {
+                const url = this.url + '/' + id;
+                var options = {
+                    method: 'DELETE',
+                };
+                fetch(url, options)
+                    .then(res => res.text())
+                    .then(res => {
+                        this.fetchData(this.url);
+                        alert("El producto se ha eliminado correctamente.");
+                    });
+            }
         },
+
         actualizarProducto(producto) {
+            this.actualizando = true;
             const url = this.url + '/' + producto.id;
+            const data = {
+                nombre: producto.nombre,
+                precio: producto.precio,
+                stock: producto.stock,
+                imagen: producto.imagen,
+                categoria: producto.categoria,
+                mostrar: producto.mostrar
+            };
             const options = {
-                body: JSON.stringify(producto),
+                body: JSON.stringify(data),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow',
@@ -68,33 +83,15 @@ createApp({
 
             fetch(url, options)
                 .then(() => {
-                    alert("El producto se ha actualizado correctamente.");
                     this.fetchData(this.url);
+                    this.actualizando = false;
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al actualizar el producto.");
+                    this.actualizando = false;
                 });
         },
-        actualizarImagen(producto) {
-            const url = this.url + '/' + producto.id;
-            const options = {
-                body: JSON.stringify(producto),
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                redirect: 'follow',
-            };
 
-            fetch(url, options)
-                .then(() => {
-                    alert("La imagen se ha actualizado correctamente.");
-                    this.fetchData(this.url);
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert("Error al actualizar la imagen.");
-                });
-        },
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
