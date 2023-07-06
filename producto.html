@@ -76,9 +76,9 @@
                     <tbody>
                         <tr>
                             <td><img v-if="nuevoProducto.imagen" :src="nuevoProducto.imagen" :alt="nuevoProducto.nombre" width="60" height="60"></td>
-                            <td><input type="text" v-model="nuevoProducto.nombre" /></td>
-                            <td><input type="number" v-model.number="nuevoProducto.precio" /></td>
-                            <td><input type="number" v-model.number="nuevoProducto.stock" /></td>
+                            <td><input type="text" v-model="nuevoProducto.nombre" placeholder="Nombre nuevo producto"/></td>
+                            <td><input type="number" v-model.number="nuevoProducto.precio" placeholder="0"/></td>
+                            <td><input type="number" v-model.number="nuevoProducto.stock" placeholder="0"/></td>
                             <td>
                                 <select v-model="nuevoProducto.categoria">
                                     <option value="Tabaco">Tabaco</option>
@@ -89,7 +89,7 @@
                             <td>
                                 <input type="checkbox" v-model="nuevoProducto.mostrar" />
                             </td>
-                            <td><input type="text" v-model="nuevoProducto.imagen" /></td>
+                            <td><input type="text" v-model="nuevoProducto.imagen" placeholder="Nueva URL imagen"/></td>
                             <td>
                                 <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
                             </td>
@@ -112,12 +112,14 @@
                             <td>
                                 <div>
                                     <input type="text" v-model.number="producto.precio"
+                                        @keydown.enter="actualizarProducto(producto)"
                                         @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
                                 <div>
                                     <input type="text" v-model.number="producto.stock"
+                                        @keydown.enter="actualizarProducto(producto)"
                                         @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
@@ -139,7 +141,8 @@
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
-                                        @blur="actualizarImagen(producto)" />
+                                        @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
                                 </div>
                             </td>
                             <td>
