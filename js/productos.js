@@ -95,12 +95,12 @@ createApp({
         hayCambios(producto) {
             // Verificar si ha habido cambios en los campos del producto
             // Puedes agregar condiciones adicionales si hay más campos a tener en cuenta
-            return producto.nombre !== this.nombreInicial ||
-                producto.precio !== this.precioInicial ||
-                producto.stock !== this.stockInicial ||
-                producto.imagen !== this.imagenInicial ||
-                producto.categoria !== this.categoriaInicial ||
-                producto.mostrar !== this.mostrarInicial;
+            return producto.nombre !== producto.nombreOriginal ||
+                producto.precio !== producto.precioOriginal ||
+                producto.stock !== producto.stockOriginal ||
+                producto.imagen !== producto.imagenOriginal ||
+                producto.categoria !== producto.categoriaOriginal ||
+                producto.mostrar !== producto.mostrarOriginal;
         },
 
         mostrarNotificacion(mensaje) {
