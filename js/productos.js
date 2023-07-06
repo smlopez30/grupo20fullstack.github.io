@@ -64,10 +64,10 @@ createApp({
         },
 
         actualizarMostrar(producto) {
-            if (producto.mostrar === true) {
-                producto.mostrar = false;
+            if (producto.mostrar === new Boolean(true)) {
+                producto.mostrar = new Boolean(false);
             }else{
-                producto.mostrar = true;
+                producto.mostrar = new Boolean(true);
             }
             this.actualizarProducto(producto);
         },
