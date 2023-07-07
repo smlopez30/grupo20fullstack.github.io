@@ -19,6 +19,7 @@ createApp({
             },
             actualizando: false, // Agrega esta propiedad
             showAlert: false,
+            eliminarId: null,
         };
     },
     computed: {
@@ -47,20 +48,23 @@ createApp({
                     this.error = true;
                 });
         },
-        eliminar(id) {
-            const confirmacion = confirm("¿Estás seguro de que deseas eliminar este producto?");
-            if (confirmacion) {
-                const url = this.url + '/' + id;
-                var options = {
-                    method: 'DELETE',
-                };
-                fetch(url, options)
-                    .then(res => res.text())
-                    .then(res => {
-                        this.fetchData(this.url);
-                        alert("El producto se ha eliminado correctamente.");
-                    });
-            }
+        mostrarConfirmacion(id) {
+            this.eliminarId = id; // Almacena el ID del producto a eliminar
+            $('#confirmacionModal').modal('show'); // Muestra el modal de confirmación
+        },
+        eliminarProducto() {
+            const id = this.eliminarId; // Obtiene el ID del producto a eliminar
+            const url = this.url + '/' + id;
+            var options = {
+                method: 'DELETE',
+            };
+            fetch(url, options)
+                .then(res => res.text())
+                .then(res => {
+                    this.fetchData(this.url);
+                    alert("El producto se ha eliminado correctamente.");
+                    $('#confirmacionModal').modal('hide'); // Oculta el modal de confirmación
+                });
         },
 
         actualizarProducto(producto) {
