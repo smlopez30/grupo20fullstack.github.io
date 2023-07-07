@@ -27,7 +27,10 @@ createApp({
     },
     computed: {
         totalItems() {
-            return this.productos.length;
+            const productosFiltrados = this.productos.filter(producto =>
+                producto.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+            );
+            return productosFiltrados.length;
         },
         totalPages() {
             return Math.ceil(this.totalItems / this.pageSize);
