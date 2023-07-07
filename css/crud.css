@@ -45,7 +45,7 @@ header {
     font-weight: 300;
     text-decoration: none;
     margin-right: 10px;
-    text-decoration: underline;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 nav {
     text-align: right;
