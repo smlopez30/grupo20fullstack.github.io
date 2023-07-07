@@ -23,6 +23,7 @@ createApp({
             maxRetryCount: 10,
             retryInterval: 1000,
             filtro: '',
+            filtroActivo: false
         };
     },
     computed: {
@@ -58,6 +59,9 @@ createApp({
                 .then(data => {
                     this.productos = data;
                     this.cargando = false;
+
+                    // Verifica si hay un filtro de búsqueda activo
+                    this.filtroActivo = this.filtro.trim().length > 0;
                 })
                 .catch(err => {
                     console.error(err);
@@ -168,6 +172,11 @@ createApp({
                 }
             }, retryInterval);
         },
+    },
+    limpiarFiltro() {
+        this.filtro = ''; // Restablece el filtro de búsqueda
+        this.filtroActivo = false; // Marca el filtro como inactivo
+        this.fetchData(this.url); // Vuelve a cargar todos los productos
     },
     created() {
         this.fetchData(this.url);
