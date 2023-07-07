@@ -150,8 +150,12 @@
                                 </div>
                             </td>
                             <td>
-                                <div>
-                                    <button type="button" class="btn btn-danger" @click="eliminar(producto.id)">Eliminar</button>
+                                <div v-if="producto.id !== eliminarId">
+                                    <button type="button" class="btn btn-danger" @click="mostrarConfirmacion(producto.id)">Eliminar</button>
+                                </div>
+                                <div v-else>
+                                    <button type="button" class="btn btn-success" @click="cancelarEliminacion">Cancelar</button>
+                                    <button type="button" class="btn btn-danger" @click="confirmarEliminacion(producto.id)">Confirmar</button>
                                 </div>
                             </td>
                         </tr>
