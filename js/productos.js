@@ -22,6 +22,7 @@ createApp({
             retryCount: 0,
             maxRetryCount: 10,
             retryInterval: 1000,
+            filtro: '',
         };
     },
     computed: {
@@ -35,6 +36,17 @@ createApp({
             const startIndex = (this.currentPage - 1) * this.pageSize;
             const endIndex = startIndex + this.pageSize;
             return this.productos.slice(startIndex, endIndex);
+        },
+        paginatedProductos() {
+            const startIndex = (this.currentPage - 1) * this.pageSize;
+            const endIndex = startIndex + this.pageSize;
+
+            // Filtrar los productos basados en el término de búsqueda
+            const productosFiltrados = this.productos.filter(producto =>
+                producto.nombre.toLowerCase().includes(this.filtro.toLowerCase())
+            );
+
+            return productosFiltrados.slice(startIndex, endIndex);
         },
     },
     methods: {
