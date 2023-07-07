@@ -19,6 +19,9 @@ createApp({
             },
             actualizando: false, // Agrega esta propiedad
             eliminarId: null,
+            retryCount: 0,
+            maxRetryCount: 10,
+            retryInterval: 1000,
         };
     },
     computed: {
