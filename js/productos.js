@@ -47,8 +47,9 @@ createApp({
                     this.error = true;
                 });
         },
-        eliminar(id) {
+        mostrarConfirmacion(id) {
             this.eliminarId = id; // Almacena el ID del producto a eliminar
+            $('#confirmacionModal').modal('show'); // Muestra el modal de confirmación
         },
         cancelarEliminacion() {
             this.eliminarId = null; // Restablece el ID del producto a eliminar
