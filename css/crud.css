@@ -41,6 +41,11 @@ header {
 .encabezado {
     text-align: right;
     padding: 30px 50px 0 0;
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+    text-decoration: underline;
 }
 nav {
     text-align: right;
