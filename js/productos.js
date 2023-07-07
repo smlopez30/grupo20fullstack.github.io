@@ -18,6 +18,7 @@ createApp({
                 mostrar: false
             },
             actualizando: false, // Agrega esta propiedad
+            eliminarId: null,
         };
     },
     computed: {
@@ -47,19 +48,24 @@ createApp({
                 });
         },
         eliminar(id) {
-            const confirmacion = confirm("¿Estás seguro de que deseas eliminar este producto?");
-            if (confirmacion) {
-                const url = this.url + '/' + id;
-                var options = {
-                    method: 'DELETE',
-                };
-                fetch(url, options)
-                    .then(res => res.text())
-                    .then(res => {
-                        this.fetchData(this.url);
-                        alert("El producto se ha eliminado correctamente.");
-                    });
-            }
+            this.eliminarId = id; // Almacena el ID del producto a eliminar
+        },
+        cancelarEliminacion() {
+            this.eliminarId = null; // Restablece el ID del producto a eliminar
+        },
+        confirmarEliminacion() {
+            const id = this.eliminarId; // Obtiene el ID del producto a eliminar
+            const url = this.url + '/' + id;
+            var options = {
+                method: 'DELETE',
+            };
+            fetch(url, options)
+                .then(res => res.text())
+                .then(res => {
+                    this.fetchData(this.url);
+                    alert("El producto se ha eliminado correctamente.");
+                    this.eliminarId = null; // Restablece el ID del producto a eliminar
+                });
         },
 
         actualizarProducto(producto) {
