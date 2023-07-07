@@ -59,7 +59,7 @@ createApp({
                 method: 'DELETE',
             };
             fetch(url, options)
-                .then(res => res.text())
+                .then(res => res.json())  // Cambio a res.json()
                 .then(res => {
                     this.fetchData(this.url);
                     alert("El producto se ha eliminado correctamente.");
