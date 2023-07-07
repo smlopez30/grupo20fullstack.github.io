@@ -63,7 +63,7 @@
                 <div class="table-responsive"></div>
                     <div class="mb-3">
                         <input type="text" v-model="filtro" placeholder="Buscar producto" />
-                        <button v-if="filtroActivo" @click="limpiarFiltro">Limpiar filtro</button>
+                        <div> <button v-if="filtroActivo" @click="limpiarFiltro">Limpiar filtro</button> </div>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
