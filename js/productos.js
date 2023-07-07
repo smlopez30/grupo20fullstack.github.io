@@ -132,6 +132,28 @@ createApp({
         changePage(page) {
             this.currentPage = page;
         },
+        retryFetchData() {
+            const retryInterval = 1000; // Intervalo de reintento en milisegundos (1 segundo)
+            const maxRetryCount = 10; // Número máximo de reintentos
+
+            let retryCount = 0;
+
+            const retryTimer = setInterval(() => {
+                retryCount++;
+
+                if (retryCount > maxRetryCount) {
+                    clearInterval(retryTimer);
+                    console.error("Error: No se pudo cargar los datos del backend después de varios intentos.");
+                    return;
+                }
+
+                this.fetchData(this.url);
+
+                if (!this.cargando) {
+                    clearInterval(retryTimer);
+                }
+            }, retryInterval);
+        },
     },
     created() {
         this.fetchData(this.url);
