@@ -17,7 +17,7 @@ createApp({
                 categoria: '',
                 mostrar: false
             },
-            actualizando: false, // Agrega esta propiedad
+            actualizando: false,
             eliminarId: null,
             retryCount: 0,
             maxRetryCount: 10,
@@ -35,13 +35,7 @@ createApp({
         paginatedProductos() {
             const startIndex = (this.currentPage - 1) * this.pageSize;
             const endIndex = startIndex + this.pageSize;
-            return this.productos.slice(startIndex, endIndex);
-        },
-        paginatedProductos() {
-            const startIndex = (this.currentPage - 1) * this.pageSize;
-            const endIndex = startIndex + this.pageSize;
 
-            // Filtrar los productos basados en el término de búsqueda
             const productosFiltrados = this.productos.filter(producto =>
                 producto.nombre.toLowerCase().includes(this.filtro.toLowerCase())
             );
@@ -68,16 +62,16 @@ createApp({
                 });
         },
         mostrarConfirmacion(id) {
-            this.eliminarId = id; // Almacena el ID del producto a eliminar
-            $('#confirmacionModal').modal('show'); // Muestra el modal de confirmación
+            this.eliminarId = id;
+            $('#confirmacionModal').modal('show');
         },
         cancelarEliminacion() {
-            this.eliminarId = null; // Restablece el ID del producto a eliminar
+            this.eliminarId = null;
         },
         confirmarEliminacion() {
-            const id = this.eliminarId; // Obtiene el ID del producto a eliminar
+            const id = this.eliminarId;
             const url = this.url + '/' + id;
-            var options = {
+            const options = {
                 method: 'DELETE',
             };
             fetch(url, options)
@@ -85,10 +79,9 @@ createApp({
                 .then(res => {
                     this.fetchData(this.url);
                     alert("El producto se ha eliminado correctamente.");
-                    this.eliminarId = null; // Restablece el ID del producto a eliminar
+                    this.eliminarId = null;
                 });
         },
-
         actualizarProducto(producto) {
             this.actualizando = true;
             const url = this.url + '/' + producto.id;
@@ -98,7 +91,7 @@ createApp({
                 stock: producto.stock,
                 imagen: producto.imagen,
                 categoria: producto.categoria,
-                mostrar: Boolean(producto.mostrar)  // Conversión explícita a booleano
+                mostrar: Boolean(producto.mostrar)
             };
             const options = {
                 body: JSON.stringify(data),
@@ -117,8 +110,6 @@ createApp({
                     this.actualizando = false;
                 });
         },
-
-
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
@@ -153,8 +144,8 @@ createApp({
             this.currentPage = page;
         },
         retryFetchData() {
-            const retryInterval = 1000; // Intervalo de reintento en milisegundos (1 segundo)
-            const maxRetryCount = 10; // Número máximo de reintentos
+            const retryInterval = 1000;
+            const maxRetryCount = 10;
 
             let retryCount = 0;
 
