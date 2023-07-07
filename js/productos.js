@@ -37,7 +37,12 @@ createApp({
     methods: {
         fetchData(url) {
             fetch(url)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error de respuesta del servidor');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     this.productos = data;
                     this.cargando = false;
