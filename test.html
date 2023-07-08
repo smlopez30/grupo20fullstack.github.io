@@ -61,14 +61,16 @@
                     </ul>
                 </nav>
                 <div class="table-responsive"></div>
-                    <div class="mb-3">
-                        <div class="search-bar">
-                            <input type="text" v-model="filtro" placeholder="Buscar producto" />
-                            <button class="clear-button" v-if="filtro" @click="limpiarFiltro">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <tr>
+                        <td colspan="8">
+                            <div class="search-bar">
+                                <input type="text" v-model="filtro" placeholder="Buscar producto" class="search-input" />
+                                <button class="clear-button" v-if="filtro" @click="limpiarFiltro">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
