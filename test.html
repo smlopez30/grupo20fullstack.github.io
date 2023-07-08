@@ -74,6 +74,18 @@
                         </td>
                     </tr>
                     <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 15%">Imagen</th>
+                                <th scope="col" style="width: 40%">Producto</th>
+                                <th scope="col" style="width: 2%">Precio</th>
+                                <th scope="col" style="width: 2%">Stock</th>
+                                <th scope="col" style="width: 5%">Categoría</th>
+                                <th scope="col" style="width: 3%">Mostrar</th>
+                                <th scope="col" style="width: 20%">Nueva Imagen</th>
+                                <th scope="col" style="width: 10%">Acciones</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
                                 <td><img v-if="nuevoProducto.imagen" :src="nuevoProducto.imagen" :alt="nuevoProducto.nombre"
