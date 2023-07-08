@@ -64,9 +64,9 @@
                     <div class="search-bar">
                         <div class="search-input-container">
                             <input type="text" v-model="filtro" placeholder="Buscar producto" class="search-input" />
-                            <button class="clear-button" v-show="filtro !== ''" @click="limpiarFiltro">
+                            <span class="clear-button" v-show="filtro !== ''" @click="limpiarFiltro">
                                 <i class="fas fa-times"></i>
-                            </button>
+                            </span>
                         </div>
                     </div>
                 </div>
