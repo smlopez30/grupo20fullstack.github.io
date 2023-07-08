@@ -40,8 +40,8 @@
     <main class="d-flex justify-content-center align-items-center">
         <div id="app" class="container">
             <div class="table-responsive">
-                <nav aria-label="Pagination">
-                    <ul class="pagination justify-content-center">
+                <nav aria-label="Pagination" class="text-center">
+                    <ul class="pagination justify-content-center text-center">
                         <li class="page-item" v-bind:class="{ 'disabled': currentPage === 1 }">
                             <a class="page-link" href="#" v-on:click="changePage(1)">&laquo;</a>
                         </li>
@@ -60,7 +60,20 @@
                         </li>
                     </ul>
                 </nav>
-                <table class="table table-bordered">
+                <tr>
+                    <td colspan="8">
+                        <div class="search-bar">
+                            <div class="search-input-container">
+                                <input type="text" v-model="filtro" placeholder="Buscar producto"
+                                    class="search-input" />
+                                <button class="clear-button" v-if="filtro" @click="limpiarFiltro">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th scope="col" style="width: 15%">Imagen</th>
@@ -75,10 +88,12 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img v-if="nuevoProducto.imagen" :src="nuevoProducto.imagen" :alt="nuevoProducto.nombre" width="60" height="60"></td>
-                            <td><input type="text" v-model="nuevoProducto.nombre" placeholder="Nombre nuevo producto"/></td>
-                            <td><input type="number" v-model.number="nuevoProducto.precio" placeholder="0"/></td>
-                            <td><input type="number" v-model.number="nuevoProducto.stock" placeholder="0"/></td>
+                            <td><img v-if="nuevoProducto.imagen" :src="nuevoProducto.imagen" :alt="nuevoProducto.nombre"
+                                    width="60" height="60"></td>
+                            <td><input type="text" v-model="nuevoProducto.nombre" placeholder="Nombre nuevo producto" />
+                            </td>
+                            <td><input type="number" v-model.number="nuevoProducto.precio" placeholder="0" /></td>
+                            <td><input type="number" v-model.number="nuevoProducto.stock" placeholder="0" /></td>
                             <td>
                                 <select v-model="nuevoProducto.categoria">
                                     <option value="Tabaco">Tabaco</option>
@@ -87,9 +102,9 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="checkbox" :checked="nuevoProducto.mostrar" @change="nuevoProducto.mostrar = !nuevoProducto.mostrar" />
+                                <input type="checkbox" v-model="nuevoProducto.mostrar" />
                             </td>
-                            <td><input type="text" v-model="nuevoProducto.imagen" placeholder="Nueva URL imagen"/></td>
+                            <td><input type="text" v-model="nuevoProducto.imagen" placeholder="Nueva URL imagen" /></td>
                             <td>
                                 <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
                             </td>
@@ -98,7 +113,6 @@
                             <p>¡El producto se ha actualizado correctamente!</p>
                             <button @click="showAlert = false">Aceptar</button>
                         </div>
-
                         <tr v-for="producto in paginatedProductos" :key="producto.id">
                             <td>
                                 <div class="d-flex align-items-center justify-content-center">
@@ -139,29 +153,34 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="checkbox" v-model="producto.mostrar" @change="actualizarProducto(producto)" />
+                                    <input type="checkbox" v-model="producto.mostrar"
+                                        @change="actualizarProducto(producto)" />
                                 </div>
                             </td>
-
                             <td>
                                 <div>
                                     <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
-                                        @keydown.enter="actualizarProducto(producto, true)" @blur="actualizarProducto(producto, true)" />
+                                        @keydown.enter="actualizarProducto(producto, true)"
+                                        @blur="actualizarProducto(producto, true)" />
                                 </div>
                             </td>
                             <td>
                                 <div v-if="producto.id !== eliminarId">
-                                    <button type="button" class="btn btn-danger" @click="mostrarConfirmacion(producto.id)">Eliminar</button>
+                                    <button type="button" class="btn btn-danger"
+                                        @click="mostrarConfirmacion(producto.id)">Eliminar</button>
                                 </div>
                                 <div v-else>
-                                    <button type="button" class="btn btn-success" @click="cancelarEliminacion">Cancelar</button>
-                                    <button type="button" class="btn btn-danger" @click="confirmarEliminacion(producto.id)">Confirmar</button>
+                                    <button type="button" class="btn btn-success"
+                                        @click="cancelarEliminacion">Cancelar</button>
+                                    <button type="button" class="btn btn-danger"
+                                        @click="confirmarEliminacion(producto.id)">Confirmar</button>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
         </div>
     </main>
 
