@@ -144,6 +144,11 @@ iframe {
     margin: 0 auto;
     padding: 20px;
 }
+.pagination justify-content-center text-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
 
 .search-bar {
     display: flex;
