@@ -158,6 +158,7 @@ iframe {
 
 .search-input-container {
     position: relative;
+    margin-right: 10px;
 }
 
 .search-input {
