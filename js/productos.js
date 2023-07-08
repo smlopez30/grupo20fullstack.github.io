@@ -118,7 +118,7 @@ createApp({
                 });
         },
         agregarNuevo() {
-            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
+            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock && this.nuevoProducto.categoria) {
                 const options = {
                     body: JSON.stringify({
                         ...this.nuevoProducto, // Copia todas las propiedades de nuevoProducto
