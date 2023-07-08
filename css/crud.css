@@ -154,21 +154,16 @@ iframe {
 .clear-button {
     position: absolute;
     right: 0;
-    top: 0;
-    background-color: red;
-    color: white;
+    background-color: transparent;
+    color: black;
     border: none;
     outline: none;
-    padding: 5px;
+    padding: 0;
     cursor: pointer;
 }
 
 .clear-button i {
     font-size: 16px;
-}
-
-.clear-button i {
-    color: red;
 }
 
 footer {
