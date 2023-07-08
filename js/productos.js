@@ -172,11 +172,11 @@ createApp({
                 }
             }, retryInterval);
         },
-    },
-    limpiarFiltro() {
-        this.filtro = ''; // Restablece el filtro de búsqueda
-        this.filtroActivo = false; // Marca el filtro como inactivo
-        this.fetchData(this.url); // Vuelve a cargar todos los productos
+        limpiarFiltro() {
+            this.filtro = ''; // Restablece el filtro de búsqueda
+            this.filtroActivo = false; // Marca el filtro como inactivo
+            this.fetchData(this.url); // Vuelve a cargar todos los productos
+        },
     },
     created() {
         this.fetchData(this.url);
