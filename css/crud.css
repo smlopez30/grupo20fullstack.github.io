@@ -157,23 +157,25 @@ iframe {
 
 .search-input {
     text-align: center;
-    width: 300px;
+    width: 400px;
+    margin-right: 10px;
 }
 
 .clear-button {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
+    color: black;
     border: none;
     outline: none;
-    padding: 5px;
+    padding: 0;
     cursor: pointer;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
-.clear-button i {
-    font-size: 16px;
+.clear-button:hover {
+    color: red;
 }
 
 footer {
