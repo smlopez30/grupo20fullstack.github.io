@@ -145,7 +145,32 @@ iframe {
     padding: 20px;
 }
 
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.clear-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-left: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.clear-button i {
+    color: red;
+}
 
 footer {
     background: #333;

@@ -62,8 +62,12 @@
                 </nav>
                 <div class="table-responsive"></div>
                     <div class="mb-3">
-                        <input type="text" v-model="filtro" placeholder="Buscar producto" />
-                        <div> <button v-if="filtroActivo" @click="limpiarFiltro">Limpiar filtro</button> </div>
+                        <div class="search-bar">
+                            <input type="text" v-model="filtro" placeholder="Buscar producto" />
+                            <button class="clear-button" v-if="filtro" @click="limpiarFiltro">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
