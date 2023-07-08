@@ -94,12 +94,14 @@
                             </td>
                             <td><input type="number" v-model.number="nuevoProducto.precio" placeholder="0" /></td>
                             <td><input type="number" v-model.number="nuevoProducto.stock" placeholder="0" /></td>
-                            <select v-model="nuevoProducto.categoria">
-                                <option value="">Seleccione una categoría</option>
-                                <option value="Tabaco">Tabaco</option>
-                                <option value="Filtro">Filtro</option>
-                                <option value="Papel">Papel</option>
-                            </select>
+                            <td>
+                                <select v-model="nuevoProducto.categoria">
+                                    <option value="">Seleccione una categoría</option>
+                                    <option value="Tabaco">Tabaco</option>
+                                    <option value="Filtro">Filtro</option>
+                                    <option value="Papel">Papel</option>
+                                </select>
+                            </td>
                             <td>
                                 <input type="checkbox" v-model="nuevoProducto.mostrar" />
                             </td>
