@@ -118,7 +118,10 @@ createApp({
                 });
         },
         agregarNuevo() {
-            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock && this.nuevoProducto.categoria) {
+            if (this.nuevoProducto.categoria === undefined) {
+                this.nuevoProducto.categoria = ""
+            };
+            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
                     body: JSON.stringify({
                         ...this.nuevoProducto, // Copia todas las propiedades de nuevoProducto
