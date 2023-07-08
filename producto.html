@@ -87,7 +87,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="checkbox" v-model="nuevoProducto.mostrar" @input="nuevoProducto.mostrar = $event.target.checked" />
+                                <input type="checkbox" v-model="nuevoProducto.mostrar" @change="nuevoProducto.mostrar = !nuevoProducto.mostrar" />
                             </td>
                             <td><input type="text" v-model="nuevoProducto.imagen" placeholder="Nueva URL imagen"/></td>
                             <td>
