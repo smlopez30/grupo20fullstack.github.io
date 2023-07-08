@@ -120,7 +120,10 @@ createApp({
         agregarNuevo() {
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
                 const options = {
-                    body: JSON.stringify(this.nuevoProducto),
+                    body: JSON.stringify({
+                        ...this.nuevoProducto, // Copia todas las propiedades de nuevoProducto
+                        mostrar: Boolean(this.nuevoProducto.mostrar) // Utiliza el valor actualizado de mostrar
+                    }),
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     redirect: 'follow',
