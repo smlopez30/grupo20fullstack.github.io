@@ -148,7 +148,7 @@ iframe {
 .search-bar {
     display: flex;
     justify-content: center;
-    position: relative;
+    margin-bottom: 10px;
 }
 
 .search-input-container {
@@ -157,6 +157,7 @@ iframe {
 
 .search-input {
     text-align: center;
+    width: 300px;
 }
 
 .clear-button {
@@ -164,7 +165,6 @@ iframe {
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: red;
     color: white;
     border: none;
     outline: none;
