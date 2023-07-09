@@ -16,34 +16,27 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 // Función para mostrar los productos en el HTML
 function mostrarProductos(productos) {
-    const productGrid = document.querySelector('.product-grid');
-    productGrid.innerHTML = '';
-
-    const productosFiltrados = productos.filter(producto => producto.mostrar === true);
-
-    productosFiltrados.forEach(producto => {
-        const item = document.createElement('div');
-        item.classList.add('item');
-        item.setAttribute('data-filter', producto.categoria);
-
-        const column = document.createElement('div');
-        column.classList.add('column');
-
-        const img = document.createElement('img');
-        img.src = producto.imagen;
-        img.alt = producto.nombre;
-
-        const nombre = document.createElement('h3');
-        nombre.textContent = producto.nombre;
-
-        const precio = document.createElement('p');
-        precio.innerHTML = `<span class="currency">$</span>${producto.precio.toFixed(2)}`;
-
-        column.appendChild(img);
-        column.appendChild(nombre);
-        column.appendChild(precio);
-        item.appendChild(column);
-        productGrid.appendChild(item);
+    const app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                productos: productos,
+                filter: 'all'
+            };
+        },
+        methods: {
+            setFilter(categoria) {
+                this.filter = categoria;
+            }
+        },
+        computed: {
+            filteredProductos() {
+                if (this.filter === 'all') {
+                    return this.productos;
+                } else {
+                    return this.productos.filter(producto => producto.categoria === this.filter);
+                }
+            }
+        }
     });
 }
-
