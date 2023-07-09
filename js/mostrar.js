@@ -24,7 +24,7 @@ function mostrarProductos(productos) {
         data() {
             return {
                 productos: productosMostrados,
-                sortOption: 'nombre' // Opción de ordenamiento inicial,
+                sortOption: 'nombre', // Opción de ordenamiento inicial
                 Tabaco: null
             };
         },
@@ -47,4 +47,5 @@ function mostrarProductos(productos) {
             Vue.config.productionTip = false;
         }
     });
+
 }
