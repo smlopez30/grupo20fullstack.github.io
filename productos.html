@@ -37,8 +37,8 @@
     </header>
     <div id="app" class="container">
         <div class="categories">
-            <button type="button" class="category" v-on:click="Tabaco">Tabaco</button>
-            <button class="category" @click="setFilter('Tabaco')">Tabaco para armar</button>
+            <button type="button" class="category" @click="setFilter('all')">Todos</button>
+            <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
             <button class="category" @click="setFilter('Filtro')">Filtros</button>
             <button class="category" @click="setFilter('Papel')">Papeles</button>
         </div>
