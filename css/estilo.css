@@ -133,8 +133,26 @@ main .sobre-nosotros {
 
 .categories {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-bottom: 10px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+.column img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
 }
 /*galeria*/
 .product-grid {

@@ -15,41 +15,22 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="producto.html">Proyecto Final</a>
-            <a href="index.html">Inicio</a>
-            <a href="productos.html">Productos</a>
-            <a href="quienesSomos.html">Quienes Somos</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-        <section class="textos-header">
-            <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
-            <h1>Tu Tabaqueria</h1>
-            <h2>Encuentra y elige tus preferidos</h2>
-        </section>
-        <div class="wave" style="height: 150px; overflow: hidden;">
-            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #fff;"></path>
-            </svg>
-        </div>
     </header>
     <div id="app" class="container">
+        <div class="sort">
+            <label for="sortSelect">Ordenar por:</label>
+            <select id="sortSelect" v-model="sortOption">
+                <option value="nombre">Nombre</option>
+                <option value="precio">Precio</option>
+            </select>
+        </div>
+        <div class="categories">
+            <button type="button" class="category" v-on:click="setFilter(null)">Todos</button>
+            <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
+            <button class="category" @click="setFilter('Filtro')">Filtros</button>
+            <button class="category" @click="setFilter('Papel')">Papeles</button>
+        </div>
         <div class="product-grid">
-            <div class="sort">
-                <label for="sortSelect">Ordenar por:</label>
-                <select id="sortSelect" v-model="sortOption">
-                    <option value="nombre">Nombre</option>
-                    <option value="precio">Precio</option>
-                </select>
-            </div>
-            <div class="categories">
-                <button type="button" class="category" v-on:click="setFilter(null)">Todos</button>
-                <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
-                <button class="category" @click="setFilter('Filtro')">Filtros</button>
-                <button class="category" @click="setFilter('Papel')">Papeles</button>
-            </div>
             <div class="column" v-for="producto in sortedProductos" :key="producto.id">
                 <div class="item" v-if="producto.mostrar">
                     <img :src="producto.imagen" :alt="producto.nombre">
