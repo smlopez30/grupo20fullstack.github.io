@@ -121,7 +121,7 @@ createApp({
             if (this.nuevoProducto.categoria !== "Tabaco" && this.nuevoProducto.categoria !== "Filtro" && this.nuevoProducto.categoria !== "Papel") {
                 this.nuevoProducto.categoria = ""
             };
-            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
+            if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock && this.nuevoProducto.categoria) {
                 const options = {
                     body: JSON.stringify({
                         ...this.nuevoProducto, // Copia todas las propiedades de nuevoProducto
