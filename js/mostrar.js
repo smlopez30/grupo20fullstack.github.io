@@ -25,6 +25,7 @@ function mostrarProductos(productos) {
             return {
                 productos: productosMostrados,
                 sortOption: 'nombre' // Opción de ordenamiento inicial
+                Tabaco: null
             };
         },
         computed: {
