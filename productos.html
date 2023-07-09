@@ -44,12 +44,11 @@
             </select>
         </div>
         <div class="categories">
-            <button type="button" class="category" @click="setFilter(null)">Todos</button>
+            <button type="button" class="category" @click="setFilter('all')">Todos</button>
             <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
             <button class="category" @click="setFilter('Filtro')">Filtros</button>
             <button class="category" @click="setFilter('Papel')">Papeles</button>
         </div>
-
         <div class="product-grid">
             <div class="column" v-for="producto in sortedProductos" :key="producto.id">
                 <div class="item" v-if="producto.mostrar">
