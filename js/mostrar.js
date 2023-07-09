@@ -22,6 +22,7 @@ function mostrarProductos(productos) {
             return {
                 productos: productos,
                 filter: 'all'
+                sortOption: 'nombre'
             };
         },
         methods: {
@@ -30,6 +31,14 @@ function mostrarProductos(productos) {
             }
         },
         computed: {
+            sortedProductos() {
+                if (this.sortOption === 'nombre') {
+                    return this.productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                } else if (this.sortOption === 'precio') {
+                    return this.productos.sort((a, b) => a.precio - b.precio);
+                }
+                return this.productos;
+            }
             filteredProductos() {
                 if (this.filter === 'all') {
                     return this.productos;
