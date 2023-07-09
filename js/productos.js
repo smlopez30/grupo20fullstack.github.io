@@ -118,7 +118,7 @@ createApp({
                 });
         },
         agregarNuevo() {
-            if (this.nuevoProducto.categoria === undefined) {
+            if (this.nuevoProducto.categoria !== "Tabaco" && this.nuevoProducto.categoria !== "Filtro" && this.nuevoProducto.categoria !== "Papel") {
                 this.nuevoProducto.categoria = ""
             };
             if (this.nuevoProducto.nombre && this.nuevoProducto.precio && this.nuevoProducto.stock) {
