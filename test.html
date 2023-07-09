@@ -37,13 +37,6 @@
     </header>
     <div id="app" class="container">
         <div class="product-grid">
-            <div class="sort">
-                <label for="sortSelect">Ordenar por:</label>
-                <select id="sortSelect" v-model="sortOption">
-                    <option value="nombre">Nombre</option>
-                    <option value="precio">Precio</option>
-                </select>
-            </div>
             <div class="categories">
                 <button type="button" class="category" v-on:click="setFilter(null)">Todos</button>
                 <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
