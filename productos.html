@@ -84,45 +84,7 @@
     </footer>
 
     <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            data() {
-                return {
-                    productos: [],
-                    filter: 'all'
-                };
-            },
-            created() {
-                this.fetchProductos();
-            },
-            methods: {
-                fetchProductos() {
-                    const url = "https://slopez.pythonanywhere.com/productos";
-                    axios.get(url)
-                        .then(response => {
-                            this.productos = response.data;
-                        })
-                        .catch(error => {
-                            console.error('Error al cargar los productos:', error);
-                        });
-                },
-                setFilter(categoria) {
-                    this.filter = categoria;
-                }
-            },
-            computed: {
-                filteredProductos() {
-                    if (this.filter === 'all') {
-                        return this.productos;
-                    } else {
-                        return this.productos.filter(producto => producto.categoria === this.filter);
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
 </body>
 
 </html>
