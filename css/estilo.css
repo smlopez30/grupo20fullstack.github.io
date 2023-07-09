@@ -324,21 +324,27 @@ footer {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
-.search-bar {
-    grid-column: 2;
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.categories {
+    /* Estilos para las categorías */
+}
+
+.sorting {
     text-align: right;
-    /* Estilos adicionales para la barra de búsqueda */
 }
 
-.category-buttons {
-    grid-column: 1;
-    grid-row: 2;
-    /* Estilos adicionales para los botones de categoría */
+.sorting label {
+    margin-right: 5px;
 }
 
 .product-grid {
