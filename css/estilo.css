@@ -313,6 +313,24 @@ footer {
     align-items: flex-start;
 }
 
+.search-bar {
+    grid-column: 2;
+    text-align: right;
+    /* Estilos adicionales para la barra de búsqueda */
+}
+
+.category-buttons {
+    grid-column: 1;
+    grid-row: 2;
+    /* Estilos adicionales para los botones de categoría */
+}
+
+.product-grid {
+    grid-column: 2;
+    grid-row: 2;
+    /* Estilos adicionales para la grilla de productos */
+}
+
 
 .grid-container {
     display: flex;
