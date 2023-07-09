@@ -36,6 +36,14 @@
         </div>
     </header>
     <div id="app" class="container">
+        <div class="categories-grid">
+            <div class="categories-bar">
+                <button type="button" class="category" @click="setFilter('all')">Todos</button>
+                <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
+                <button class="category" @click="setFilter('Filtro')">Filtros</button>
+                <button class="category" @click="setFilter('Papel')">Papeles</button>
+            </div>
+        </div>
         <div class="sorting-grid">
             <div class="sorting">
                 <label for="sortSelect">Ordenar por:</label>
@@ -43,14 +51,6 @@
                     <option value="nombre">Nombre</option>
                     <option value="precio">Precio</option>
                 </select>
-            </div>
-        </div>
-        <div class="categories-grid">
-            <div class="categories-bar">
-                <button type="button" class="category" @click="setFilter('all')">Todos</button>
-                <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
-                <button class="category" @click="setFilter('Filtro')">Filtros</button>
-                <button class="category" @click="setFilter('Papel')">Papeles</button>
             </div>
         </div>
         <div class="product-grid">
