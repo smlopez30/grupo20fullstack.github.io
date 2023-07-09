@@ -38,7 +38,9 @@ function mostrarProductos(productos) {
             setFilter(categoria) {
                 this.filter = categoria;
             }
+        },
+        mounted() {
+            Vue.config.productionTip = false;
         }
     });
 }
-
