@@ -329,8 +329,7 @@ footer {
 }
 
 .header {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -340,6 +339,7 @@ footer {
 }
 
 .sorting {
+    margin-left: auto;
     text-align: right;
 }
 
