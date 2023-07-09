@@ -322,6 +322,29 @@ footer {
     /* Estilos para las categorías */
 }
 
+
+Mis disculpas nuevamente por la confusión. Si deseas colocar las categorías en una fila en lugar de una columna, puedes utilizar la propiedad display: flex junto con flex-direction: row en el contenedor de las categorías. Aquí tienes una actualización de la estructura básica para tu código HTML y CSS:
+
+html
+Copy code
+<div id="app" class="container">
+    <div class="header">
+        <div class="categories">
+            <!-- Categorías -->
+        </div>
+        <div class="sorting">
+            <label for="sortSelect">Ordenar por:</label>
+            <select id="sortSelect" v-model="sortOption">
+                <option value="nombre">Nombre</option>
+                <option value="precio">Precio</option>
+            </select>
+        </div>
+    </div>
+    <div class="product-grid">
+        <!-- Grilla de productos -->
+    </div>
+</div>
+
 .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -335,7 +358,7 @@ footer {
 }
 
 .categories {
-    /* Estilos para las categorías */
+    display: flex;
 }
 
 .sorting {
