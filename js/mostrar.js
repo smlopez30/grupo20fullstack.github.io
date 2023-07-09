@@ -16,19 +16,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 // Función para mostrar los productos en el HTML
 function mostrarProductos(productos) {
-    const app = new Vue({
+    new Vue({
         el: '#app',
         data() {
             return {
                 productos: productos,
-                filter: 'all'
-                sortOption: 'nombre'
+                sortOption: 'nombre' // Opción de ordenamiento inicial
             };
-        },
-        methods: {
-            setFilter(categoria) {
-                this.filter = categoria;
-            }
         },
         computed: {
             sortedProductos() {
@@ -39,12 +33,10 @@ function mostrarProductos(productos) {
                 }
                 return this.productos;
             }
-            filteredProductos() {
-                if (this.filter === 'all') {
-                    return this.productos;
-                } else {
-                    return this.productos.filter(producto => producto.categoria === this.filter);
-                }
+        },
+        methods: {
+            setFilter(categoria) {
+                this.filter = categoria;
             }
         }
     });
