@@ -36,18 +36,22 @@
         </div>
     </header>
     <div id="app" class="container">
-        <div class="sort">
-            <label for="sortSelect">Ordenar por:</label>
-            <select id="sortSelect" v-model="sortOption">
-                <option value="nombre">Nombre</option>
-                <option value="precio">Precio</option>
-            </select>
+        <div class="sorting-grid">
+            <div class="sorting-bar">
+                <label for="sortSelect">Ordenar por:</label>
+                <select id="sortSelect" v-model="sortOption">
+                    <option value="nombre">Nombre</option>
+                    <option value="precio">Precio</option>
+                </select>
+            </div>
         </div>
-        <div class="categories">
-            <button type="button" class="category" @click="setFilter('all')">Todos</button>
-            <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
-            <button class="category" @click="setFilter('Filtro')">Filtros</button>
-            <button class="category" @click="setFilter('Papel')">Papeles</button>
+        <div class="categories-grid">
+            <div class="categories-bar">
+                <button type="button" class="category" @click="setFilter('all')">Todos</button>
+                <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
+                <button class="category" @click="setFilter('Filtro')">Filtros</button>
+                <button class="category" @click="setFilter('Papel')">Papeles</button>
+            </div>
         </div>
         <div class="product-grid">
             <div class="column" v-for="producto in sortedProductos" :key="producto.id">
