@@ -24,7 +24,7 @@ function mostrarProductos(productos) {
         data() {
             return {
                 productos: productosMostrados,
-                sortOption: 'nombre' // Opción de ordenamiento inicial
+                sortOption: 'nombre' // Opción de ordenamiento inicial,
                 Tabaco: null
             };
         },
@@ -40,7 +40,7 @@ function mostrarProductos(productos) {
         },
         methods: {
             setFilter(categoria) {
-                this.filter = categoria;
+                this.Tabaco = categoria;
             }
         },
         mounted() {
