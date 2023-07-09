@@ -125,7 +125,17 @@ main .sobre-nosotros {
     font-weight: 300;
     text-align: justify;
 }
+.sort {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
 
+.categories {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
 /*galeria*/
 .product-grid {
     display: grid;
