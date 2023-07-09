@@ -323,28 +323,36 @@ footer {
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
 }
 
-.search-bar {
-    grid-column: 2;
-    text-align: right;
-    /* Estilos adicionales para la barra de búsqueda */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.category-buttons {
-    grid-column: 1;
-    grid-row: 2;
-    /* Estilos adicionales para los botones de categoría */
+.categories {
+    /* Estilos para las categorías */
+}
+
+.sorting {
+    display: flex;
+    align-items: center;
+}
+
+.sorting label {
+    margin-right: 5px;
+}
+
+.sorting select {
+    /* Estilos para el desplegable */
 }
 
 .product-grid {
-    grid-column: 1/3;
-    grid-row: 2;
-    /* Estilos adicionales para la grilla de productos */
+    /* Estilos para la grilla de productos */
 }
 
 
