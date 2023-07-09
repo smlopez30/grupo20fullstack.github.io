@@ -16,11 +16,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 // Función para mostrar los productos en el HTML
 function mostrarProductos(productos) {
+    // Filtrar los productos en los que mostrar es verdadero
+    const productosMostrados = productos.filter(producto => producto.mostrar);
+
     new Vue({
         el: '#app',
         data() {
             return {
-                productos: productos,
+                productos: productosMostrados,
                 sortOption: 'nombre' // Opción de ordenamiento inicial
             };
         },
