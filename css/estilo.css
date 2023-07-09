@@ -140,7 +140,7 @@ main .sobre-nosotros {
 /*galeria*/
 .product-grid {
     display: grid;
-    grid-template-columns: 6fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     text-align: center;
     border: 1px solid #ccc;
