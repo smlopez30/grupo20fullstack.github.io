@@ -50,7 +50,7 @@
             <button class="category" @click="setFilter('Papel')">Papeles</button>
         </div>
         <div class="product-grid">
-            <div class="column" v-for="producto in filteredProductos" :key="producto.id">
+            <div class="column" v-for="producto in sortedProductos" :key="producto.id">
                 <div class="item" v-if="producto.mostrar">
                     <img :src="producto.imagen" :alt="producto.nombre">
                     <h3>{{ producto.nombre }}</h3>
