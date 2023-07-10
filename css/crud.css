@@ -189,7 +189,11 @@ th {
 .clear-button:hover {
     color: red;
 }
-
+.obligatorio-cell {
+    color: #fff;
+    text-align: right;
+    font-size: 14px;
+}
 footer {
     background: #333;
     padding: 40px 0 40px 0;
