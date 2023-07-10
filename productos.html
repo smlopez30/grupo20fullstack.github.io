@@ -43,10 +43,13 @@
                 <button class="category" @click="setFilter('Filtro')">Filtros</button>
                 <button class="category" @click="setFilter('Papel')">Papeles</button>
                 <label for="sortSelect">Ordenar por:</label>
-                <select id="sortSelect" v-model="sortOption">
-                    <option value="nombre">Nombre</option>
-                    <option value="precio">Precio</option>
-                </select>
+                <div class="sorting">
+                    <label for="sortSelect">Ordenar por:</label>
+                    <select id="sortSelect" v-model="sortOption">
+                        <option value="nombre">Nombre</option>
+                        <option value="precio">Precio</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="product-grid">
