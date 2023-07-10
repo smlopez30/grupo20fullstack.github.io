@@ -31,17 +31,21 @@ function mostrarProductos(productos) {
         computed: {
             sortedProductos() {
                 let productosFiltrados = this.productos;
+
                 if (this.categoriaSeleccionada !== null) {
                     productosFiltrados = productosFiltrados.filter(producto => producto.categoria === this.categoriaSeleccionada);
                 }
+
                 if (this.sortOption === 'nombre') {
                     return productosFiltrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
                 } else if (this.sortOption === 'precio') {
                     return productosFiltrados.sort((a, b) => a.precio - b.precio);
                 }
+
                 return productosFiltrados;
             }
         },
+
         methods: {
             setFilter(categoria) {
                 this.categoriaSeleccionada = categoria;
