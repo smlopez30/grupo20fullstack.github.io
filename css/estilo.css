@@ -324,7 +324,13 @@ footer {
     max-width: 150px;
     height: auto;
 }
+.item h3 {
+    color: #fff;
+}
 
+.item p {
+    color: #fff;
+}
 /*responsive*/
 @media screen and (max-width:900px) {
     header {
