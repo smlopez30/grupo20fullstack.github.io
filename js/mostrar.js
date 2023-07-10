@@ -25,27 +25,30 @@ function mostrarProductos(productos) {
             return {
                 productos: productosMostrados,
                 sortOption: 'nombre', // Opción de ordenamiento inicial
-                Tabaco: null
+                categoriaSeleccionada: null
             };
         },
         computed: {
             sortedProductos() {
-                if (this.sortOption === 'nombre') {
-                    return this.productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
-                } else if (this.sortOption === 'precio') {
-                    return this.productos.sort((a, b) => a.precio - b.precio);
+                let productosFiltrados = this.productos;
+                if (this.categoriaSeleccionada !== null) {
+                    productosFiltrados = productosFiltrados.filter(producto => producto.categoria === this.categoriaSeleccionada);
                 }
-                return this.productos;
+                if (this.sortOption === 'nombre') {
+                    return productosFiltrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                } else if (this.sortOption === 'precio') {
+                    return productosFiltrados.sort((a, b) => a.precio - b.precio);
+                }
+                return productosFiltrados;
             }
         },
         methods: {
             setFilter(categoria) {
-                this.Tabaco = categoria;
+                this.categoriaSeleccionada = categoria;
             }
         },
         mounted() {
             Vue.config.productionTip = false;
         }
     });
-
 }
