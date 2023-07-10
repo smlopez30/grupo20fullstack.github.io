@@ -1,22 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto FullStack Grupo 20: Maria Narvaez - Sergio Lopez - Anahí Landero</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../css/crud.css">
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3ac8045f2b.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav class="encabezado">
             <a href="producto.html">Proyecto Final</a>
             <a href="index.html">Inicio</a>
             <a href="productos.html">Productos</a>
@@ -24,43 +25,143 @@
             <a href="contacto.html">Contacto</a>
         </nav>
         <section class="textos-header">
-            <img src="imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
+            <img src="../imagenes/Logo.jpeg" width="50" height="50" alt="Logo">
             <h1>Tu Tabaqueria</h1>
-            <h2>Encuentra y elige tus preferidos</h2>
+            <h2>C R U D </h2>
         </section>
         <div class="wave" style="height: 150px; overflow: hidden;">
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                 <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #fff;"></path>
+                    style="stroke: none; fill: #ffffff;"></path>
             </svg>
         </div>
     </header>
-    <div id="app" class="container">
-        <div class="product-grid">
-            <div class="categories">
-                <button type="button" class="category" v-on:click="setFilter(null)">Todos</button>
-                <button class="category" @click="setFilter('Tabaco')">Tabaco</button>
-                <button class="category" @click="setFilter('Filtro')">Filtros</button>
-                <button class="category" @click="setFilter('Papel')">Papeles</button>
-            </div>
-            <div class="column" v-for="producto in sortedProductos" :key="producto.id">
-                <div class="item" v-if="producto.mostrar">
-                    <img :src="producto.imagen" :alt="producto.nombre">
-                    <h3>{{ producto.nombre }}</h3>
-                    <p><span class="currency">$</span>{{ producto.precio.toFixed(2) }}</p>
-                </div>
+    <h1 class="text-center">Gestión de productos</h1>
+    <main>
+        <div id="app" class="container">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 15%; color: white;">Imagen</th>
+                            <th scope="col" style="width: 40%; color: white;">Producto*</th>
+                            <th scope="col" style="width: 2%; color: white;">Precio*</th>
+                            <th scope="col" style="width: 2%; color: white;">Stock*</th>
+                            <th scope="col" style="width: 5%; color: white;">Categoría*</th>
+                            <th scope="col" style="width: 3%; color: white;">Mostrar</th>
+                            <th scope="col" style="width: 20%; color: white;">Nueva Imagen</th>
+                            <th scope="col" style="width: 10%; color: white;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img v-if="nuevoProducto.imagen" :src="nuevoProducto.imagen" :alt="nuevoProducto.nombre"
+                                    width="60" height="60"></td>
+                            <td><input type="text" v-model="nuevoProducto.nombre" placeholder="Nombre nuevo producto" />
+                            </td>
+                            <td><input type="number" v-model.number="nuevoProducto.precio" placeholder="0" /></td>
+                            <td><input type="number" v-model.number="nuevoProducto.stock" placeholder="0" /></td>
+                            <td>
+                                <select v-model="nuevoProducto.categoria">
+                                    <option value="Tabaco">Tabaco</option>
+                                    <option value="Filtro">Filtro</option>
+                                    <option value="Papel">Papel</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="checkbox" v-model="nuevoProducto.mostrar" />
+                            </td>
+                            <td><input type="text" v-model="nuevoProducto.imagen" placeholder="Nueva URL imagen" /></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" v-on:click="agregarNuevo">Nuevo</button>
+                            </td>
+                        </tr>
+                        <div v-if="showAlert" class="alert">
+                            <p>¡El producto se ha actualizado correctamente!</p>
+                            <button @click="showAlert = false">Aceptar</button>
+                        </div>
+                        <tr v-for="producto in paginatedProductos" :key="producto.id">
+                            <td>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60"
+                                        height="60">
+                                    <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model="producto.nombre"
+                                        @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model.number="producto.precio"
+                                        @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model.number="producto.stock"
+                                        @keydown.enter="actualizarProducto(producto)"
+                                        @blur="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <select v-model="producto.categoria" @change="actualizarProducto(producto)">
+                                        <option value="Tabaco">Tabaco</option>
+                                        <option value="Filtro">Filtro</option>
+                                        <option value="Papel">Papel</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="checkbox" v-model="producto.mostrar"
+                                        @change="actualizarProducto(producto)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" v-model="producto.imagen" placeholder="Nueva URL imagen"
+                                        @keydown.enter="actualizarProducto(producto, true)"
+                                        @blur="actualizarProducto(producto, true)" />
+                                </div>
+                            </td>
+                            <td>
+                                <div v-if="producto.id !== eliminarId">
+                                    <button type="button" class="btn btn-danger"
+                                        @click="mostrarConfirmacion(producto.id)">Eliminar</button>
+                                </div>
+                                <div v-else>
+                                    <button type="button" class="btn btn-success"
+                                        @click="cancelarEliminacion">Cancelar</button>
+                                    <button type="button" class="btn btn-danger"
+                                        @click="confirmarEliminacion(producto.id)">Confirmar</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" class="obligatorio-cell">
+                                * Campo Obligatorio
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
+    </main>
+
     <footer>
         <div class="contenedor-footer">
             <div class="content-foo">
-                <h4>
-                    <a href="https://wa.me/+5491123000301?text=Hola,%20quiero%20enviar%20un%20mensaje" target="_blank">
+                <h4><a href="https://wa.me/+5491123000301?text=Hola,%20quiero%20enviar%20un%20mensaje" target="_blank">
                         <i class="fab fa-whatsapp fa-beat-none fa-2xl" style="color: #e7f3e3; margin-right: 5px;"></i>
-                    </a>
-                </h4>
-                <p>Contactanos</p>
+                    </a></h4>
+                <p>Contactanos </p>
             </div>
             <div class="content-foo">
                 <h4> <i class="fa-solid fa-envelopes-bulk fa-2xl"></i><a href="contacto.html"></a></h4>
@@ -80,10 +181,16 @@
         </div>
         <h2 class="titulo-final">&copy; 2023 Tu Tabaqueria. Todos los derechos reservados.</h2>
     </footer>
-
-    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../js/mostrar.js"></script>
+    <script src="https://unpkg.com/vue@3.2.6/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.4/dist/axios.min.js"></script>
+    <script src="../js/productos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
