@@ -53,8 +53,8 @@
             <div class="column" v-for="producto in sortedProductos" :key="producto.id">
                 <div class="item" v-if="producto.mostrar">
                     <img :src="producto.imagen" :alt="producto.nombre">
-                    <h3 color: white;>{{ producto.nombre }}</h3>
-                    <p><span class="currency; color: white;">$</span>{{ producto.precio.toFixed(2) }}</p>
+                    <h3>{{ producto.nombre }}</h3>
+                    <p><span class="currency">$</span>{{ producto.precio.toFixed(2) }}</p>
                 </div>
             </div>
         </div>
