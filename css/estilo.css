@@ -519,10 +519,14 @@ footer {
 
 .categories {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: transparent;
-    font-size: 4em;
+    align-items: center;
+}
 
+.categories label {
+    font-size: 1em;
+    /* Ajusta el tamaño de la letra según tus preferencias */
 }
 
 .category {
