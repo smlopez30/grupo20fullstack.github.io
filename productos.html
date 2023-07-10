@@ -52,7 +52,8 @@
         <div class="product-grid">
             <div class="column" v-for="producto in sortedProductos" :key="producto.id">
                 <div class="item" v-if="producto.mostrar">
-                    <img :src="producto.imagen" :alt="producto.nombre">
+                    <img v-if="producto.imagen" :src="producto.imagen" :alt="producto.nombre" width="60" height="60">
+                    <img v-else src="../imagenes/sinFoto.png" alt="Sin foto" width="60" height="60">
                     <h3>{{ producto.nombre }}</h3>
                     <p><span class="currency">$</span>{{ producto.precio.toFixed(2) }}</p>
                 </div>
